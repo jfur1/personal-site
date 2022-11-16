@@ -13,8 +13,8 @@ const Navbar = ({ theme,  toggleTheme }) => {
   const [navActive, setNavActive] = useState(null);
   const [activeIdx, setActiveIdx] = useState(-1);
 
-  console.log('navActive:', navActive)
-  console.log('activeIdx:', activeIdx)
+  // console.log('navActive:', navActive)
+  // console.log('activeIdx:', activeIdx)
 
   return (
     <header>

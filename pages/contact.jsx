@@ -1,5 +1,6 @@
 import React from 'react'
-import Head from 'next/head'
+import Script from 'next/script'
+
 
 import styles from '../styles/contact.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,12 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const Contact = () => {
   return (
     <>
-      <Head>
-        <title>John Furlong | Portfolio</title>
-        <meta name="description" content="John Furlong portfolio" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" media="screen" />
-      </Head>
+      <Script src="https://kit.fontawesome.com/82944284a3.js"/>
 
     <section className={styles.contact}>
       
@@ -35,7 +31,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <textarea className={styles.contact} rows="10" placeholder="MESSAGE" name="message" required></textarea>
+          <textarea className={styles.formControl} rows="10" placeholder="MESSAGE" name="message" required></textarea>
           
           <button className={styles.sendButton} id="submit" type="submit" value="SEND">
             <div className={styles.altSendButton}>
@@ -63,10 +59,10 @@ const Contact = () => {
                 <i className="fa fa-github" aria-hidden="true"></i></a>
               </li>
               <li><a href="https://www.linkedin.com/in/jfur1/" target="_blank" className={styles.contactIcon}>
-                <i class="fa fa-linkedin"></i></a>
+                <i className="fa fa-linkedin"></i></a>
               </li>
               <li><a href="#" target="_blank" className={styles.contactIcon}>
-                <i class="fa fa-envelope"></i></a>
+                <i className="fa fa-envelope"></i></a>
               </li>
               <li><a href="#" target="_blank" className={styles.contactIcon}>
                 <i className="fa fa-codepen" aria-hidden="true"></i></a>

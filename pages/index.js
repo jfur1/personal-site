@@ -26,7 +26,6 @@ export default function Home() {
         <title>John Furlong | Portfolio</title>
         <meta name="description" content="John Furlong portfolio" />
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://kit.fontawesome.com/82944284a3.js" crossorigin="anonymous"></script>
       </Head>
 
       <main className={styles.main}>
