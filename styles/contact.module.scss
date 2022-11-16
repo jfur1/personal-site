@@ -8,7 +8,7 @@
     margin: 0 auto;
     padding: 40px 0;
     font: 300 60px "Oswald", sans-serif;
-    color: #fff;
+    color: var(--main-color);
     text-transform: uppercase;
     letter-spacing: 6px;
   }
@@ -20,7 +20,7 @@
     margin: 0 auto;
     padding: 20px;
     position: relative;
-    max-width: 840px;
+    max-width: 900px;
   }
   
   /* Left contact page */
@@ -43,16 +43,14 @@
     display: block;
     width: 100%;
     max-width: 100%;
-    min-width: 60%;
+    min-width: 70%;
     min-height: 70%;
-    height: 34px;
+    height: 45px;
     padding: 6px 12px;
-    background-color: #000;
-    color: rgb(203, 81, 81);
+    background-color: var(--form-background);
     letter-spacing: 1px;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #555;
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -98,13 +96,13 @@
   
   .listItem{
     line-height: 4;
-    color: #aaa;
+    color: var(--color-gray);
   }
   
   .contactText {
     font: 300 18px "Lato", sans-serif;
     letter-spacing: 1.9px;
-    color: #bbb;
+    color: var(--color-gray);
   }
   
   .place {
@@ -120,13 +118,13 @@
   }
   
   .contactText a {
-    color: #bbb;
+    color: var(--secondary-color);
     text-decoration: none;
     transition-duration: 0.2s;
   }
   
   .contactText a:hover {
-    color: #fff;
+    color: var(--main-color);
     text-decoration: none;
   }
   
@@ -142,6 +140,10 @@
   
   .socialMediaList li a {
     color: #fff;
+  }
+
+  .fa-github:before {
+      content: "\f09b";
   }
   
   .socialMediaList li {

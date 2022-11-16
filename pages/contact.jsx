@@ -1,17 +1,17 @@
 import React from 'react'
 import Head from 'next/head'
 
-import styles from './contact.module.scss'
+import styles from '../styles/contact.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Contact = () => {
   return (
     <>
-          <Head>
+      <Head>
         <title>John Furlong | Portfolio</title>
         <meta name="description" content="John Furlong portfolio" />
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://kit.fontawesome.com/82944284a3.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" media="screen" />
       </Head>
 
     <section className={styles.contact}>
@@ -57,13 +57,13 @@ const Contact = () => {
               
             </ul>
 
-            <hr/>
+            <hr className={styles.sectionLine}/>
             <ul className={styles.socialMediaList}>
               <li><a href="https://github.com/jfur1" target="_blank" className={styles.contactIcon}>
                 <i className="fa fa-github" aria-hidden="true"></i></a>
               </li>
               <li><a href="https://www.linkedin.com/in/jfur1/" target="_blank" className={styles.contactIcon}>
-                <i class="fab fa-linkedin"></i></a>
+                <i class="fa fa-linkedin"></i></a>
               </li>
               <li><a href="#" target="_blank" className={styles.contactIcon}>
                 <i class="fa fa-envelope"></i></a>
@@ -72,7 +72,7 @@ const Contact = () => {
                 <i className="fa fa-codepen" aria-hidden="true"></i></a>
               </li>       
             </ul>
-            <hr/>
+            <hr className={styles.sectionLine}/>
 
             <div className={styles.copyright}>&copy; ALL OF THE RIGHTS RESERVED</div>
 
