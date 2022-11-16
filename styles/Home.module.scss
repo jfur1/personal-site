@@ -4,7 +4,7 @@
 }
 
 .main {
-  padding: 4rem 0;
+  padding: 10em 0 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,6 @@
 
 .particlesContainer{
   z-index: -10;
-  min-height: 600px;
 }
 
 .particlesText {
@@ -71,7 +70,7 @@ h1.heroTitle.show::before{
 }
 
 h1.heroTitle.show::after {
-  width: 0.125em;
+  width: 0.1em;
   background: black;
   animation: typewriter var(--typewriterSpeed)
       steps(var(--typewriterCharacters)) 1s forwards,
@@ -92,10 +91,10 @@ p.subtitle.show {
   color: var(--main-color);
   background-color: var(--app-container);
   line-height: 1;
-  font-size: 2rem;
+  font-size: clamp(0.75rem, 3vw + 0.75rem, 2rem);
   font-weight: 400;
   position: relative;
-  font-family: 'Poppins', 'Sans Serif';
+  font-family: "Source Code Pro", monospace,'Poppins', 'Sans Serif';
   position: relative;
   width: max-content;
   visibility: hidden;
@@ -151,7 +150,7 @@ p.subtitle.show::after {
   text-decoration: none;
 }
 
-.title a:hover,
+.title a:a,
 .title a:focus,
 .title a:active {
   text-decoration: underline;
@@ -218,6 +217,86 @@ p.subtitle.show::after {
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+// Scroll Indicator
+
+  /* the important styles */
+  
+  .arrowWrap {
+    position: absolute;
+    background: var(--scroll-indicator);
+    width:10em;
+    bottom: -5em;
+    height: 10em;
+    padding: 4em 2em;
+    margin: 1rem 0;
+    border-radius:50%;
+    font-size:0.5em;
+    display:block;
+    border: 2px solid gray;
+    animation: arrowWrapAnimation 2.8s 0.4s;
+    animation-delay: 7s;
+
+    &:hover{
+      cursor: pointer;
+      animation: arrowWrapAnimation 2.8s 0.4s infinite;
+    }
+  }
+  
+  .arrow {
+    float:left;
+    position:relative;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 3em 3em 0 3em;
+    border-color: #ffffff transparent transparent transparent;
+    transform:rotate(360deg)
+  }
+  
+  .arrow:after {
+    content:'';
+    position:absolute;
+    top:-3.2em;
+    left:-3em;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 3em 3em 0 3em;
+    border-color: var(--scroll-indicator) transparent transparent transparent;
+    transform:rotate(360deg)
+  }
+  
+  
+  .hint {
+    position:absolute;
+    top:0.6em;
+    width:100%;
+    left:0;
+    font-size:2em;
+    font-style:italic;
+    text-align:center;
+    color:#fff;
+    opacity:0;
+  }
+  
+  .arrow-wrap:hover .hint {
+    opacity:1;
+  }
+
+@keyframes arrowWrapAnimation {
+  0% { bottom: -5em; }
+  10% { bottom: -3em; }
+  20% { bottom: -5em; }
+  30% { bottom: -3em; }
+  40% { bottom: -5em; }
+  50% { bottom: -3em; }
+  60% { bottom: -5em; }
+  70% { bottom: -3em; }
+  80% { bottom: -5em; }
+  90% { bottom: -3em; }
+  100% { bottom: -5em; }
 }
 
 @media (max-width: 600px) {

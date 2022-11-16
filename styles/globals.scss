@@ -15,7 +15,7 @@
   --more-list-bg: #fff;
   --more-list-bg-hover:  #f6fbff;
   --more-list-shadow: rgba(209, 209, 209, 0.488);
-  --button-bg: #1f1c24;
+  --scroll-indicator: rgba(209, 209, 209, 0.488);;
   --search-area-bg: #fff;
   --star: #1ff1c2e;
   --message-btn: #fff;
@@ -32,7 +32,7 @@
   --footer-color: rgba(171, 171, 171, 0.795);
   --typewriterSpeed: 4s;
   --typewriterCharacters: 23;
-  --bg-color: rgba(255, 255, 255, 0.959);
+  --bg-color: rgba(255, 255, 255);
 }
 
 .dark:root {
@@ -44,7 +44,7 @@
   --link-color: rgba(255,255,255,.8);
   --link-color-hover: rgba(195, 207, 244, 0.1);
   --link-color-active-bg: rgba(195, 207, 244, 0.2);
-  --button-bg: #1f2937;
+  --scroll-indicator: #111;
   --search-area-bg: #1f2937;
   --message-box-hover: #243244;
   --message-box-border: rgba(255,255,255,.1);
@@ -63,7 +63,7 @@
   --footer-color: rgb(21, 21, 21);
   --typewriterSpeed: 4s;
   --typewriterCharacters: 23;
-  --bg-color: #222;
+  --bg-color: rgba(34, 34, 34);
 }
 
 /* Scrollbar width */
@@ -93,12 +93,14 @@ body {
   padding: 0;
   margin: 0;
   background-color: var(--app-container);
+  scroll-behavior: smooth;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
   color: inherit;
+  font-size: clamp(1rem, 2vw + 1rem, 1.1rem);
   text-decoration: none;
 }
 
@@ -121,9 +123,9 @@ hr.sectionLine {
   background-color: var(--app-container);
   border-radius: 5px;
   padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
+  font-family: "Source Code Pro", monospace,'Poppins', Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New;
 }
 
 nav{

@@ -24,7 +24,9 @@ const ParticleBackround = () => {
             className={styles.particles}
             init={particlesInit}
             loaded={particlesLoaded}
-            height={'600px'} // TODO : responsive behavior
+            height={'75vh'} // TODO : responsive behavior
+            width={'100%'}
+            style={{backgroundSize: 'cover'}}
             options={{
             fullScreen: false,
             fpsLimit: 120,
