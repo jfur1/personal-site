@@ -20,7 +20,7 @@ const Navbar = ({ theme,  toggleTheme }) => {
     <header>
       <nav className={`nav`}>
         <Link href={"/"}>
-            <h1 className="logo">{`< John Furlong />`}</h1>
+            <code className="logoText">{`< John Furlong />`}</code>
         </Link>
 
         <div className={`${navActive ? "active" : ""} nav__menu-list`}>
