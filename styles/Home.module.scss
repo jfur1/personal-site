@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  padding: 0 0;
   color: var(--main-color);
 }
 
@@ -14,10 +14,11 @@
 
 .footer {
   display: flex;
+  flex-direction: column;
   flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
+  padding: 1rem 0;
+  background-color: var(--footer-color);
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -28,9 +29,122 @@
   flex-grow: 1;
 }
 
+.particlesContainer{
+  z-index: -10;
+  min-height: 600px;
+}
+
+.particlesText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  overflow-x: hidden;
+  height: 200px;
+  width: 900px;
+  top: calc(50% - 120px);
+  left: calc(50% - 450px);
+  overflow: hidden;
+}
+
 .title {
   font-size: 50px;
   font-weight: 400;
+}
+
+h1.heroTitle.show {
+  margin: 1rem 0;
+  font-size: clamp(1rem, 3vw + 1rem, 4rem);
+  font-weight: 300;
+  position: relative;
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  width: max-content;
+  background-color: var(--app-container);
+}
+
+h1.heroTitle.show::before{
+  background: var(--bg-color);
+  animation: typewriter var(--typewriterSpeed)
+    steps(var(--typewriterCharacters)) 1s forwards;
+}
+
+h1.heroTitle.show::after {
+  width: 0.125em;
+  background: black;
+  animation: typewriter var(--typewriterSpeed)
+      steps(var(--typewriterCharacters)) 1s forwards,
+    blink 750ms steps(var(--typewriterCharacters)) infinite;
+}
+
+h1.heroTitle.show::before,
+h1.heroTitle.show::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+p.subtitle.show {
+  color: var(--main-color);
+  background-color: var(--app-container);
+  line-height: 1;
+  font-size: 2rem;
+  font-weight: 400;
+  position: relative;
+  font-family: 'Poppins', 'Sans Serif';
+  position: relative;
+  width: max-content;
+  visibility: hidden;
+  animation: fromLeft 1.5s;
+  animation-delay: 5.5s;
+  animation-fill-mode: forwards;
+  padding-right: 1.5rem;
+}
+
+p.subtitle.show::before{
+  visibility: hidden;
+}
+
+p.subtitle.show::after {
+  width: 0.125em;
+  visibility: visible;
+}
+
+p.subtitle.show::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@keyframes fromLeft {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    visibility:visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
 }
 
 .title a {
@@ -123,78 +237,5 @@
   }
   .logo img {
     filter: invert(1);
-  }
-}
-
-.particlesContainer{
-  z-index: -10;
-  min-height: 600px;
-}
-
-.particlesText {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  overflow-x: hidden;
-  height: 200px;
-  width: 700px;
-  top: calc(50% - 120px);
-  left: calc(50% - 400px);
-
-  
-  span{
-    display: inline-flex;
-  }
-  .title {
-    opacity: 0;
-    display: inline-flex;
-    margin: 0.5rem 5rem 0 0;
-    line-height: 1.15;
-    font-size: 5rem;
-    font-weight: 500;
-    font-family: 'Poppins';
-    color: var(--main-color);
-    background-color: var(--app-container);
-
-    &.show{
-      opacity: 1;
-      filter: blur(0);
-      transition: translateX(0%);
-      animation: fromLeft 1.5s;
-    }
-  }
-  
-  .subtitle{
-    display: inline-flex;
-    align-self: left;
-    opacity: 0;
-    margin: 0.5rem;
-    line-height: 1;
-    font-size: 2rem;
-    font-weight: 400;
-    font-family: 'Poppins';
-    color: var(--main-color);
-    background-color: var(--app-container);
-    
-    &.show{
-      opacity: 1;
-      filter: blur(0);
-      transition: translateX(0%);
-      animation: fromLeft 1.5s;
-    }
-  }
-
-}
-
-@keyframes fromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
   }
 }

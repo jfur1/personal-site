@@ -10,7 +10,7 @@ const Contact = () => {
     <>
       <Script src="https://kit.fontawesome.com/82944284a3.js"/>
 
-    <section className={styles.contact}>
+    <section className={styles.contactContainer}>
       
       <h1 className={styles.sectionHeader}>Contact</h1>
       
@@ -18,7 +18,7 @@ const Contact = () => {
       
         
         <form id="contact-form" className={styles.formHorizontal} role="form">
-          
+        
           <div className={styles.formGroup}>
             <div className={styles.col}>
               <input type="text" className={styles.formControl} id="name" placeholder="NAME" name="name" defaultValue="" required/>
@@ -31,7 +31,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <textarea className={styles.formControl} rows="10" placeholder="MESSAGE" name="message" required></textarea>
+          <textarea className={styles.contact} rows="5" placeholder="MESSAGE" name="message" required></textarea>
           
           <button className={styles.sendButton} id="submit" type="submit" value="SEND">
             <div className={styles.altSendButton}>
@@ -47,9 +47,16 @@ const Contact = () => {
 
             <ul className={styles.contactList}>
               
-              <li className={styles.listItem}><i className="fa fa-phone fa-2x"><span className={`${styles.contactText} ${styles.phone}`}><a href="tel:1-267-884-6835" title="Give me a call">(267) 884-6835</a></span></i></li>
+              <li className={styles.listItem}>
+                <i className="fa fa-phone fa-2x"></i>
+                <span className={`${styles.contactText} ${styles.phone}`}>
+                  <a href="tel:1-267-884-6835" title="Give me a call">
+                    (267) 884-6835
+                  </a>
+                </span>
+              </li>
               
-              <li className={styles.listItem}><i className="fa fa-envelope fa-2x"><span className={`${styles.contactText} ${styles.gmail}`}><a href="mailto:#" title="Send me an email">johnfurlong24@gmail.com</a></span></i></li>
+              <li className={styles.listItem}><i className="fa fa-envelope fa-2x"></i><span className={`${styles.contactText} ${styles.gmail}`}><a href="mailto:#" title="Send me an email">johnfurlong24@gmail.com</a></span></li>
               
             </ul>
 
@@ -68,12 +75,7 @@ const Contact = () => {
                 <i className="fa fa-codepen" aria-hidden="true"></i></a>
               </li>       
             </ul>
-            <hr className={styles.sectionLine}/>
-
-            <div className={styles.copyright}>&copy; ALL OF THE RIGHTS RESERVED</div>
-
           </div>
-        
       </div>
       
     </section>  

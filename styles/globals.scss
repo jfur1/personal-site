@@ -29,6 +29,10 @@
   --color-black: #1F2937;
   --cell-color: #fff;
   --form-background: rgba(232, 232, 232, 0.544);
+  --footer-color: rgba(171, 171, 171, 0.795);
+  --typewriterSpeed: 4s;
+  --typewriterCharacters: 23;
+  --bg-color: rgba(255, 255, 255, 0.959);
 }
 
 .dark:root {
@@ -56,6 +60,10 @@
   --cell-color: rgb(90, 100, 149);
   --form-background: #000;
   --color-gray: #a2a09d74;
+  --footer-color: rgb(21, 21, 21);
+  --typewriterSpeed: 4s;
+  --typewriterCharacters: 23;
+  --bg-color: #222;
 }
 
 /* Scrollbar width */

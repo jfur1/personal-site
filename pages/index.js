@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import ParticleBackround from '../components/Particles'
 import { useInView } from 'react-intersection-observer'
+import Contact from './contact.jsx'
 
 export default function Home() {
   const { ref: titleRef, inView: titleIsVisible } = useInView();
@@ -12,14 +13,14 @@ export default function Home() {
 
       <div className={styles.particlesContainer}>
         <ParticleBackround/>
-        <h1 className={styles.particlesText}>
+        <div className={styles.particlesText}>
           <span ref={titleRef}>
-            <p className={`${styles.title} ${titleIsVisible ? styles.show : ''}`}>John Furlong</p>
+            <h1 className={`${styles.heroTitle} ${titleIsVisible ? styles.show : ''}`}>Hello, my name is John.</h1>
           </span>
           <span ref={subtitleRef}>
             <p className={`${styles.subtitle} ${subtitleIsVisible ? styles.show : ''}`}>Full Stack Software Engineer</p>
           </span>
-        </h1>
+        </div>
       </div>
 
       <Head>
@@ -57,7 +58,7 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-          John Furlong {new Date().getFullYear()}
+        <Contact/>
       </footer>
     </div>
   )
