@@ -26,7 +26,7 @@ const ParticleBackround = () => {
             loaded={particlesLoaded}
             height={'75vh'} // TODO : responsive behavior
             width={'100%'}
-            style={{backgroundSize: 'cover'}}
+            style={{ backgroundSize: 'cover' }}
             options={{
             fullScreen: false,
             fpsLimit: 120,

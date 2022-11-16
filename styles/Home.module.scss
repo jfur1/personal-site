@@ -235,12 +235,12 @@ p.subtitle.show::after {
     font-size:0.5em;
     display:block;
     border: 2px solid gray;
-    animation: arrowWrapAnimation 2.8s 0.4s;
+    animation: arrowsWithDelay 13s infinite;
     animation-delay: 7s;
 
     &:hover{
       cursor: pointer;
-      animation: arrowWrapAnimation 2.8s 0.4s infinite;
+      animation: arrows 3s infinite;
     }
   }
   
@@ -285,7 +285,9 @@ p.subtitle.show::after {
     opacity:1;
   }
 
-@keyframes arrowWrapAnimation {
+// I want the animation to run for M second. + I want the animation to delay for N seconds in between iterations. === N + M seconds
+
+@keyframes arrows {
   0% { bottom: -5em; }
   10% { bottom: -3em; }
   20% { bottom: -5em; }
@@ -296,6 +298,19 @@ p.subtitle.show::after {
   70% { bottom: -3em; }
   80% { bottom: -5em; }
   90% { bottom: -3em; }
+  100% { bottom: -5em; }
+}
+@keyframes arrowsWithDelay {
+  0% { bottom: -5em; }
+  2% { bottom: -3em; }
+  4% { bottom: -5em; }
+  6% { bottom: -3em; }
+  8% { bottom: -5em; }
+  10% { bottom: -3em; }
+  12% { bottom: -5em; }
+  14% { bottom: -5em; }
+  80% { bottom: -5em; }
+  90% { bottom: -5em; }
   100% { bottom: -5em; }
 }
 

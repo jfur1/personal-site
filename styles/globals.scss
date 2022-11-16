@@ -36,7 +36,7 @@
 }
 
 .dark:root {
-  --app-container: #222;
+  --app-container: #111;
   --gradient: linear-gradient(to right, #42015d, #6f00ffae, #2376ce);
   --main-color: rgb(234, 234, 234);
   --secondary-color: rgba(255,255,255,.8);
@@ -63,7 +63,7 @@
   --footer-color: rgb(21, 21, 21);
   --typewriterSpeed: 4s;
   --typewriterCharacters: 23;
-  --bg-color: rgba(34, 34, 34);
+  --bg-color: #111;
 }
 
 /* Scrollbar width */
@@ -159,7 +159,6 @@ nav{
   padding: 24px 16px;
   transition: all 0.2s;
   min-height: calc(100vh - 60px);
-  // background-color: var(--app-container);
   border-radius: 25px;
 }
 .nav__menu-list.active{
