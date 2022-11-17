@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 :root {
-  --app-container: rgba(255, 255, 255, 0.959);;
+  --app-container: rgba(255, 255, 255, 0.959);
+  --app-header: rgb(255, 255, 255);
   --main-color: #1f1c2e;
   --gradient: linear-gradient(to right, #ff2290be, #ff8c00f0, #40E0D0);
   --secondary-color: #4A4A4A;
@@ -9,7 +10,7 @@
   --scroll-indicator: rgb(255, 255, 255);
   --scroll-indicator-arrow: #222;
   --color-gray: #afa69c;
-  --form-background: rgba(232, 232, 232, 0.544);
+  --form-background: rgb(255, 255, 255);
   --footer-color: rgba(171, 171, 171, 0.795);
   --typewriterSpeed: 4s;
   --typewriterCharacters: 23;
@@ -18,8 +19,9 @@
 
 .dark:root {
   --app-container: #111;
+  --app-header: #111;
   --gradient: linear-gradient(to right, #42015d, #6f00ffae, #2376ce);
-  --main-color: rgb(234, 234, 234);
+  --main-color: rgb(193, 193, 193);
   --secondary-color: rgba(255,255,255,.8);
   --link-color-hover: #c3cff4;
   --scroll-indicator: #111;
@@ -65,9 +67,9 @@ body {
 }
 
 a {
-  color: inherit;
-  font-size: clamp(1rem, 2vw + 1rem, 1.1rem);
+  font-size: clamp(1rem, 2vw + 1rem, 1.2rem);
   text-decoration: none;
+  color: var(--main-color);
 }
 
 * {
@@ -78,6 +80,7 @@ header{
   position: sticky;
   z-index: 30;
   top: 0;
+  background-color: var(--app-header);
 }
 
 hr.sectionLine {
@@ -86,7 +89,6 @@ hr.sectionLine {
 
 .logoText{
   color: var(--main-color);
-  background-color: var(--app-container);
   border-radius: 5px;
   padding: 0.75rem;
   font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
@@ -99,7 +101,6 @@ nav{
   padding: 10px 40px;
   justify-content: space-between;
   align-items: center;
-  color: var(--main-color);
 }
 
 .nav__menu-bar{
@@ -151,6 +152,7 @@ nav{
 }
 .mode-switch.active .moon{
   fill: var(--main-color);
+  stroke: var(--main-color);
 }
 
 .nav__link:hover{

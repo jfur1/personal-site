@@ -1,54 +1,81 @@
   .contactContainer {
     width: 100%;
     height: 100%;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
   
   .sectionHeader {
-    text-align: center;
+    text-align: left;
     margin: 0 auto 5px;
-    padding: 10px 0 20px 0;
-    font: 400 40px "Oswald", sans-serif;
+    padding: 10px 0 10px 2em;
+    font: 400 36px "Oswald", sans-serif;
     color: var(--main-color);
     text-transform: uppercase;
-    letter-spacing: 6px;
+    width: 100%;
+  }
+
+  .headerText{
+    width: 100%;
+    text-align: left;
+    margin: 0 auto 5px;
+    padding: 5px 0 20px 3.25em;
+    font: 400 22px "Oswald", sans-serif;
+    color: var(--main-color);
+  }
+
+  .directContactTitle{
+    font: 400 30px "Oswald", sans-serif;
+    text-transform: uppercase;
+
+    margin: 0 0;
+    color: var(--main-color);
   }
   
   .contactWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
     margin: 0 auto;
-    padding: 20px;
+    padding: 3em 5em 10px 5em;
     position: relative;
-    // width: 100%;
-    max-width: 900px;
   }
   
+  .formGrid{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+
   /* Left contact page */
   .formHorizontal {
-    max-width: 400px;
-    font-family: "Lato";
+    display: flex;
+    justify-content: center;
     font-weight: 400;
+    max-width: 900px;
+    padding-left: 3em;
+    padding-bottom: 2em;
   }
 
   .formGroup{
     padding-bottom: 15px;
+    padding-right: 18px;
 
     .col{
         width: 100%;
-        // display: flex;
     }
   }
+
+  .formCol{
+    padding: 0 0;
+  }
   
-  .formControl,
-  textarea.contact {
+  .formControl{
     display: block;
-    width: 100%;
-    max-width: 100%;
-    min-width: 70%;
+    width: 340px;
     min-height: 20%;
-    height: 50%;
+    height: 50px;
     padding: 6px 12px;
     background-color: var(--form-background);
     letter-spacing: 1px;
@@ -59,31 +86,54 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
+  textarea.contact{
+    display: block;
+    min-width: 700px;
+    max-width: 825px;
+    height: 180px;
+    min-height: 100px;
+    max-height: 350px;
+    padding: 12px 16px;
+    background-color: var(--form-background);
+    letter-spacing: 1px;
+    font-family: "Oswald", sans-serif;
+    font-size: 18px;
+    line-height: 1.42857143;
+    background-image: none;
+    color: var(--main-color);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
   
   .sendButton {
+    display: inline-flex;
     margin-top: 15px;
-    padding-top: 8px;
-    height: 34px;
-    width: 400px;
+    padding-top: 0.75rem;
+    height: 50px;
+    border: none;
+    border-radius: 12px;
+    width: 175px;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
   }
   
   .altSendButton {
-    width: 400px;
-    height: 34px;
+    width: 175px;
+    height: 50px;
     transition: all 0.2s ease-in-out;
   }
   
   .sendText {
     display: block;
-    margin-top: 10px;
-    font: 700 12px "Lato", sans-serif;
+    margin-top: 0.75em;
+    font: 400 20px "Lato", sans-serif;
     letter-spacing: 2px;
   }
   
   .altSendButton:hover {
-    transform: translate3d(0px, -29px, 0px);
+    transform: translate3d(0px, -40px, 0px);
   }
   
   /* Begin Right Contact Page */
@@ -101,13 +151,13 @@
   
   .listItem{
     display: flex;
+    align-items: center;
     padding: 1rem 0;
     line-height: 4;
-    color: var(--color-gray);
   }
   
   .contactText {
-    font: 300 18px "Lato", sans-serif;
+    font: 400 18px "Lato", sans-serif;
     letter-spacing: 1.9px;
     color: var(--color-gray);
   }
@@ -186,17 +236,11 @@
     opacity: 1;
     transform: scale(1.12);
     transition-timing-function: cubic-bezier(0.37, 0.74, 0.15, 1.65);
+    pointer-events: none; // Need this to open links in new tab
   }
   
   .socialMediaList li:hover a {
     color: #000;
-  }
-  
-  .copyright {
-    font: 200 14px "Oswald", sans-serif;
-    color: #555;
-    letter-spacing: 1px;
-    text-align: center;
   }
   
   hr.sectionLine {

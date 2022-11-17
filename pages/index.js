@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import ParticleBackround from '../components/Particles'
@@ -74,59 +75,51 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.main} ref={myRef1}>
         <a className={styles.arrowWrap} onClick={() => scrollTo(myRef1)} style={{ opacity: scrollIconOpacity }}>
           <span className={styles.arrow}></span>
         </a>
 
-          <div className={styles.content} ref={myRef1}>
+          <div className={styles.content}>
             <h1 className={styles.title}>
               My Skills
             </h1>
             <div className={styles.grid}>
+              <a href="https://nextjs.org/docs" target='_blank'className={styles.card}>
+                <h2>Front End Development</h2>
+                <p>Create beautiful user interfaces that work seamlessly at scale.</p>
+              </a>
+
+              <a href="https://nextjs.org/learn" target='_blank' className={styles.card}>
+                <h2>Back End Development</h2>
+                <p>Build and maintain robust APIs while working closely with the servers.</p>
+              </a>
+
+
               <a href="https://nextjs.org/docs" className={styles.card}>
                 <h2>Front End Development</h2>
                 <p>Create beautiful user interfaces that work seamlessly at scale.</p>
               </a>
 
-              <a href="https://nextjs.org/learn" className={styles.card}>
-                <h2>Back End Development</h2>
-                <p>Build and maintain robust APIs while working closely with the servers.</p>
+              <a onClick={() => scrollTo(myRef2)} className={styles.card}>
+                <h2>Contact Me &darr;</h2>
+                <p>Have an idea?</p>
+                <p>Tell me about it!</p>
               </a>
-
-              <a href="https://github.com/vercel/next.js/tree/canary/examples" className={styles.card}>
-                <h2>My Work &rarr;</h2>
-                <p>Take a look at some of my past projects!</p>
-              </a>
-            </div>
-          </div>
-
-          <div className={styles.content} ref={myRef2}>
-            <h1 className={styles.title}>
-              My Skills
-            </h1>
-            <div className={styles.grid}>
-              <a href="https://nextjs.org/docs" className={styles.card}>
-                <h2>Front End Development</h2>
-                <p>Create beautiful user interfaces that work seamlessly at scale.</p>
-              </a>
-
-              <a href="https://nextjs.org/learn" className={styles.card}>
-                <h2>Back End Development</h2>
-                <p>Build and maintain robust APIs while working closely with the servers.</p>
-              </a>
-
-              <a href="https://github.com/vercel/next.js/tree/canary/examples" className={styles.card}>
-                <h2>My Work &rarr;</h2>
-                <p>Take a look at some of my past projects!</p>
-              </a>
+              
+              <Link href="/about" className={styles.projectsCard} style={{ backgroundImage: `url("my_work_temp.webp")` }}>
+                  <h2>My Work &rarr;</h2>
+                  <p>Take a look at even more of my past projects!</p>
+              </Link>
             </div>
           </div>
 
       </main>
 
-      <footer className={styles.footer}>
+      <footer ref={myRef2} className={styles.footer}>
         <Contact/>
+        <p className={styles.copyright}>&copy; All rights reserved.</p>
+
       </footer>
     </div>
   )

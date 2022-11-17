@@ -20,6 +20,7 @@
   background-color: var(--footer-color);
   justify-content: space-between;
   align-items: center;
+  min-height: 90vh;
 }
 
 .footer a {
@@ -71,7 +72,7 @@ h1.heroTitle.show::before{
 
 h1.heroTitle.show::after {
   width: 0.1em;
-  background: black;
+  background: var(--main-color);
   animation: typewriter var(--typewriterSpeed)
       steps(var(--typewriterCharacters)) 1s forwards,
     blink 750ms steps(var(--typewriterCharacters)) infinite;
@@ -184,6 +185,21 @@ p.subtitle.show::after {
   max-width: 1200px;
 }
 
+.projectsCard{
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  max-width: 900px;
+  width: 750px;
+  height: 400px;
+  cursor: pointer;
+}
+
 .card {
   margin: 1rem;
   padding: 1.5rem;
@@ -194,6 +210,7 @@ p.subtitle.show::after {
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
+  cursor: pointer;
 }
 
 .card:hover,
@@ -219,6 +236,13 @@ p.subtitle.show::after {
   margin-left: 0.5rem;
 }
 
+.copyright {
+  font: 200 14px "Oswald", sans-serif;
+  color: #555;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
 // Scroll Indicator
 
   /* the important styles */
@@ -226,10 +250,10 @@ p.subtitle.show::after {
   .arrowWrap {
     position: absolute;
     background: var(--scroll-indicator);
-    width:10em;
+    width: 10em;
     bottom: -5em;
     height: 10em;
-    padding: 4em 2em;
+    padding: 4em 1.75em;
     margin: 1rem 0;
     border-radius:50%;
     font-size:0.5em;
@@ -259,7 +283,7 @@ p.subtitle.show::after {
     content:'';
     position:absolute;
     top: -3.5em;
-    left:-3em;
+    left: -3em;
     width: 0px;
     height: 0px;
     border-style: solid;
