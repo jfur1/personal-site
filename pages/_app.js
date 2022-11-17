@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import '../styles/globals.scss'
-import Navbar from "../components/Navbar";
 import  { useDarkMode } from "../components/DarkModeCustomHook"
 
 function MyApp({ Component, pageProps }) {

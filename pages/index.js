@@ -7,8 +7,6 @@ import styles from '../styles/Home.module.scss'
 import ParticleBackround from '../components/Particles'
 import { useInView } from 'react-intersection-observer'
 import Contact from './contact.jsx'
-import Logo from "../components/Logo";
-import NavItem from "../components/NavItem";
 
 export default function Home({ theme, toggleTheme }) {
   const { ref: titleRef, inView: titleIsVisible } = useInView();
@@ -56,7 +54,7 @@ export default function Home({ theme, toggleTheme }) {
   const scrollTo = (ref) => {
     console.log(ref.current)
     if (!ref.current) return;
-    ref.current.scrollIntoView({ behavior: "smooth" });
+    ref.current.scrollIntoView({ alignToTop: false , behavior: "smooth" });
   }
 
   const scrollToTop = (ref) => {
@@ -127,12 +125,12 @@ export default function Home({ theme, toggleTheme }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main} ref={aboutRef}>
+      <main className={styles.main}>
         <a className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
           <span className={styles.arrow}></span>
         </a>
 
-          <div className={styles.content}>
+          <div className={styles.content} ref={aboutRef}>
             <h1 className={styles.title}>
               My Skills
             </h1>
