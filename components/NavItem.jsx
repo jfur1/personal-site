@@ -3,14 +3,13 @@ import React from 'react'
 
 const NavItem = ({ href, text, active }) => {
     return (
-        <Link 
-            href={href}
+        <p 
             className={`
                     nav-link ${active ? "active" : ""}
                 `}
         >
             {text}
-        </Link>
+        </p>
     )
 }
 

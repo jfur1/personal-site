@@ -7,15 +7,19 @@ import styles from '../styles/Home.module.scss'
 import ParticleBackround from '../components/Particles'
 import { useInView } from 'react-intersection-observer'
 import Contact from './contact.jsx'
+import Logo from "../components/Logo";
+import NavItem from "../components/NavItem";
 
-export default function Home() {
+export default function Home({ theme, toggleTheme }) {
   const { ref: titleRef, inView: titleIsVisible } = useInView();
   const { ref: subtitleRef, inView: subtitleIsVisible } = useInView();
   const [scrollY, setScrollY] = useState(0);
   const [scrollIconOpacity, setScrollIconOpacity] = useState(1);
   const router = useRouter();
-  const myRef1 = React.useRef();
-  const myRef2 = React.useRef();
+  const homeRef = React.useRef();
+  const aboutRef = React.useRef();
+  const projectsRef = React.useRef();
+  const footerRef = React.useRef();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,14 +54,62 @@ export default function Home() {
   }, [scrollY])
   
   const scrollTo = (ref) => {
+    console.log(ref.current)
     if (!ref.current) return;
     ref.current.scrollIntoView({ behavior: "smooth" });
   }
 
+  const scrollToTop = (ref) => {
+    console.log(ref.current)
+    if (!ref.current) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  const MENU_LIST = [
+    { text: "Home", href: "/", ref: homeRef },
+    { text: "About", href: "/about", ref: aboutRef },
+    { text: "Contact", href: "/contact", ref: footerRef },
+  ];
+  const [navActive, setNavActive] = useState(null);
+  const [activeIdx, setActiveIdx] = useState(-1);
+
   return (
+    <>
+    <header>
+      <nav className={`nav`}>
+        <Link href={"/"}>
+            <code className="logoText">{`< John Furlong />`}</code>
+        </Link>
+
+        <div className={`${navActive ? "active" : ""} nav__menu-list`}>
+          <button 
+            className={`mode-switch` + (theme === 'dark' ? ' active' : '')} 
+            title="Switch Theme" 
+            onClick={toggleTheme}>
+            <svg className="moon" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="24" height="24" viewBox="0 0 24 24">
+              <defs></defs>
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+            </svg>
+          </button>
+          <div onClick={() => {scrollToTop(homeRef)}}>
+            Home
+          </div>
+          <div onClick={() => {scrollTo(aboutRef)}}>
+            About
+          </div>          
+          <div onClick={() => {scrollTo(aboutRef)}}>
+            My Work
+          </div>
+          <div onClick={() => {scrollTo(footerRef)}}>
+            Contact
+          </div>
+        </div>
+      </nav>
+    </header>
+
     <div className={styles.container}>
 
-      <div className={styles.particlesContainer}>
+      <div className={styles.particlesContainer} ref={homeRef}>
         <ParticleBackround/>
         <div className={styles.particlesText}>
           <span ref={titleRef}>
@@ -75,8 +127,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main} ref={myRef1}>
-        <a className={styles.arrowWrap} onClick={() => scrollTo(myRef1)} style={{ opacity: scrollIconOpacity }}>
+      <main className={styles.main} ref={aboutRef}>
+        <a className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
           <span className={styles.arrow}></span>
         </a>
 
@@ -101,26 +153,26 @@ export default function Home() {
                 <p>Create beautiful user interfaces that work seamlessly at scale.</p>
               </a>
 
-              <a onClick={() => scrollTo(myRef2)} className={styles.card}>
+              <a onClick={() => scrollTo(footerRef)} className={styles.card}>
                 <h2>Contact Me &darr;</h2>
                 <p>Have an idea?</p>
                 <p>Tell me about it!</p>
               </a>
               
-              <Link href="/about" className={styles.projectsCard} style={{ backgroundImage: `url("my_work_temp.webp")` }}>
+              <div className={styles.projectsCard} style={{ backgroundImage: `url("my_work_temp.webp")` }}>
                   <h2>My Work &rarr;</h2>
                   <p>Take a look at even more of my past projects!</p>
-              </Link>
+              </div>
             </div>
           </div>
 
       </main>
 
-      <footer ref={myRef2} className={styles.footer}>
+      <footer ref={footerRef} className={styles.footer}>
         <Contact/>
         <p className={styles.copyright}>&copy; All rights reserved.</p>
-
       </footer>
     </div>
+    </>
   )
 }

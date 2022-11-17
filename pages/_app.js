@@ -15,8 +15,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-        <Navbar theme={theme} toggleTheme={themeToggler}/>
-        <Component {...pageProps} />
+        <Component {...pageProps} theme={theme} toggleTheme={themeToggler} />
     </>
     )
 }

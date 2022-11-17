@@ -1,10 +1,10 @@
+import React, { useState, useEffect, useRef } from 'react'
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
 import Logo from "./Logo";
 import NavItem from "./NavItem";
 
-const Navbar = ({ theme,  toggleTheme }) => {
+const Navbar = ({ theme, toggleTheme }) => {
   const MENU_LIST = [
     { text: "Home", href: "/" },
     { text: "About", href: "/about" },
@@ -12,10 +12,7 @@ const Navbar = ({ theme,  toggleTheme }) => {
   ];
   const [navActive, setNavActive] = useState(null);
   const [activeIdx, setActiveIdx] = useState(-1);
-
-  // console.log('navActive:', navActive)
-  // console.log('activeIdx:', activeIdx)
-
+  
   return (
     <header>
       <nav className={`nav`}>
