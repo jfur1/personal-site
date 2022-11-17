@@ -95,7 +95,7 @@ export default function Home({ theme, toggleTheme }) {
           <div onClick={() => {scrollTo(aboutRef)}}>
             About
           </div>          
-          <div onClick={() => {scrollTo(aboutRef)}}>
+          <div onClick={() => {scrollTo(projectsRef)}}>
             My Work
           </div>
           <div onClick={() => {scrollTo(footerRef)}}>
@@ -161,6 +161,22 @@ export default function Home({ theme, toggleTheme }) {
                   <h2>My Work &rarr;</h2>
                   <p>Take a look at even more of my past projects!</p>
               </div>
+
+
+              <div className={styles.projectsContainer} ref={projectsRef}>
+
+                <h1 className={styles.title}>
+                  My Work
+                </h1>
+                <div className={styles.grid}>
+                  <img src='WU_0001.png' className={styles.iphone}/>
+                  <img src='WU_0002.png' className={styles.iphone}/>
+                  <img src='WU_0003.png' className={styles.iphone}/>
+                  <img src='WU_0004.png' className={styles.iphone}/>
+                </div>
+              </div>
+
+
             </div>
           </div>
 

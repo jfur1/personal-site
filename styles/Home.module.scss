@@ -339,6 +339,18 @@ p.subtitle.show::after {
   100% { bottom: -5em; }
 }
 
+// Images
+.projectsContainer{
+  align-items: center;
+  justify-content: center;
+}
+
+.iphone{
+  height: 80vh;
+  margin: 20px;
+}
+
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
