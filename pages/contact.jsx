@@ -1,7 +1,5 @@
 import React from 'react'
 import Script from 'next/script'
-
-
 import styles from '../styles/contact.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 

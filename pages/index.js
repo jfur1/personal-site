@@ -7,11 +7,14 @@ import styles from '../styles/Home.module.scss'
 import ParticleBackround from '../components/Particles'
 import { useInView } from 'react-intersection-observer'
 import Contact from './contact.jsx'
+import AboutMe from '../components/AboutMe.jsx'
+import MyWork from '../components/MyWork.jsx'
 
 export default function Home({ theme, toggleTheme }) {
   const { ref: titleRef, inView: titleIsVisible } = useInView();
   const { ref: subtitleRef, inView: subtitleIsVisible } = useInView();
   const [scrollY, setScrollY] = useState(0);
+  const [scrollPercent, setScrollPercent] = useState(0);
   const [scrollIconOpacity, setScrollIconOpacity] = useState(1);
   const router = useRouter();
   const homeRef = React.useRef();
@@ -21,6 +24,12 @@ export default function Home({ theme, toggleTheme }) {
 
   useEffect(() => {
     const handleScroll = () => {
+      const winScroll =  document.body.scrollTop || document.documentElement.scrollTop
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+  
+      const scrolled =(winScroll / height) * 100
+  
+      setScrollPercent(scrolled);
       setScrollY(window.scrollY);
     };
     // just trigger this so that the initial state 
@@ -44,6 +53,7 @@ export default function Home({ theme, toggleTheme }) {
     //define arrow opacity as based on how far up the page the user has scrolled
     //no scrolling = 1, half-way up the page = 0
     setScrollIconOpacity(position);
+
     window.addEventListener("scroll", handleScroll);
     
     return () => {
@@ -51,9 +61,11 @@ export default function Home({ theme, toggleTheme }) {
     }
   }, [scrollY])
   
-  const scrollTo = (ref) => {
+  const scrollTo = (ref, scrollToNavIdx) => {
     console.log(ref.current)
     if (!ref.current) return;
+
+    setActiveIdx(scrollToNavIdx)
     ref.current.scrollIntoView({ alignToTop: false , behavior: "smooth" });
   }
 
@@ -66,21 +78,22 @@ export default function Home({ theme, toggleTheme }) {
   const MENU_LIST = [
     { text: "Home", href: "/", ref: homeRef },
     { text: "About", href: "/about", ref: aboutRef },
+    { text: "My Work", href: "/work", ref: projectsRef },
     { text: "Contact", href: "/contact", ref: footerRef },
   ];
   const [navActive, setNavActive] = useState(null);
-  const [activeIdx, setActiveIdx] = useState(-1);
+  const [activeIdx, setActiveIdx] = useState(0);
 
   return (
     <>
     <header>
       <nav className={`nav`}>
-        <Link href={"/"}>
+      <div onClick={() => {scrollToTop(homeRef)}}>
             <code className="logoText">{`< John Furlong />`}</code>
-        </Link>
+        </div>
 
         <div className={`${navActive ? "active" : ""} nav__menu-list`}>
-          <button 
+          {/* <button 
             className={`mode-switch` + (theme === 'dark' ? ' active' : '')} 
             title="Switch Theme" 
             onClick={toggleTheme}>
@@ -88,17 +101,14 @@ export default function Home({ theme, toggleTheme }) {
               <defs></defs>
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
             </svg>
-          </button>
-          <div onClick={() => {scrollToTop(homeRef)}}>
-            Home
-          </div>
-          <div onClick={() => {scrollTo(aboutRef)}}>
+          </button> */}
+          <div className={`nav__link ${activeIdx === 1 ? "active" : ""}`} onClick={() => {scrollTo(aboutRef, 1)}}>
             About
           </div>          
-          <div onClick={() => {scrollTo(projectsRef)}}>
+          <div className={`nav__link ${activeIdx === 2 ? "active" : ""}`} onClick={() => {scrollTo(projectsRef, 2)}}>
             My Work
           </div>
-          <div onClick={() => {scrollTo(footerRef)}}>
+          <div className={`nav__link ${activeIdx === 3 ? "active" : ""}`} onClick={() => {scrollTo(footerRef, 3)}}>
             Contact
           </div>
         </div>
@@ -111,10 +121,10 @@ export default function Home({ theme, toggleTheme }) {
         <ParticleBackround/>
         <div className={styles.particlesText}>
           <span ref={titleRef}>
-            <h1 className={`${styles.heroTitle} ${titleIsVisible ? styles.show : ''}`}>Hello, my name is John.</h1>
+            <h1 className={`${styles.heroTitle} ${titleIsVisible ? styles.show : ''}`}>John Furlong</h1>
           </span>
           <span ref={subtitleRef}>
-            <p className={`${styles.subtitle} ${subtitleIsVisible ? styles.show : ''}`}>Full Stack Software Engineer</p>
+            <p className={`${styles.heroSubtitle} ${subtitleIsVisible ? styles.show : ''}`}>Full Stack Software Engineer</p>
           </span>
         </div>
       </div>
@@ -130,56 +140,13 @@ export default function Home({ theme, toggleTheme }) {
           <span className={styles.arrow}></span>
         </a>
 
-          <div className={styles.content} ref={aboutRef}>
-            <h1 className={styles.title}>
-              My Skills
-            </h1>
-            <div className={styles.grid}>
-              <a href="https://nextjs.org/docs" target='_blank'className={styles.card}>
-                <h2>Front End Development</h2>
-                <p>Create beautiful user interfaces that work seamlessly at scale.</p>
-              </a>
-
-              <a href="https://nextjs.org/learn" target='_blank' className={styles.card}>
-                <h2>Back End Development</h2>
-                <p>Build and maintain robust APIs while working closely with the servers.</p>
-              </a>
-
-
-              <a href="https://nextjs.org/docs" className={styles.card}>
-                <h2>Front End Development</h2>
-                <p>Create beautiful user interfaces that work seamlessly at scale.</p>
-              </a>
-
-              <a onClick={() => scrollTo(footerRef)} className={styles.card}>
-                <h2>Contact Me &darr;</h2>
-                <p>Have an idea?</p>
-                <p>Tell me about it!</p>
-              </a>
-              
-              <div className={styles.projectsCard} style={{ backgroundImage: `url("my_work_temp.webp")` }}>
-                  <h2>My Work &rarr;</h2>
-                  <p>Take a look at even more of my past projects!</p>
-              </div>
-
-
-              <div className={styles.projectsContainer} ref={projectsRef}>
-
-                <h1 className={styles.title}>
-                  My Work
-                </h1>
-                <div className={styles.grid}>
-                  <img src='WU_0001.png' className={styles.iphone}/>
-                  <img src='WU_0002.png' className={styles.iphone}/>
-                  <img src='WU_0003.png' className={styles.iphone}/>
-                  <img src='WU_0004.png' className={styles.iphone}/>
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-
+          {/* <div className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
+            <span className={styles.mouse}>
+              <span className={styles.mouseWheel}></span>
+            </span>
+          </div> */}
+          <AboutMe scrollPercent={scrollPercent} scrollTo={scrollTo} aboutRef={aboutRef} footerRef={footerRef}/>
+          <MyWork scrollPercent={scrollPercent} projectsRef={projectsRef}/>
       </main>
 
       <footer ref={footerRef} className={styles.footer}>

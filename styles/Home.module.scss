@@ -30,6 +30,15 @@
   flex-grow: 1;
 }
 
+.aboutContainer{
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .particlesContainer{
   z-index: -10;
 }
@@ -41,88 +50,129 @@
   justify-content: center;
   align-items: flex-end;
   overflow-x: hidden;
-  height: 200px;
-  width: 900px;
-  top: calc(50% - 120px);
-  left: calc(50% - 450px);
+  height: 500px;
+  width: 1000px;
+  top: calc(50% - 250px);
+  left: calc(50% - 550px);
   overflow: hidden;
 }
 
+.heroTitle{
+  color: var(--main-color);
+  font-size: 100px;
+  font-weight: 300;
+  margin: 0 0;
+  background-color: var(--app-color);
+}
+
+.heroSubtitle{
+  color: var(--main-color);
+  font-size: 40px;
+  font-weight: 300;
+  visibility: hidden;
+}
+
+
+.aboutMeParallax{
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  padding: 3rem 2rem;
+}
+
 .title {
-  font-size: 50px;
-  font-weight: 400;
-  margin: 2em 0 1em 0;
+  transition: transform 0.5s ease-out 0s;
+  position: absolute;
+  color: var(--secondary-color);
+  font-size: 200px;
+  left: -20%;
+  margin: 0 0;
+}
+
+.subtitle{
+  margin-left: 30%;
+  margin-right: 5%;
+  font-size: 36px;
+  transform: translateY(57%);
+
 }
 
 h1.heroTitle.show {
-  margin: 1rem 0;
-  font-size: clamp(1rem, 3vw + 1rem, 4rem);
-  font-weight: 300;
-  position: relative;
-  font-family: "Source Code Pro", monospace;
-  position: relative;
-  width: max-content;
-  background-color: var(--app-container);
-}
-
-h1.heroTitle.show::before{
-  background: var(--bg-color);
-  animation: typewriter var(--typewriterSpeed)
-    steps(var(--typewriterCharacters)) 1s forwards;
-}
-
-h1.heroTitle.show::after {
-  width: 0.1em;
-  background: var(--main-color);
-  animation: typewriter var(--typewriterSpeed)
-      steps(var(--typewriterCharacters)) 1s forwards,
-    blink 750ms steps(var(--typewriterCharacters)) infinite;
-}
-
-h1.heroTitle.show::before,
-h1.heroTitle.show::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-p.subtitle.show {
-  color: var(--main-color);
-  background-color: var(--app-container);
-  line-height: 1;
-  font-size: clamp(0.75rem, 3vw + 0.75rem, 2rem);
-  font-weight: 400;
-  position: relative;
-  font-family: "Source Code Pro", monospace,'Poppins', 'Sans Serif';
-  position: relative;
-  width: max-content;
-  visibility: hidden;
   animation: fromLeft 1.5s;
-  animation-delay: 5.5s;
-  animation-fill-mode: forwards;
-  padding-right: 1.5rem;
+  background-color: var(--app-container);
 }
 
-p.subtitle.show::before{
+.heroSubtitle.show {
+  animation: fromLeft 1.5s;
+  background-color: var(--app-container);
   visibility: hidden;
+  animation-delay: 1.5s;
+  animation-fill-mode: forwards;
 }
 
-p.subtitle.show::after {
-  width: 0.125em;
-  visibility: visible;
-}
+// h1.heroTitle.show::before{
+//   background: var(--bg-color);
+//   animation: typewriter var(--typewriterSpeed)
+//     steps(var(--typewriterCharacters)) 1s forwards;
+// }
 
-p.subtitle.show::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
+// h1.heroTitle.show::after {
+//   width: 0.1em;
+//   background: var(--main-color);
+//   animation: typewriter var(--typewriterSpeed)
+//       steps(var(--typewriterCharacters)) 1s forwards,
+//     blink 750ms steps(var(--typewriterCharacters)) infinite;
+// }
+
+// h1.heroTitle.show::before,
+// h1.heroTitle.show::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+// }
+
+// p.subtitle.show {
+//   color: var(--main-color);
+//   background-color: var(--app-container);
+//   line-height: 1;
+//   font-size: clamp(0.75rem, 3vw + 0.75rem, 2rem);
+//   font-weight: 400;
+//   position: relative;
+//   // font-family: "Source Code Pro", monospace,'Poppins', 'Sans Serif';
+//   font-family: 'Poppins', sans-serif;
+
+//   position: relative;
+//   width: max-content;
+//   visibility: hidden;
+//   animation: fromLeft 1.5s;
+//   // animation-delay: 5.5s;
+//   animation-fill-mode: forwards;
+//   padding-right: 1.5rem;
+// }
+
+// p.subtitle.show::before{
+//   visibility: hidden;
+// }
+
+// p.subtitle.show::after {
+//   width: 0.125em;
+//   visibility: visible;
+// }
+
+// p.subtitle.show::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+// }
 
 @keyframes fromLeft {
   0% {
@@ -244,7 +294,75 @@ p.subtitle.show::after {
   text-align: center;
 }
 
+
+@keyframes leftParallax {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(60%);
+  }
+}
+
+.projectsParallax{
+  display: flex;
+  align-items: center;
+  height: 60vh;
+  width: 100%;
+  position: relative;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  font-family: Montserrat, Avenir, Poppins, 'Sans Serif';
+  padding: 2rem 2rem;
+}
+
+.projectsTitle{
+  transition: transform 0.5s ease-out 0s;
+  position: absolute;
+  overflow-x: hidden;
+  color: var(--secondary-color);
+  font-size: 200px;
+  left: -20%;
+  margin: 0 0;
+}
+
+.projectsSubtitle{
+  margin-left: 30%;
+  margin-right: 5%;
+  transform: translateY(57%);
+  font-size: 36px;
+}
+
 // Scroll Indicator
+
+  .mouse{
+    width: 50px;
+    height: 100px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    display: flex;
+  }
+
+  .mouseWheel{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: auto;
+    animation: move-wheel 1.5s linear infinite;
+  }
+
+  @keyframes move-wheel {
+    0%{
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(2rem);
+    }
+  }
 
   /* the important styles */
   
@@ -252,20 +370,20 @@ p.subtitle.show::after {
     position: absolute;
     background: var(--scroll-indicator);
     width: 10em;
-    bottom: -5em;
+    bottom: -4em;
     height: 10em;
-    padding: 4em 1.75em;
+    padding: 1em 1.75em;
     margin: 1rem 0;
     border-radius:50%;
     font-size:0.5em;
     display:block;
     border: 3px solid var(--scroll-indicator-arrow);
     animation: arrowsWithDelay 13s infinite;
-    animation-delay: 7s;
+    animation-delay: 3.5s;
 
     &:hover{
-      cursor: pointer;
       animation: arrows 3s infinite;
+      cursor: pointer;
     }
   }
   
@@ -274,6 +392,7 @@ p.subtitle.show::after {
     position:relative;
     width: 0px;
     height: 0px;
+    top: 35%;
     border-style: solid;
     border-width: 3em 3em 0 3em;
     border-color: var(--scroll-indicator-arrow) transparent transparent transparent;
@@ -341,6 +460,8 @@ p.subtitle.show::after {
 
 // Images
 .projectsContainer{
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
