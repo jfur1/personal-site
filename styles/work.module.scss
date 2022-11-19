@@ -51,7 +51,6 @@
     flex-direction: column;
     align-items: flex-end;
     // justify-content: flex-end;
-
     height: calc(150vh * var(--n-projects));
 }
   
@@ -129,19 +128,19 @@
     color: #FFF;
     animation: appearText 0.0001s linear forwards;
     animation-delay:'0.5s';
-    position:relative;
+    position: relative;
+  }
 
-    &::after {
-      content:'';
-      top:0;
-      left:0;
-      position:'absolute';
-      width: 0%;
-      height: 100%;
-      background: #222;
-      animation: revBlock 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-      animation-delay: 0s;
-    }
+  .show {
+    content:'';
+    top:0;
+    left:0;
+    position:'absolute';
+    width: 0%;
+    height: 100%;
+    background: #333;
+    animation: revBlock 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: 0s;
   }
 
   .projectID{
@@ -177,8 +176,9 @@
   }
 
   .projectName{
+    color: #222;
     font-size: 70px;
-    padding: 5%;
+    // padding: 5%;
   }
 
   .projectRole{
@@ -189,6 +189,10 @@
   .projectType{
     font-size: 40px;
     padding: 5%;
+  }
+
+  .textOverlay{
+    height: 100%;
   }
 
 //   @media ${device.tablet} {

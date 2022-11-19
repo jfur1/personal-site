@@ -6,8 +6,6 @@ const ProjectGalleryText = (props) => {
   const { number, projectName, projectDesc, projectType, roles, refreshToggle } = props
   const [refreshBlock, setRefreshBlock ] = useState(false)
 
-  console.log("PROPS:",props)
-
   const moveUp = init => keyframes`
     0%{
         transform: translateY(${init}px);
@@ -63,19 +61,19 @@ const ProjectGalleryText = (props) => {
   return (
     <section className={styles.textContainer}>
         <div className={styles.projectID}>
-          <BlockTextReveal refreshToggle={refreshToggle} inline>
+          <BlockTextReveal refreshToggle={refreshToggle} inline={true}>
             {number}
           </BlockTextReveal>
         </div>
         <div className={styles.detailsContainer}>
           <div className={styles.details}>
-            <div className={styles.projectName}>
-              <BlockTextReveal refreshToggle={refreshToggle} inline>
-                {projectName}
+            
+              <BlockTextReveal className={`${styles.projectName} ${styles.show}`} refreshToggle={refreshToggle} inline={true}>
+              <div className={styles.textReveal}>{projectName}</div>
               </BlockTextReveal>
-            </div>
+
             <div className={styles.projectRole}>
-              <BlockTextReveal refreshToggle={refreshToggle} inline>
+              <BlockTextReveal refreshToggle={refreshToggle} inline={true}>
                 {roles.map((role, index, arr) => (index === arr.length - 1 ? (
                   <span key={role}>
                     {role}
@@ -96,7 +94,7 @@ const ProjectGalleryText = (props) => {
           </div>
 
         <div className={styles.projectType}>
-          <BlockTextReveal refreshToggle={refreshToggle} inline>
+          <BlockTextReveal refreshToggle={refreshToggle} inline={true}>
             {projectType}
           </BlockTextReveal>
         </div>

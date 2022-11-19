@@ -123,7 +123,7 @@ const ProjectGallery = ({ scrollY }) => {
         const refresh = true;
         return (
             <ProjectGalleryText 
-            className={styles.projectGalleryText}
+                className={styles.projectGalleryText}
                 number={projects[projectIndex].number}
                 projectName={projects[projectIndex].projectName}
                 projectDesc={projects[projectIndex].projectDesc}
