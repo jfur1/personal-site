@@ -93,7 +93,7 @@ export default function Home({ theme, toggleTheme }) {
         </div>
 
         <div className={`${navActive ? "active" : ""} nav__menu-list`}>
-          {/* <button 
+          <button 
             className={`mode-switch` + (theme === 'dark' ? ' active' : '')} 
             title="Switch Theme" 
             onClick={toggleTheme}>
@@ -101,12 +101,12 @@ export default function Home({ theme, toggleTheme }) {
               <defs></defs>
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
             </svg>
-          </button> */}
+          </button>
           <div className={`nav__link ${activeIdx === 1 ? "active" : ""}`} onClick={() => {scrollTo(aboutRef, 1)}}>
             About
           </div>          
           <div className={`nav__link ${activeIdx === 2 ? "active" : ""}`} onClick={() => {scrollTo(projectsRef, 2)}}>
-            My Work
+            Work
           </div>
           <div className={`nav__link ${activeIdx === 3 ? "active" : ""}`} onClick={() => {scrollTo(footerRef, 3)}}>
             Contact
@@ -136,17 +136,23 @@ export default function Home({ theme, toggleTheme }) {
       </Head>
 
       <main className={styles.main}>
-        <a className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
-          <span className={styles.arrow}></span>
-        </a>
+        { scrollPercent < 25
+        ? <a className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
+            <span className={styles.arrow}></span>
+          </a>
+        : null
+        }
 
           {/* <div className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
             <span className={styles.mouse}>
               <span className={styles.mouseWheel}></span>
             </span>
           </div> */}
+
           <AboutMe scrollPercent={scrollPercent} scrollTo={scrollTo} aboutRef={aboutRef} footerRef={footerRef}/>
-          <MyWork scrollPercent={scrollPercent} projectsRef={projectsRef}/>
+
+
+        <MyWork scrollPercent={scrollPercent} projectsRef={projectsRef} scrollY={scrollY}/>
       </main>
 
       <footer ref={footerRef} className={styles.footer}>

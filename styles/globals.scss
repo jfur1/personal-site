@@ -17,6 +17,7 @@
   --typewriterSpeed: 4s;
   --typewriterCharacters: 23;
   --bg-color: rgba(255, 255, 255);
+  --n-projects: 5;
 }
 
 .dark:root {
@@ -24,7 +25,7 @@
   --app-header: #111;
   --gradient: linear-gradient(to right, #42015d, #6f00ffae, #2376ce);
   --main-color: rgb(193, 193, 193);
-  --secondary-color: rgba(255,255,255,.8);
+  --secondary-color: rgba(226,226,226, .2);
   --link-color-hover: #c3cff4;
   --scroll-indicator: #111;
   --scroll-indicator-arrow: rgb(229, 227, 227);
@@ -125,7 +126,7 @@ nav{
   width: 288px;
   row-gap: 24px;
   right: -288px;
-  padding: 24px 16px;
+  padding: 20px 16px;
   transition: all 0.2s;
   min-height: calc(100vh - 60px);
   color: var(--main-color);

@@ -52,15 +52,16 @@
   overflow-x: hidden;
   height: 500px;
   width: 1000px;
-  top: calc(50% - 250px);
-  left: calc(50% - 550px);
+  top: calc(50% - 275px);
+  left: calc(50% - 575px);
   overflow: hidden;
 }
 
 .heroTitle{
+  font-family: 'Poppins';
   color: var(--main-color);
-  font-size: 100px;
-  font-weight: 300;
+  font-size: 120px;
+  font-weight: 400;
   margin: 0 0;
   background-color: var(--app-color);
 }
@@ -68,7 +69,8 @@
 .heroSubtitle{
   color: var(--main-color);
   font-size: 40px;
-  font-weight: 300;
+  margin: 0 0;
+  font-weight: 400;
   visibility: hidden;
 }
 
@@ -80,7 +82,7 @@
   width: 100%;
   position: relative;
   overflow-x: hidden;
-  padding: 3rem 2rem;
+  padding: 3em 2em 2em 2em;
 }
 
 .title {
@@ -295,43 +297,6 @@ h1.heroTitle.show {
 }
 
 
-@keyframes leftParallax {
-  0%{
-    transform: translateX(0%);
-  }
-  100%{
-    transform: translateX(60%);
-  }
-}
-
-.projectsParallax{
-  display: flex;
-  align-items: center;
-  height: 60vh;
-  width: 100%;
-  position: relative;
-  // overflow-y: auto;
-  // overflow-x: hidden;
-  font-family: Montserrat, Avenir, Poppins, 'Sans Serif';
-  padding: 2rem 2rem;
-}
-
-.projectsTitle{
-  transition: transform 0.5s ease-out 0s;
-  position: absolute;
-  overflow-x: hidden;
-  color: var(--secondary-color);
-  font-size: 200px;
-  left: -20%;
-  margin: 0 0;
-}
-
-.projectsSubtitle{
-  margin-left: 30%;
-  margin-right: 5%;
-  transform: translateY(57%);
-  font-size: 36px;
-}
 
 // Scroll Indicator
 
@@ -457,20 +422,6 @@ h1.heroTitle.show {
   90% { bottom: -5em; }
   100% { bottom: -5em; }
 }
-
-// Images
-.projectsContainer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.iphone{
-  height: 80vh;
-  margin: 20px;
-}
-
 
 @media (max-width: 600px) {
   .grid {

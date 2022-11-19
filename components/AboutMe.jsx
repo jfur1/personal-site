@@ -6,7 +6,7 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
     <div className={styles.aboutContainer} ref={aboutRef}>
             <div className={styles.aboutMeParallax}>
 
-              <h1 className={styles.title} style={{ transform: `translateX(${ scrollPercent * 1.5}%)` }}>
+              <h1 className={styles.title} style={{ transform: `translateX(${ scrollPercent * 1.6}%)` }}>
                 ABOUT ME
               </h1>
               <div className={styles.subtitle}>
