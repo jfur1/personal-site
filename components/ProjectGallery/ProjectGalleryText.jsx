@@ -2,100 +2,105 @@ import React, { useState, useEffect } from 'react'
 import styles from '../../styles/work.module.scss'
 import device from '../../components/Responsive.js'
 
+
+let BlockTextReveal = (props) => {
+  return(
+    <span {...props}>
+      {props.children}
+    </span>
+  )
+}
+
+const BlockTextRevealNoAnim = (props) => {
+  return(
+    <span  >
+      {props.children}
+    </span>
+  )
+}
+
+const BlockTextRevealQuick = (props) => {
+  console.log('ajsdkfhlkajsdflhjadfhakjsdfhlkj')
+  return(
+    <span 
+      className={styles.textMask}
+      style={{ display : `${props => (props.inline ? 'inline' : 'block')}` }}
+    >
+      {props.children}
+    </span>
+  )
+}
+
+
 const ProjectGalleryText = (props) => {
   const { number, projectName, projectDesc, projectType, roles, refreshToggle } = props
   const [refreshBlock, setRefreshBlock ] = useState(false)
 
-  let BlockTextReveal = (props) => {
-    return(
-      <span {...props}>
-        {props.children}
-      </span>
-    )
-  }
-  
-  const BlockTextRevealNoAnim = (props) => {
-    return(
-      <span {...props}>
-        {props.children}
-      </span>
-    )
-  }
-  
-  const BlockTextRevealQuick = (props) => {
-    return(
-      <span 
-        style={{ display : `${props => (props.inline ? 'inline' : 'block')}` }}
-      >
-        {props.children}
-      </span>
-    )
-  }
-  
   useEffect(() => {
-    refresh(props)
-  }, [number])
 
-  const refresh = (nextProps) => {
-    const { refreshToggle } = nextProps;
-    if (refreshToggle) {
-      console.log('in refresh w props:', BlockTextReveal)
-      BlockTextReveal = BlockTextRevealNoAnim;
-      setRefreshBlock(true),
-      () => {
+    const refresh = (nextProps) => {
+      const { refreshToggle } = nextProps;
+      if (refreshToggle) {
+        console.log('in refresh w props:', BlockTextReveal)
         BlockTextReveal = BlockTextRevealQuick;
-        setRefreshBlock(false);
+        // BlockTextReveal = BlockTextRevealNoAnim;
+        // setRefreshBlock(true),
+        // () => {
+        //   console.log('ajsdkfhlkajsdflhjadfhakjsdfhlkj')
+
+        //   BlockTextReveal = BlockTextRevealQuick;
+        //   setRefreshBlock(false);
+        // }
       }
     }
-  }
+    refresh(props)
+
+    console.log("NEW PROJECT !!!!!!!!!!")
+    
+
+  }, [props.projectName])
+
 
   return (
     <section className={styles.textContainer}>
-        <div className={styles.projectIDRevealContainer}>
+
           <BlockTextReveal className={styles.textMask} refreshToggle={refreshToggle} inline={true}>
-          <span className={`${styles.projectID}` }>{number}</span>
+            <span key={number} className={styles.projectID}>{number}</span>
           </BlockTextReveal>
-        </div>
+          
         <div className={styles.detailsContainer}>
           <div className={styles.details}>
             
-              <div className={styles.projectNameRevealContainer} >
                 <BlockTextReveal 
                   className={styles.textMask}
                   refreshToggle={refreshToggle} inline={true}>
-                  <span className={`${styles.projectName}` }>{projectName}</span>
+                  <span key={projectName} className={styles.projectName}>{projectName}</span>
                 </BlockTextReveal>
-              </div>
 
-            <div className={styles.textRevealContainer}>
               <BlockTextReveal className={styles.textMask} refreshToggle={refreshToggle} inline={true}>
                 {roles.map((role, index, arr) => (index === arr.length - 1 ? (
-                  <span className={styles.projectRole} key={role}>
+                  <span className={styles.projectRole} key={number + '-' + role}>
                     {role}
                   </span>
                 ) : (
-                  <span className={styles.projectRole} key={role}>
+                  <span className={styles.projectRole} key={number + '-' + role}>
                     {role}
                         &nbsp; • &nbsp;
                   </span>
                 )))}
+
               </BlockTextReveal>
-            </div>
-            <div className={styles.textRevealContainer}>
               <BlockTextReveal 
                   className={styles.textMask}
-                  style={{ display : 'block' }} 
+                  key={projectDesc}
                   refreshToggle={refreshToggle} inline={false}>
-                <span className={`${styles.projectDesc}` }>{projectDesc}</span>
+                <span className={styles.projectDesc} style={{ display : 'block' }} >{projectDesc}</span>
               </BlockTextReveal>
             </div>
-          </div>
 
-        <div className={styles.textRevealContainer}>
           <BlockTextReveal className={styles.textMask} refreshToggle={refreshToggle} inline={true}>
-            <span className={`${styles.projectType}` }>{projectType}</span>
+            <span key={number + '-' + projectType} className={`${styles.projectType}` }>{projectType}</span>
           </BlockTextReveal>
-        </div>
 
       </div>
     </section>

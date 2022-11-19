@@ -46,15 +46,15 @@
   // Images
 
 
-.projectsContainer{
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: flex-end;
-    // justify-content: flex-end;
-    height: calc(150vh * var(--n-projects));
-}
-  
+    .projectsContainer{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: flex-end;
+        // justify-content: flex-end;
+        // height: calc(100vh * (var(--n-projects) + 1));
+    }
+    
   .iphone{
     height: 80vh;
     margin: 20px;
@@ -95,6 +95,8 @@
     display: flex;
     flex-flow: row nowrap;
     width: 100%;
+    // height: 100%;
+    height: calc(100vh * (var(--n-projects) + 1));
   }
 
   // Project Gallery Styles
@@ -103,6 +105,7 @@
     position: relative;
     // border:1px solid black;
     z-index: 1;
+    height:100vh;
   }
 
   .projectsGalleryImages{
@@ -127,8 +130,8 @@
     left: 3%;
     display: flex;
     flex-flow: column nowrap;
-    height: 100vh;
     width: 50%;
+    height:100vh;
   }
 
   .detailsContainer{
@@ -137,7 +140,6 @@
     align-items: center;
     height: 100%;
     padding-left: 10%;
-    padding-top: 10%;
 }
 
   .details{
@@ -145,66 +147,87 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: space-around;
-    height: calc(100vh / var(--n-projects));
+    height: calc(130vh / var(--n-projects));
     /* border: 1px dashed black; */
     width: 100%;
   }
 
-  .projectNameRevealContainer span.textMask,
-  .textRevealContainer span.textMask,
-  .projectIDRevealContainer span.textMask{
+  .textMask span{
+    color: #FFF;
+    animation: appearText 0.0001s linear forwards;
+    animation-delay: 0.5s;
     position: relative;
-    overflow: hidden;
-    display: block;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    line-height: 1.2;
+    display: inline;
   }
-
-  .textRevealContainer span.textMask::before,
-  .projectNameRevealContainer span.textMask::before,
-  .projectIDRevealContainer span.textMask::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--bg-color);
-    animation: a-ltr-before 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    transform: translateX(0);
-  }
-
-  .textRevealContainer span.textMask::after,
-  .projectNameRevealContainer span.textMask::after,
-  .projectIDRevealContainer span.textMask::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+  
+  .textMask span::after{
+    content:'';
+    top:0;
+    left:0;
+    position:absolute;
+    width:0%;
+    height:100%;
     background: #222;
-    animation: a-ltr-after 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-    transform: translateX(-101%);
+    animation: revBlock 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay:0s;
   }
 
-  .textRevealContainer span.textMask:nth-of-type(1)::before,
-  .textRevealContainer span.textMask:nth-of-type(1)::after{
-    animation-delay: .25s;
-  }
 
-  .projectNameRevealContainer span.textMask:nth-of-type(1)::before,
-  .projectNameRevealContainer span.textMask:nth-of-type(1)::after{
-    animation-delay: .25s;
-  }
+//   .projectNameRevealContainer span.textMask,
+//   .textRevealContainer span.textMask,
+//   .projectIDRevealContainer span.textMask{
+//     position: relative;
+//     overflow: hidden;
+//     display: block;
+//     align-items: center;
+//     text-align: center;
+//     height: 100%;
+//     width: 100%;
+//     line-height: 1.2;
+//   }
 
-  .projectIDRevealContainer span.textMask:nth-of-type(1)::before,
-  .projectIDRevealContainer span.textMask:nth-of-type(1)::after{
-    animation-delay: .25s;
-  }
+//   .textRevealContainer span.textMask::before,
+//   .projectNameRevealContainer span.textMask::before,
+//   .projectIDRevealContainer span.textMask::before{
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: var(--bg-color);
+//     animation: a-ltr-before 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+//     transform: translateX(0);
+//   }
+
+//   .textRevealContainer span.textMask::after,
+//   .projectNameRevealContainer span.textMask::after,
+//   .projectIDRevealContainer span.textMask::after{
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: #222;
+//     animation: a-ltr-after 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+//     transform: translateX(-101%);
+//   }
+
+//   .textRevealContainer span.textMask:nth-of-type(1)::before,
+//   .textRevealContainer span.textMask:nth-of-type(1)::after{
+//     animation-delay: .25s;
+//   }
+
+//   .projectNameRevealContainer span.textMask:nth-of-type(1)::before,
+//   .projectNameRevealContainer span.textMask:nth-of-type(1)::after{
+//     animation-delay: .25s;
+//   }
+
+//   .projectIDRevealContainer span.textMask:nth-of-type(1)::before,
+//   .projectIDRevealContainer span.textMask:nth-of-type(1)::after{
+//     animation-delay: .25s;
+//   }
 
 
   @keyframes a-ltr-after{
@@ -222,16 +245,10 @@
         font-size: 30px;
     }
 
-    .projectIDRevealContainer{
-        position: absolute;
-        top: -20%;
-        left: 5%;
-    }
+
 
     .projectNameRevealContainer{
-        position: absolute;
-        top: -10%;
-        left: 25%;
+        position: relative;
     }
 
     .projectName{
@@ -276,3 +293,21 @@
 //           animation: ${props => (props.reveal ? moveUp(60) : 'none')} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
 //           transform: translateY(${60 * 1.4}px);
 //         }
+
+// ------------------------------ ImageContent
+
+.imageContainer{
+    /* border: 0.1px dashed black; */
+    margin-left:50%;
+    width:50%;
+    height:900vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.imageBox{
+    /* outline: 0.1px dashed green; */
+    margin-top:40vh;
+    height: 100vh;
+    position: relative;
+}

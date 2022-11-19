@@ -7,7 +7,7 @@ const ProjectGallery = ({ scrollY }) => {
 
     const [projectIndex, setProjectIndex] = useState(0);
     var lastScrollTop = 0;
-    const pageSplitTimes = 1.4
+    const pageSplitTimes = 1.4;
     var scrollDirectionDown = true;
     const [vh, setVh] = useState(typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0)
     const projects = [
@@ -74,6 +74,7 @@ const ProjectGallery = ({ scrollY }) => {
                 scrollDirectionDown = false;
             }
             lastScrollTop = scrollDistance;
+            var scrollPos = window.scrollY
             // console.log(scrollDistance);
     
             if (Math.floor(scrollDistance / vh) !== projectIndex
@@ -83,33 +84,16 @@ const ProjectGallery = ({ scrollY }) => {
                 && (Math.floor(scrollDistance / vh) < projectIndex)) {
                 setProjectIndex(Math.floor(scrollDistance / vh))
             }
-            setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
+            // setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
 
             console.log('PROJECT IDX:', projectIndex)
-            // console.log('PROJECT VH:', vh)
+            console.log('PROJECT VH:', vh)
+            console.log('SCROLLed PERCENT:', scrollPos / vh)
         };
         // just trigger this so that the initial state 
         // is updated as soon as the component is mounted
         // related: https://stackoverflow.com/a/63408216
-
-        // setVh(Math.round(window.document.documentElement.clientHeight * pageSplitTimes))
         handleScroll();
-
-        //get scroll position
-        var topWindow = window.scrollY;
-        // multiply by 1.5 so the arrow will become transparent half-way up the page
-        var topWindow = topWindow * 1.5;
-    
-        //get height of window
-        var windowHeight = window.screen.height;
-            
-        //set position as percentage of how far the user has scrolled 
-        var position = topWindow / windowHeight;
-        //invert the percentage
-        position = 1 - position;
-    
-        //define arrow opacity as based on how far up the page the user has scrolled
-        //no scrolling = 1, half-way up the page = 0
     
         window.addEventListener("scroll", handleScroll);
         
