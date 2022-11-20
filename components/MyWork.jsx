@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/work.module.scss'
 import ProjectGallery from '../components/ProjectGallery/ProjectGallery'
+import MoreProjects from '../components/MoreProjects'
 
 const MyWork = ({ scrollPercent, projectsRef }) => {
 
@@ -9,7 +10,7 @@ const MyWork = ({ scrollPercent, projectsRef }) => {
     <>
         <section className={styles.projectsParallax} ref={projectsRef}>
             <h1 className={styles.projectsTitle} 
-                style={scrollPercent > 0 && scrollPercent < 25 ?
+                style={scrollPercent > 0 && scrollPercent < 36 ?
                     { transform: `translateX(${ scrollPercent * 2 }%)` } : null}>
                 MY WORK
             </h1>
@@ -21,11 +22,7 @@ const MyWork = ({ scrollPercent, projectsRef }) => {
         <div className={styles.projectsContainer}>
             <ProjectGallery scrollPercent={scrollPercent}/>
 
-            <div className={styles.moreProjects}>
-                <div className={styles.grid}>
-
-                </div>
-            </div>
+            <MoreProjects/>
         </div>
     </>
   )

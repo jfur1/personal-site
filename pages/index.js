@@ -21,6 +21,9 @@ export default function Home({ theme, toggleTheme }) {
   const aboutRef = React.useRef();
   const projectsRef = React.useRef();
   const footerRef = React.useRef();
+  var lastScrollTop = 0;
+  const pageSplitTimes = 1.4;
+  var scrollDirectionDown = true;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,9 +55,23 @@ export default function Home({ theme, toggleTheme }) {
 
     //define arrow opacity as based on how far up the page the user has scrolled
     //no scrolling = 1, half-way up the page = 0
-    setScrollIconOpacity(position);
+    const documentElement = document.documentElement
+    const body = document.body
+    var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+    if (scrollDistance > lastScrollTop) {
+        scrollDirectionDown = true;
+    } else {
+        scrollDirectionDown = false;
+    }
+    lastScrollTop = scrollDistance;
+    
+    if(scrollY > 450 || !scrollDirectionDown)
+      setNavActive(false)
+    else
+      setNavActive(true)
 
     window.addEventListener("scroll", handleScroll);
+    setScrollIconOpacity(position);
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -81,18 +98,18 @@ export default function Home({ theme, toggleTheme }) {
     { text: "My Work", href: "/work", ref: projectsRef },
     { text: "Contact", href: "/contact", ref: footerRef },
   ];
-  const [navActive, setNavActive] = useState(null);
+  const [navActive, setNavActive] = useState(true);
   const [activeIdx, setActiveIdx] = useState(0);
 
   return (
     <>
     <header>
-      <nav className={`nav`}>
+      <nav className={`nav  ${navActive ? "active" : ""}`}>
       <div onClick={() => {scrollToTop(homeRef)}}>
             <code className="logoText">{`< John Furlong />`}</code>
         </div>
 
-        <div className={`${navActive ? "active" : ""} nav__menu-list`}>
+        <div className={`nav__menu-list `}>
           <button 
             className={`mode-switch` + (theme === 'dark' ? ' active' : '')} 
             title="Switch Theme" 

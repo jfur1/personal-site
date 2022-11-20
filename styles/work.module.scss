@@ -25,10 +25,10 @@
 
 @keyframes appearText {
     0%{
-        color: #FFF;
+        color: var(--main-color);
       }
       100%{
-        color: #333;
+        color: var(--app-color);
       }
   }
 
@@ -115,7 +115,7 @@
 
   .textReveal {
     display: inline;
-    color: #FFF;
+    color: var(--app-container);
     animation: appearText 0.0001s linear forwards;
     animation-delay:'0.5s';
     position: 'relative';
@@ -131,7 +131,7 @@
     flex-flow: column nowrap;
     width: 50%;
     height:100vh;
-  }
+    }
 
   .detailsContainer{
     display: flex;
@@ -152,7 +152,7 @@
   }
 
   .textMask span{
-    color: #FFF;
+    color: var(--app-container);
     animation: appearText 0.0001s linear forwards;
     animation-delay: 0.5s;
     position: relative;
@@ -166,67 +166,10 @@
     position:absolute;
     width:0%;
     height:100%;
-    background: #222;
+    background: var(--text-mask);
     animation: revBlock 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
     animation-delay:0s;
   }
-
-
-//   .projectNameRevealContainer span.textMask,
-//   .textRevealContainer span.textMask,
-//   .projectIDRevealContainer span.textMask{
-//     position: relative;
-//     overflow: hidden;
-//     display: block;
-//     align-items: center;
-//     text-align: center;
-//     height: 100%;
-//     width: 100%;
-//     line-height: 1.2;
-//   }
-
-//   .textRevealContainer span.textMask::before,
-//   .projectNameRevealContainer span.textMask::before,
-//   .projectIDRevealContainer span.textMask::before{
-//     content: '';
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: var(--bg-color);
-//     animation: a-ltr-before 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-//     transform: translateX(0);
-//   }
-
-//   .textRevealContainer span.textMask::after,
-//   .projectNameRevealContainer span.textMask::after,
-//   .projectIDRevealContainer span.textMask::after{
-//     content: '';
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: #222;
-//     animation: a-ltr-after 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-//     transform: translateX(-101%);
-//   }
-
-//   .textRevealContainer span.textMask:nth-of-type(1)::before,
-//   .textRevealContainer span.textMask:nth-of-type(1)::after{
-//     animation-delay: .25s;
-//   }
-
-//   .projectNameRevealContainer span.textMask:nth-of-type(1)::before,
-//   .projectNameRevealContainer span.textMask:nth-of-type(1)::after{
-//     animation-delay: .25s;
-//   }
-
-//   .projectIDRevealContainer span.textMask:nth-of-type(1)::before,
-//   .projectIDRevealContainer span.textMask:nth-of-type(1)::after{
-//     animation-delay: .25s;
-//   }
 
 
   @keyframes a-ltr-after{
@@ -272,27 +215,6 @@
         width: 100%;
     }
 
-//   @media ${device.tablet} {
-//           font-size: 28px;
-//           animation: ${props => (props.reveal ? moveUp(28) : 'none')} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
-//           transform: translateY(${28 * 1.4}px);
-//         }
-//         @media ${device.laptop} {
-//           font-size: 40px;
-//           animation: ${props => (props.reveal ? moveUp(40) : 'none')} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
-//           transform: translateY(${40 * 1.4}px);
-//         }
-//         @media ${device.laptopL} {
-//           font-size: 50px;
-//           animation: ${props => (props.reveal ? moveUp(50) : 'none')} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
-//           transform: translateY(${50 * 1.4}px);
-//         }
-//         @media ${device.desktop} {
-//           font-size: 60px;
-//           animation: ${props => (props.reveal ? moveUp(60) : 'none')} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
-//           transform: translateY(${60 * 1.4}px);
-//         }
-
 // ------------------------------ ImageContent
 
 .imageContainer{
@@ -309,4 +231,112 @@
     margin-top:40vh;
     height: 100vh;
     position: relative;
+}
+
+// ====== MORE PROJECTS SECTION
+
+.moreProjects{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 0px auto;
+    padding: 100px 0px;
+    max-width: 1000px;
+
+    h1.title{
+        font-size: 40px;
+        font-weight: 300;
+        margin: 10px;
+    }
+}
+
+
+
+
+.grid{
+    list-style: none;
+    padding: 0px;
+    margin: 50px 0px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    position: relative;
+    color: var(--main-color);
+}
+
+
+.projectTile{
+    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    height: 100%;
+    padding: 2rem 1.75rem;
+    border-radius: 8px;
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+    overflow: auto;
+    cursor: pointer;
+
+    &:hover{
+        transition: var(--transition);    
+    }
+
+
+    .top{
+        display: inline;
+    }
+
+    .title{
+        display: inline-block;
+        color: var(--main-color);
+    }
+
+    .desc{
+        display: inline-block;
+        color: var(--light-slate);
+        font-size: 16px;
+        transition: var(--transition);
+    }
+
+    .stack{
+        display: flex;
+        align-items: flex-end;
+        -webkit-box-flex: 1;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        padding: 0px;
+        margin: 20px 0px 0px;
+        list-style: none;
+
+        .techName{
+            font-family: var(--code-font);
+            font-size: 14px;
+            margin-right: 16px;
+        }
+    }
+}
+
+.toggleMore{
+    color: var(--main-color);
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: var(--transition);
+    padding: 1.25rem 1.75rem;
+    margin: 50px auto 0px;
+    z-index: 5;
+    cursor: pointer;
+
+    &:hover{
+        background-color: var(--secondary-color);
+
+    }
 }

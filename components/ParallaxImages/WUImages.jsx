@@ -16,13 +16,13 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
         <> 
             <Image
                 src={WUtablet}
-                height={'500'}
+                height={'465'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(scrollPercent) * 2}%)`,
+                    transform: `translate(0px,-${(scrollPercent) * 1.5}%)`,
                     position: 'absolute',
-                    left: '-3vw',
-                    top: '-45vh',
+                    left: '-2vw',
+                    top: '-15vh',
                     zIndex: 1
                 }}
                 alt="Western Union laptop"
@@ -45,9 +45,9 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 height={'600'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(scrollPercent) * 12}%) scale(0.94)`,
+                    transform: `translate(0px,-${(scrollPercent) * 9}%) scale(0.94)`,
                     position: 'absolute',
-                    top: '200vh',
+                    top: '180vh',
                     left: '5vw',
                     zIndex: 2
                 }}
@@ -58,9 +58,9 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 height={'700'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(scrollPercent) * 10}%)  scale(0.84)`,
+                    transform: `translate(0px,-${(scrollPercent) * 6}%)  scale(0.84)`,
                     position: 'absolute',
-                    top: '160vh',
+                    top: '120vh',
                     left: '25vw',
                     zIndex: 4
                 }}

@@ -18,6 +18,9 @@
   --typewriterCharacters: 23;
   --bg-color: rgba(255, 255, 255);
   --n-projects: 5;
+  --text-mask: #333;
+  --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  --code-font: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
 }
 
 .dark:root {
@@ -35,6 +38,7 @@
   --typewriterSpeed: 4s;
   --typewriterCharacters: 23;
   --bg-color: #111;
+  --text-mask: rgb(124, 124, 124);
 }
 
 /* Scrollbar width */
@@ -85,6 +89,13 @@ header{
   top: 0;
   background-color: var(--app-header);
 }
+
+.scrolled{
+  height: 10px;
+  background-color: var(--secondary-color);
+  transition: 0.3s ease-in-out;
+}
+
 
 hr.sectionLine {
   border-color: rgba(255, 255, 255, 0.6);
