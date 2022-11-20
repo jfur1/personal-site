@@ -3,7 +3,7 @@ import styles from '../../styles/work.module.scss'
 import ProjectGalleryText from './ProjectGalleryText'
 import ProjectGalleryImages from './ProjectGalleryImages'
 
-const ProjectGallery = ({ scrollY }) => {
+const ProjectGallery = ({ scrollPercent }) => {
 
     const [projectIndex, setProjectIndex] = useState(0);
     var lastScrollTop = 0;
@@ -63,11 +63,10 @@ const ProjectGallery = ({ scrollY }) => {
       ];
 
     useEffect(() => {
-
         const handleScroll = () => {
             const documentElement = document.documentElement
             const body = document.body
-            const scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+            var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
             if (scrollDistance > lastScrollTop) {
                 scrollDirectionDown = true;
             } else {
@@ -76,19 +75,19 @@ const ProjectGallery = ({ scrollY }) => {
             lastScrollTop = scrollDistance;
             var scrollPos = window.scrollY
             // console.log(scrollDistance);
-    
+            scrollDistance = scrollDistance - window.screen.height;
+
             if (Math.floor(scrollDistance / vh) !== projectIndex
-                && projectIndex < projects.length - 1) {
+                && projectIndex < projects.length - 1 && Math.floor(scrollDistance / vh) >= 0) {
                 setProjectIndex(Math.floor(scrollDistance / vh))
             } else if (projectIndex === projects.length - 1
                 && (Math.floor(scrollDistance / vh) < projectIndex)) {
                 setProjectIndex(Math.floor(scrollDistance / vh))
             }
-            // setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
+            setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
 
-            console.log('PROJECT IDX:', projectIndex)
-            console.log('PROJECT VH:', vh)
-            console.log('SCROLLed PERCENT:', scrollPos / vh)
+            // console.log('PROJECT IDX:', projectIndex)
+            // console.log('PROJECT VH:', vh)
         };
         // just trigger this so that the initial state 
         // is updated as soon as the component is mounted
@@ -100,7 +99,7 @@ const ProjectGallery = ({ scrollY }) => {
         return () => {
           window.removeEventListener("scroll", handleScroll);
         }
-    }, [scrollY])
+    }, [scrollPercent])
     
     
     const changeTextContentBasedOnScroll = (projects, projectIndex) => {
@@ -122,14 +121,7 @@ const ProjectGallery = ({ scrollY }) => {
   return (
     <div className={styles.projectsGallery}>
         {changeTextContentBasedOnScroll(projects, projectIndex)}
-        <ProjectGalleryImages />
-
-        {/* <div className={styles.grid}>
-            <img src='WU_0001.png' className={styles.iphone}/>
-            <img src='WU_0002.png' className={styles.iphone}/>
-            <img src='WU_0003.png' className={styles.iphone}/>
-            <img src='WU_0004.png' className={styles.iphone}/>
-        </div> */}
+        <ProjectGalleryImages pageSplitTimes={pageSplitTimes} scrollPercent={scrollPercent} />
     </div>
   )
 }

@@ -2,13 +2,15 @@ import React from 'react'
 import styles from '../styles/work.module.scss'
 import ProjectGallery from '../components/ProjectGallery/ProjectGallery'
 
-const MyWork = ({ scrollPercent, projectsRef, scrollY }) => {
+const MyWork = ({ scrollPercent, projectsRef }) => {
 
+    console.log('SCROLL PERCENT:', scrollPercent)
   return (
     <>
         <section className={styles.projectsParallax} ref={projectsRef}>
             <h1 className={styles.projectsTitle} 
-                style={{ transform: `translateX(${ scrollPercent * .8 }%)` }}>
+                style={scrollPercent > 0 && scrollPercent < 25 ?
+                    { transform: `translateX(${ scrollPercent * 2 }%)` } : null}>
                 MY WORK
             </h1>
             <div className={styles.projectsSubtitle}>
@@ -17,14 +19,14 @@ const MyWork = ({ scrollPercent, projectsRef, scrollY }) => {
         </section>
 
         <div className={styles.projectsContainer}>
-            <ProjectGallery scrollY={scrollY} />
+            <ProjectGallery scrollPercent={scrollPercent}/>
 
-        <div className={styles.moreProjects}>
-            <div className={styles.grid}>
+            <div className={styles.moreProjects}>
+                <div className={styles.grid}>
 
+                </div>
             </div>
         </div>
-    </div>
     </>
   )
 }

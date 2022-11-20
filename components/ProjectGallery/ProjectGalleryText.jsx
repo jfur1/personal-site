@@ -20,7 +20,6 @@ const BlockTextRevealNoAnim = (props) => {
 }
 
 const BlockTextRevealQuick = (props) => {
-  console.log('ajsdkfhlkajsdflhjadfhakjsdfhlkj')
   return(
     <span 
       className={styles.textMask}
@@ -88,8 +87,8 @@ const ProjectGalleryText = (props) => {
                         &nbsp; • &nbsp;
                   </span>
                 )))}
-
               </BlockTextReveal>
+              
               <BlockTextReveal 
                   className={styles.textMask}
                   key={projectDesc}

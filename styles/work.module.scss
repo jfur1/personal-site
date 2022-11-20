@@ -96,7 +96,6 @@
     flex-flow: row nowrap;
     width: 100%;
     // height: 100%;
-    height: calc(100vh * (var(--n-projects) + 1));
   }
 
   // Project Gallery Styles
@@ -139,7 +138,7 @@
     flex-flow: column nowrap;
     align-items: center;
     height: 100%;
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
   .details{
@@ -300,7 +299,7 @@
     /* border: 0.1px dashed black; */
     margin-left:50%;
     width:50%;
-    height:900vh;
+    height: calc(140vh * var(--n-projects));
     display: flex;
     flex-flow: column nowrap;
 }

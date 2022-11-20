@@ -152,7 +152,7 @@ export default function Home({ theme, toggleTheme }) {
           <AboutMe scrollPercent={scrollPercent} scrollTo={scrollTo} aboutRef={aboutRef} footerRef={footerRef}/>
 
 
-          <MyWork scrollPercent={scrollPercent} projectsRef={projectsRef} scrollY=    {scrollY}/>
+          <MyWork scrollPercent={scrollPercent} projectsRef={projectsRef}/>
       </main>
 
       <footer ref={footerRef} className={styles.footer}>
