@@ -53,6 +53,34 @@ const MoreProjects = () => {
             stack: [
                 'Next.js', 'SCSS', 'AWS'
             ]
+        },
+        {
+            title: 'Lorem ipsum dolor sit amet',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            stack: [
+                'Next.js', 'SCSS', 'AWS'
+            ]
+        },
+        {
+            title: 'Lorem ipsum dolor sit amet',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            stack: [
+                'Next.js', 'SCSS', 'AWS'
+            ]
+        },
+        {
+            title: 'Lorem ipsum dolor sit amet',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            stack: [
+                'Next.js', 'SCSS', 'AWS'
+            ]
+        },
+        {
+            title: 'Lorem ipsum dolor sit amet',
+            desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            stack: [
+                'Next.js', 'SCSS', 'AWS'
+            ]
         }
     ]
 
@@ -63,7 +91,6 @@ const MoreProjects = () => {
     return (
         <section className={styles.moreProjects}>
             <h1 className={styles.title}>Other Noteworthy Projects</h1>
-
             <ul className={styles.grid}>
                 {moreProjects.map((project, idx) => 
                     expanded || idx < 6 ?

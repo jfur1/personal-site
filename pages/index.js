@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
+import Script from 'next/script'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import ParticleBackround from '../components/Particles'
@@ -64,7 +65,7 @@ export default function Home({ theme, toggleTheme }) {
         scrollDirectionDown = false;
     }
     lastScrollTop = scrollDistance;
-    
+
     if(scrollY > 450 || !scrollDirectionDown)
       setNavActive(false)
     else
@@ -150,21 +151,24 @@ export default function Home({ theme, toggleTheme }) {
         <title>John Furlong | Portfolio</title>
         <meta name="description" content="John Furlong portfolio" />
         <link rel="icon" href="/favicon.ico" />
+        <Script src="https://kit.fontawesome.com/82944284a3.js"/>
       </Head>
 
       <main className={styles.main}>
         { scrollPercent < 25
-        ? <a className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
+        ?
+         <a className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
             <span className={styles.arrow}></span>
           </a>
+
+        //  <div className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
+        //     <span className={styles.mouse}>
+        //       <span className={styles.mouseWheel}></span>
+        //     </span>
+        // </div> 
+
         : null
         }
-
-          {/* <div className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
-            <span className={styles.mouse}>
-              <span className={styles.mouseWheel}></span>
-            </span>
-          </div> */}
 
           <AboutMe scrollPercent={scrollPercent} scrollTo={scrollTo} aboutRef={aboutRef} footerRef={footerRef}/>
 

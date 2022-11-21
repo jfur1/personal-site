@@ -345,10 +345,11 @@ h1.heroTitle.show {
     border: 3px solid var(--scroll-indicator-arrow);
     animation: arrowsWithDelay 13s infinite;
     animation-delay: 3.5s;
+    z-index: 5;
+    cursor: pointer;
 
     &:hover{
       animation: arrows 3s infinite;
-      cursor: pointer;
     }
   }
   

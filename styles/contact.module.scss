@@ -176,13 +176,13 @@
   }
   
   .contactText a {
-    color: var(--secondary-color);
+    color: var(--main-color);
     text-decoration: none;
     transition-duration: 0.2s;
   }
   
   .contactText a:hover {
-    color: var(--main-color);
+    color: var(--secondary-color);
     text-decoration: none;
   }
   
