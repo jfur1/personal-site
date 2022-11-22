@@ -25,6 +25,12 @@ export default function Home({ theme, toggleTheme }) {
   const footerRef = React.useRef();
   const pageSplitTimes = 1.4;
   var scrollDirectionDown = true;
+  const date = new Date()
+
+  const formattedTime = (date) => {
+    return date.toLocaleTimeString([], { timeZoneName: 'shortOffset', hour12: true, hour: '2-digit', minute: '2-digit' })
+  }
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,10 +45,16 @@ export default function Home({ theme, toggleTheme }) {
       console.log('CURRENT SCROLL',currentScroll )
       console.log('LAST SCROLL TOP',lastScrollTop )
       
-      if (currentScroll <= 0 || scrollPercent >= 99) {
+      if (currentScroll <= 0) {
+        setActiveIdx(0)
+        setNavActive(true);
+        return;
+      } else if(scrollPercent >= 99){
+        setActiveIdx(3)
         setNavActive(true);
         return;
       }
+
       if( currentScroll > lastScrollTop && navActive)
         setNavActive(false)
       else if(currentScroll < lastScrollTop && !navActive)
@@ -164,7 +176,12 @@ export default function Home({ theme, toggleTheme }) {
           <span ref={subtitleRef}>
             <p className={`${styles.heroSubtitle}`}>Full Stack Software Engineer</p>
           </span>
-          <p className={styles.heroDesc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p className={styles.heroDesc}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <button className={styles.cta} onClick={() => {scrollTo(footerRef, 3)}}>
+            Contact Me
+          </button>
         </div>
       </div>
 
@@ -197,7 +214,18 @@ export default function Home({ theme, toggleTheme }) {
 
       <footer ref={footerRef} className={styles.footer}>
         <Contact/>
-        <p className={styles.copyright}>&copy; All rights reserved.</p>
+        <div className={styles.bottomText}>
+          <span className={styles.col}>
+            <p className={styles.copyright}>VERSION</p>
+            <p className={styles.copytextright}>{date.getFullYear()} &copy; Edition</p>
+          </span>
+          <span className={styles.col}>
+            <p className={styles.copyright}>LOCAL TIME</p>
+            <p className={styles.text}>
+              {formattedTime(date)}
+            </p>
+          </span>
+        </div>
       </footer>
     </div>
     </>
