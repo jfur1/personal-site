@@ -15,6 +15,7 @@ export default function Home({ theme, toggleTheme }) {
   const { ref: titleRef, inView: titleIsVisible } = useInView();
   const { ref: subtitleRef, inView: subtitleIsVisible } = useInView();
   const [scrollY, setScrollY] = useState(0);
+  const [lastScrollTop, setLastScrollTop] = useState(0)
   const [scrollPercent, setScrollPercent] = useState(0);
   const [scrollIconOpacity, setScrollIconOpacity] = useState(1);
   const router = useRouter();
@@ -22,7 +23,6 @@ export default function Home({ theme, toggleTheme }) {
   const aboutRef = React.useRef();
   const projectsRef = React.useRef();
   const footerRef = React.useRef();
-  var lastScrollTop = 0;
   const pageSplitTimes = 1.4;
   var scrollDirectionDown = true;
 
@@ -30,11 +30,24 @@ export default function Home({ theme, toggleTheme }) {
     const handleScroll = () => {
       const winScroll =  document.body.scrollTop || document.documentElement.scrollTop
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
-  
       const scrolled =(winScroll / height) * 100
-  
       setScrollPercent(scrolled);
       setScrollY(window.scrollY);
+
+      // Get local scroll direction for sticky header
+      const currentScroll = window.pageYOffset;
+      console.log('CURRENT SCROLL',currentScroll )
+      console.log('LAST SCROLL TOP',lastScrollTop )
+      
+      if (currentScroll <= 0 || scrollPercent >= 99) {
+        setNavActive(true);
+        return;
+      }
+      if( currentScroll > lastScrollTop && navActive)
+        setNavActive(false)
+      else if(currentScroll < lastScrollTop && !navActive)
+        setNavActive(true)
+        
     };
     // just trigger this so that the initial state 
     // is updated as soon as the component is mounted
@@ -64,15 +77,14 @@ export default function Home({ theme, toggleTheme }) {
     } else {
         scrollDirectionDown = false;
     }
-    lastScrollTop = scrollDistance;
+    
+    console.log('SCROLL Y =', scrollY)
+    console.log('SCROLL PERCENT =', scrollPercent)
 
-    if(scrollY > 450 || !scrollDirectionDown)
-      setNavActive(false)
-    else
-      setNavActive(true)
 
     window.addEventListener("scroll", handleScroll);
     setScrollIconOpacity(position);
+    setLastScrollTop(window.pageYOffset);
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -83,6 +95,7 @@ export default function Home({ theme, toggleTheme }) {
     console.log(ref.current)
     if (!ref.current) return;
 
+    setLastScrollTop(0)
     setActiveIdx(scrollToNavIdx)
     ref.current.scrollIntoView({ alignToTop: false , behavior: "smooth" });
   }
@@ -90,7 +103,12 @@ export default function Home({ theme, toggleTheme }) {
   const scrollToTop = (ref) => {
     console.log(ref.current)
     if (!ref.current) return;
+
+    setLastScrollTop(0)
+    setActiveIdx(0)
+
     window.scrollTo({ top: 0, behavior: "smooth" });
+    
   }
 
   const MENU_LIST = [
@@ -104,13 +122,14 @@ export default function Home({ theme, toggleTheme }) {
 
   return (
     <>
-    <header>
-      <nav className={`nav  ${navActive ? "active" : ""}`}>
+    <header className={`${navActive ? "scrollUp" : "scrollDown"}`}> 
+      {/* className={`${navActive ? "scrollUp" : "scrollDown"}`} > */}
+      <nav className={`nav`}>
       <div onClick={() => {scrollToTop(homeRef)}}>
             <code className="logoText">{`< John Furlong />`}</code>
         </div>
 
-        <div className={`nav__menu-list `}>
+        <div className={`nav__menu-list`}>
           <button 
             className={`mode-switch` + (theme === 'dark' ? ' active' : '')} 
             title="Switch Theme" 
@@ -136,14 +155,16 @@ export default function Home({ theme, toggleTheme }) {
     <div className={styles.container}>
 
       <div className={styles.particlesContainer} ref={homeRef}>
-        <ParticleBackround/>
+        {/* <ParticleBackround/> */}
         <div className={styles.particlesText}>
+          <span className={styles.myNameIs}>Hi, my name is</span>
           <span ref={titleRef}>
-            <h1 className={`${styles.heroTitle} ${titleIsVisible ? styles.show : ''}`}>John Furlong</h1>
+            <h1 className={`${styles.heroTitle}`}>John Furlong</h1>
           </span>
           <span ref={subtitleRef}>
-            <p className={`${styles.heroSubtitle} ${subtitleIsVisible ? styles.show : ''}`}>Full Stack Software Engineer</p>
+            <p className={`${styles.heroSubtitle}`}>Full Stack Software Engineer</p>
           </span>
+          <p className={styles.heroDesc}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
 
@@ -155,25 +176,23 @@ export default function Home({ theme, toggleTheme }) {
       </Head>
 
       <main className={styles.main}>
-        { scrollPercent < 25
-        ?
+        { scrollPercent < 25 ?
          <a className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
             <span className={styles.arrow}></span>
           </a>
-
-        //  <div className={styles.arrowWrap} onClick={() => scrollTo(aboutRef)} style={{ opacity: scrollIconOpacity }}>
-        //     <span className={styles.mouse}>
-        //       <span className={styles.mouseWheel}></span>
-        //     </span>
-        // </div> 
-
         : null
         }
 
-          <AboutMe scrollPercent={scrollPercent} scrollTo={scrollTo} aboutRef={aboutRef} footerRef={footerRef}/>
-
-
-          <MyWork scrollPercent={scrollPercent} projectsRef={projectsRef}/>
+          <AboutMe 
+            scrollPercent={scrollPercent} 
+            scrollTo={scrollTo} 
+            aboutRef={aboutRef} 
+            footerRef={footerRef}
+          />
+          <MyWork 
+            scrollPercent={scrollPercent}
+            projectsRef={projectsRef}
+          />
       </main>
 
       <footer ref={footerRef} className={styles.footer}>

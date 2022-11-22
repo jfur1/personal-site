@@ -84,18 +84,23 @@ a {
 }
 
 header{
-  position: sticky;
-  z-index: 30;
-  top: 0;
-  background-color: var(--app-header);
+  position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	background: var(--app-header);
+	z-index: 9999;
+	transition: all 300ms ease-in-out;
 }
 
-.scrolled{
-  height: 10px;
-  background-color: var(--secondary-color);
-  transition: 0.3s ease-in-out;
+header.scrollUp{
+  // filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
 }
 
+header.scrollDown{
+  transform: translate3d(0, -100%, 0);
+}
 
 hr.sectionLine {
   border-color: rgba(255, 255, 255, 0.6);
