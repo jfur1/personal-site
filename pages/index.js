@@ -34,7 +34,7 @@ export default function Home({ theme, toggleTheme }) {
   useEffect(() => {
     const handleScroll = () => {
       const winScroll =  document.body.scrollTop || document.documentElement.scrollTop
-      const height = document.body.scrollHeight - document.documentElement.clientHeight
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
       const scrolled =(winScroll / height) * 100
       setScrollPercent(scrolled);
       setScrollY(window.scrollY);
@@ -43,12 +43,8 @@ export default function Home({ theme, toggleTheme }) {
       console.log(top, left)
       // Get local scroll direction for sticky header
       const currentScroll = window.pageYOffset;
-      console.log('window.scrollY',window.scrollY)
-      console.log('window.pageYOffset',window.pageYOffset)
-      console.log('document.body.scrollTop',document.body.scrollTop )
-      console.log('document.body.scrollHeight',document.body.scrollHeight)
-      console.log('document.body.clientHeight',document.body.clientHeight)
-      
+      setLastScrollTop(window.pageYOffset);
+
       if (currentScroll <= 0) {
         setActiveIdx(0)
         setNavActive(true);
@@ -83,16 +79,14 @@ export default function Home({ theme, toggleTheme }) {
 
     //define arrow opacity as based on how far up the page the user has scrolled
     //no scrolling = 1, half-way up the page = 0
-    // const documentElement = document.documentElement
-    // const body = document.body
-    // var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+    setScrollIconOpacity(position);
+
+    // var scrollDistance = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     // if (scrollDistance > lastScrollTop) {
     //     scrollDirectionDown = true;
     // } else {
     //     scrollDirectionDown = false;
     // }
-    // setScrollIconOpacity(position);
-    // setLastScrollTop(window.pageYOffset);
 
     window.addEventListener("scroll", handleScroll);
     
@@ -105,7 +99,6 @@ export default function Home({ theme, toggleTheme }) {
   const scrollTo = (ref, scrollToNavIdx) => {
     console.log(ref.current)
     if (!ref.current) return;
-
     setLastScrollTop(0)
     setActiveIdx(scrollToNavIdx)
     ref.current.scrollIntoView({ alignToTop: false , behavior: "smooth" });
@@ -114,12 +107,9 @@ export default function Home({ theme, toggleTheme }) {
   const scrollToTop = (ref) => {
     console.log(ref.current)
     if (!ref.current) return;
-
     setLastScrollTop(0)
     setActiveIdx(0)
-
     window.scrollTo({ top: 0, behavior: "smooth" });
-    
   }
 
   const MENU_LIST = [

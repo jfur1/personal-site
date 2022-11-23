@@ -4,7 +4,7 @@
 }
 
 .main {
-  padding: 10em 0 4rem 0;
+  padding: 8em 0 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -62,8 +62,8 @@
   overflow: hidden;
   height: 500px;
   width: 1000px;
-  top: calc(50% - 275px);
-  left: calc(50% - 575px);
+  margin-top: 3%;
+  margin-left: 12%;
   font-family: 'Poppins';
   z-index: 10;
 }
