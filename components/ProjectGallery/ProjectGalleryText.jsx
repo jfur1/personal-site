@@ -86,11 +86,11 @@ const ProjectGalleryText = (props) => {
                 <span className={styles.projectDesc} style={{ display : 'block' }} >{projectDesc}</span>
               </BlockTextReveal>
             </div>
-        <BlockTextReveal className={styles.textMask} inline="true">
-          <span key={number + '-' + projectType} className={`${styles.projectType}` }>        
-            {projectType}
-          </span>
-        </BlockTextReveal>
+          <BlockTextReveal className={styles.textMask} inline="true">
+            <span key={number + '-' + projectType} className={`${styles.projectType}` }>        
+              {projectType}
+            </span>
+         </BlockTextReveal>
         </div>
     </section>
   )

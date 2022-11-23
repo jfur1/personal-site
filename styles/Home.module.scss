@@ -1,4 +1,4 @@
-.container {
+.root {
   padding: 0 0;
   color: var(--main-color);
 }
@@ -20,12 +20,11 @@
   background-color: var(--footer-color);
   justify-content: space-between;
   align-items: center;
-  min-height: 90vh;
-  width: 100%;
+  // min-height: 90vh;
 
   .bottomText{
     display: flex;
-    width: 100%;
+    width: 100vw;
     align-items: flex-start;
     padding: 0 0 0 7%;
     
@@ -34,6 +33,7 @@
       flex-direction: column;
       align-items: flex-start;
       margin-right: 5%;
+      color: var(--footer-light-font);
     }
   }
 }
@@ -46,17 +46,11 @@
 }
 
 .aboutContainer{
-  min-height: 90vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 3;
-}
-
-.particlesContainer{
-  height: 75vh;
 }
 
 .particlesText {
@@ -65,7 +59,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 500px;
   width: 1000px;
   top: calc(50% - 275px);
@@ -147,6 +141,7 @@
   width: 100%;
   position: relative;
   overflow-x: hidden;
+  overflow-y: hidden;
   padding: 3em 2em 0;
   margin: 4rem 0;
 }
@@ -157,7 +152,6 @@
   color: var(--secondary-color);
   font-size: 200px;
   left: -20%;
-  margin: 0 0;
 }
 
 .subtitle{

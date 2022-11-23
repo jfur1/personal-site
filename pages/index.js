@@ -34,15 +34,20 @@ export default function Home({ theme, toggleTheme }) {
   useEffect(() => {
     const handleScroll = () => {
       const winScroll =  document.body.scrollTop || document.documentElement.scrollTop
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+      const height = document.body.scrollHeight - document.documentElement.clientHeight
       const scrolled =(winScroll / height) * 100
       setScrollPercent(scrolled);
       setScrollY(window.scrollY);
-
+      var top  = window.pageYOffset || document.documentElement.scrollTop,
+      left = window.pageXOffset || document.documentElement.scrollLeft;
+      console.log(top, left)
       // Get local scroll direction for sticky header
       const currentScroll = window.pageYOffset;
-      console.log('CURRENT SCROLL',currentScroll )
-      console.log('LAST SCROLL TOP',lastScrollTop )
+      console.log('window.scrollY',window.scrollY)
+      console.log('window.pageYOffset',window.pageYOffset)
+      console.log('document.body.scrollTop',document.body.scrollTop )
+      console.log('document.body.scrollHeight',document.body.scrollHeight)
+      console.log('document.body.clientHeight',document.body.clientHeight)
       
       if (currentScroll <= 0) {
         setActiveIdx(0)
@@ -56,7 +61,6 @@ export default function Home({ theme, toggleTheme }) {
         setNavActive(false)
       else if(currentScroll < lastScrollTop && !navActive)
         setNavActive(true)
-        
     };
     // just trigger this so that the initial state 
     // is updated as soon as the component is mounted
@@ -79,27 +83,24 @@ export default function Home({ theme, toggleTheme }) {
 
     //define arrow opacity as based on how far up the page the user has scrolled
     //no scrolling = 1, half-way up the page = 0
-    const documentElement = document.documentElement
-    const body = document.body
-    var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
-    if (scrollDistance > lastScrollTop) {
-        scrollDirectionDown = true;
-    } else {
-        scrollDirectionDown = false;
-    }
-    
-    console.log('SCROLL Y =', scrollY)
-    console.log('SCROLL PERCENT =', scrollPercent)
-
+    // const documentElement = document.documentElement
+    // const body = document.body
+    // var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+    // if (scrollDistance > lastScrollTop) {
+    //     scrollDirectionDown = true;
+    // } else {
+    //     scrollDirectionDown = false;
+    // }
+    // setScrollIconOpacity(position);
+    // setLastScrollTop(window.pageYOffset);
 
     window.addEventListener("scroll", handleScroll);
-    setScrollIconOpacity(position);
-    setLastScrollTop(window.pageYOffset);
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }
   }, [scrollY])
+  
   
   const scrollTo = (ref, scrollToNavIdx) => {
     console.log(ref.current)
@@ -132,43 +133,38 @@ export default function Home({ theme, toggleTheme }) {
 
   return (
     <>
-    <header className={`${navActive ? "scrollUp" : "scrollDown"}`}> 
-      {/* className={`${navActive ? "scrollUp" : "scrollDown"}`} > */}
-      <nav className={`nav`}>
-      <div onClick={() => {scrollToTop(homeRef)}}>
-            <code className="logoText">{`< John Furlong />`}</code>
-        </div>
+    <div id='root' className={styles.root}>
+        <header className={`${navActive ? "scrollUp" : "scrollDown"}`}> 
+          <nav className={`nav`}>
+              <div onClick={() => {scrollToTop(homeRef)}}>
+                  <code className="logoText">{`< John Furlong />`}</code>
+              </div>
 
-        <div className={`nav__menu-list`}>
-          <button 
-            className={`mode-switch` + (theme === 'dark' ? ' active' : '')} 
-            title="Switch Theme" 
-            onClick={toggleTheme}>
-            <svg className="moon" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="24" height="24" viewBox="0 0 24 24">
-              <defs></defs>
-              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-            </svg>
-          </button>
-          <div className={`nav__link ${activeIdx === 1 ? "active" : ""}`} onClick={() => {scrollTo(aboutRef, 1)}}>
-            About
-          </div>          
-          <div className={`nav__link ${activeIdx === 2 ? "active" : ""}`} onClick={() => {scrollTo(projectsRef, 2)}}>
-            Work
-          </div>
-          <div className={`nav__link ${activeIdx === 3 ? "active" : ""}`} onClick={() => {scrollTo(footerRef, 3)}}>
-            Contact
-          </div>
-            <a href="docs/john-furlong-resume copy.pdf" target="_blank" rel="noopener noreferrer"  className={styles.headerCta}>
-              <span>Resume</span>
-            </a>
-        </div>
-      </nav>
-    </header>
+              <div className={`nav__menu-list`}>
+                  <button className={`mode-switch` + (theme === 'dark' ? ' active' : '')} onClick={toggleTheme}>
+                    <svg className="moon" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="24" height="24" viewBox="0 0 24 24">
+                      <defs></defs>
+                      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+                  </button>
+                  <div className={`nav__link ${activeIdx === 1 ? "active" : ""}`} onClick={() => {scrollTo(aboutRef, 1)}}>
+                    About
+                  </div>          
+                  <div className={`nav__link ${activeIdx === 2 ? "active" : ""}`} onClick={() => {scrollTo(projectsRef, 2)}}>
+                    Work
+                  </div>
+                  <div className={`nav__link ${activeIdx === 3 ? "active" : ""}`} onClick={() => {scrollTo(footerRef, 3)}}>
+                    Contact
+                  </div>
+                    <a href="docs/john-furlong-resume copy.pdf" target="_blank" rel="noopener noreferrer"  className={styles.headerCta}>
+                      <span>Resume</span>
+                    </a>
+              </div>
+          </nav>
+      </header>
 
-    <div className={styles.container}>
 
       <div className={styles.particlesContainer} ref={homeRef}>
-        {/* <ParticleBackround/> */}
         <div className={styles.particlesText}>
           <span className={styles.myNameIs}>Hi, my name is</span>
           <span ref={titleRef}>
@@ -212,9 +208,9 @@ export default function Home({ theme, toggleTheme }) {
             scrollPercent={scrollPercent}
             projectsRef={projectsRef}
           />
-      </main>
-    </div>
-    <footer ref={footerRef} className={styles.footer}>
+        </main>
+      </div>
+      <footer ref={footerRef} className={styles.footer}>
         <Contact/>
         <div className={styles.bottomText}>
           <span className={styles.col}>

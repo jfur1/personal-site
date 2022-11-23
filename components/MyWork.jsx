@@ -5,7 +5,7 @@ import MoreProjects from '../components/MoreProjects'
 
 const MyWork = ({ scrollPercent, projectsRef }) => {
 
-    console.log('SCROLL PERCENT:', scrollPercent)
+console.log('SCROLL PERCENT:', scrollPercent)
   return (
     <>
         <section className={styles.projectsParallax} ref={projectsRef}>

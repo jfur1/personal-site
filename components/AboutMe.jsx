@@ -33,11 +33,11 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                   Here are a few of the technologies I've worked with recently:
                   <ul className={styles.skillsGrid}>
                     <li>JavaScript (ES6+)</li>
-                    <li>React</li>
+                    <li>React.js</li>
                     <li>Node.js</li>
-                    <li>TypeScript</li>
+                    <li>Next.js</li>
                     <li>C++</li>
-                    <li>Sass</li>
+                    <li>TypeScript</li>
                   </ul>
                 </div>
               </div>

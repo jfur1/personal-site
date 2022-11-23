@@ -103,7 +103,7 @@
     position: relative;
     // border:1px solid black;
     z-index: 1;
-    height:100vh;
+    // height:100vh;
   }
 
   .projectsGalleryImages{
@@ -123,21 +123,19 @@
   }
 
   .textContainer{
-    position: fixed;
-    top: 36%;
-    left: 3%;
     display: flex;
     flex-flow: column nowrap;
+    /* border: 1px dashed black; */
+    top: 36%;
+    left: 3%;
     width: 45vw;
-    height:100vh;
+    position: fixed;
     }
 
   .detailsContainer{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    height: 100%;
-        // padding-left: 5%;
 }
 
   .details{
@@ -292,7 +290,7 @@
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    height: 100%;
+    // height: 100%;
     padding: 2rem 1.75rem;
     border-radius: 8px;
     color: var(--main-color);

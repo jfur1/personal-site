@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-        <Component {...pageProps} theme={theme} toggleTheme={themeToggler} />
+      <Component {...pageProps} theme={theme} toggleTheme={themeToggler} />
     </>
     )
 }
