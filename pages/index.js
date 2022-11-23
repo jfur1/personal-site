@@ -31,7 +31,6 @@ export default function Home({ theme, toggleTheme }) {
     return date.toLocaleTimeString([], { timeZoneName: 'shortOffset', hour12: true, hour: '2-digit', minute: '2-digit' })
   }
 
-
   useEffect(() => {
     const handleScroll = () => {
       const winScroll =  document.body.scrollTop || document.documentElement.scrollTop
@@ -160,6 +159,9 @@ export default function Home({ theme, toggleTheme }) {
           <div className={`nav__link ${activeIdx === 3 ? "active" : ""}`} onClick={() => {scrollTo(footerRef, 3)}}>
             Contact
           </div>
+            <a href="docs/john-furlong-resume copy.pdf" target="_blank" rel="noopener noreferrer"  className={styles.headerCta}>
+              <span>Resume</span>
+            </a>
         </div>
       </nav>
     </header>

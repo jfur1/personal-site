@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 
 const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
@@ -14,34 +15,48 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </div>
             </div>
+
+
+            
             <div className={styles.grid}>
-              <a href="https://nextjs.org/docs" target='_blank'className={styles.card}>
-                <h2>Front End Development</h2>
-                <p>Create beautiful user interfaces that work seamlessly at scale.</p>
-              </a>
-
-              <a href="https://nextjs.org/learn" target='_blank' className={styles.card}>
-                <h2>Back End Development</h2>
-                <p>Build and maintain robust APIs while working closely with the servers.</p>
-              </a>
-
-
-              <a href="https://nextjs.org/docs" className={styles.card}>
-                <h2>Front End Development</h2>
-                <p>Create beautiful user interfaces that work seamlessly at scale.</p>
-              </a>
-
-              <a onClick={() => scrollTo(footerRef)} className={styles.card}>
-                <h2>Contact Me &darr;</h2>
-                <p>Have an idea?</p>
-                <p>Tell me about it!</p>
-              </a>
-              
-              <div className={styles.projectsCard} style={{ backgroundImage: `url("my_work_temp.webp")` }}>
-                  <h2>My Work &rarr;</h2>
-                  <p>Take a look at even more of my past projects!</p>
+              <div className={styles.aboutMeDesc}>
+                <p >
+                  Hello! My name is John and I enjoy building things for the web.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                  Here are a few of the technologies I've worked with recently:
+                </p>
               </div>
+              <Image
+                src='/me.jpg'
+                className={styles.aboutMeImage}
+                alt="Picture of the author"
+                width={400}
+                height={400}  
+              />
 
+              {/* <div className={styles.aboutMeCards}>
+                <a href="https://nextjs.org/docs" target='_blank'className={styles.card}>
+                  <h2>Front End Development</h2>
+                  <p>Create beautiful user interfaces that work seamlessly at scale.</p>
+                </a>
+
+                <a href="https://nextjs.org/learn" target='_blank' className={styles.card}>
+                  <h2>Back End Development</h2>
+                  <p>Build and maintain robust APIs while working closely with the servers.</p>
+                </a>
+
+                <a href="https://nextjs.org/docs" className={styles.card}>
+                  <h2>Download My Resume</h2>
+                  <p>Create beautiful user interfaces that work seamlessly at scale.</p>
+                </a>
+              </div> */}
             </div>
           </div>
   )

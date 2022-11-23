@@ -27,7 +27,7 @@
     display: flex;
     width: 100%;
     align-items: flex-start;
-    padding: 0 5%;
+    padding: 0 0 0 7%;
     
     .col{
       display: flex;
@@ -52,6 +52,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 
 .particlesContainer{
@@ -121,14 +122,35 @@
   }
 }
 
+.headerCta{
+  border: 2px solid var(--main-color);
+  background-color: transparent;
+  color: var(--main-color);
+  border-radius: 4px;
+  cursor: pointer;
+  height: 35px;
+  width: 85px;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 200ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover{
+    background-color: var(--secondary-color);
+  }
+}
+
 .aboutMeParallax{
-  height: 60vh;
+  height: 65vh;
   display: flex;
   align-items: center;
   width: 100%;
   position: relative;
   overflow-x: hidden;
-  padding: 3em 2em 2em 2em;
+  padding: 3em 2em 0;
+  margin: 4rem 0;
 }
 
 .title {
@@ -160,67 +182,6 @@ h1.heroTitle.show {
   animation-delay: 1.5s;
   animation-fill-mode: forwards;
 }
-
-// h1.heroTitle.show::before{
-//   background: var(--bg-color);
-//   animation: typewriter var(--typewriterSpeed)
-//     steps(var(--typewriterCharacters)) 1s forwards;
-// }
-
-// h1.heroTitle.show::after {
-//   width: 0.1em;
-//   background: var(--main-color);
-//   animation: typewriter var(--typewriterSpeed)
-//       steps(var(--typewriterCharacters)) 1s forwards,
-//     blink 750ms steps(var(--typewriterCharacters)) infinite;
-// }
-
-// h1.heroTitle.show::before,
-// h1.heroTitle.show::after {
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-// }
-
-// p.subtitle.show {
-//   color: var(--main-color);
-//   background-color: var(--app-container);
-//   line-height: 1;
-//   font-size: clamp(0.75rem, 3vw + 0.75rem, 2rem);
-//   font-weight: 400;
-//   position: relative;
-//   // font-family: "Source Code Pro", monospace,'Poppins', 'Sans Serif';
-//   font-family: 'Poppins', sans-serif;
-
-//   position: relative;
-//   width: max-content;
-//   visibility: hidden;
-//   animation: fromLeft 1.5s;
-//   // animation-delay: 5.5s;
-//   animation-fill-mode: forwards;
-//   padding-right: 1.5rem;
-// }
-
-// p.subtitle.show::before{
-//   visibility: hidden;
-// }
-
-// p.subtitle.show::after {
-//   width: 0.125em;
-//   visibility: visible;
-// }
-
-// p.subtitle.show::after {
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-// }
 
 @keyframes fromLeft {
   0% {
@@ -278,25 +239,42 @@ h1.heroTitle.show {
 
 .grid {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 1200px;
-}
+  max-width: 1500px;
+} 
 
-.projectsCard{
+.aboutMeDesc{
   margin: 1rem;
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: left;
+  font-size: 22px;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
+  // border: 1px solid #eaeaea;
+  // border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 900px;
-  width: 750px;
-  height: 400px;
-  cursor: pointer;
+  max-width: 600px;
+}
+
+.aboutMeImage{
+  margin: 1rem;
+
+  padding: 1.5rem;
+  filter: grayscale(100%);
+  transition: all 200ms ease-in-out;
+
+
+  &:hover{
+    filter: none;
+  }
+}
+
+.aboutMeCards{
+  max-width: 1300px;
+  display: flex;
+  flex-flow: row;
 }
 
 .card {
@@ -342,8 +320,6 @@ h1.heroTitle.show {
   text-align: center;
   margin: 0;
 }
-
-
 
 // Scroll Indicator
 

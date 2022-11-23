@@ -34,7 +34,6 @@ const BlockTextRevealQuick = (props) => {
 const ProjectGalleryText = (props) => {
   const { number, projectName, projectDesc, projectType, roles, refreshToggle } = props
   const [refreshBlock, setRefreshBlock ] = useState(false)
-
   useEffect(() => {
 
     const refresh = (nextProps) => {
@@ -69,12 +68,11 @@ const ProjectGalleryText = (props) => {
           
         <div className={styles.detailsContainer}>
           <div className={styles.details}>
-            
-                <BlockTextReveal 
-                  className={styles.textMask}
-                  refreshToggle={refreshToggle} inline={true}>
-                  <span key={projectName} className={styles.projectName}>{projectName}</span>
-                </BlockTextReveal>
+              <BlockTextReveal 
+                className={styles.textMask}
+                refreshToggle={refreshToggle} inline={true}>
+                <span key={projectName} className={styles.projectName}>{projectName}</span>
+              </BlockTextReveal>
 
               <BlockTextReveal className={styles.textMask} refreshToggle={refreshToggle} inline={true}>
                 {roles.map((role, index, arr) => (index === arr.length - 1 ? (
@@ -96,12 +94,12 @@ const ProjectGalleryText = (props) => {
                 <span className={styles.projectDesc} style={{ display : 'block' }} >{projectDesc}</span>
               </BlockTextReveal>
             </div>
-
-          <BlockTextReveal className={styles.textMask} refreshToggle={refreshToggle} inline={true}>
-            <span key={number + '-' + projectType} className={`${styles.projectType}` }>{projectType}</span>
-          </BlockTextReveal>
-
-      </div>
+        <BlockTextReveal className={styles.textMask} refreshToggle={refreshToggle} inline={true}>
+          <span key={number + '-' + projectType} className={`${styles.projectType}` }>        
+            {projectType}
+          </span>
+        </BlockTextReveal>
+        </div>
     </section>
   )
 }

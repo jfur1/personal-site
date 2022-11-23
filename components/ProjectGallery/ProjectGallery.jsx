@@ -9,6 +9,7 @@ const ProjectGallery = ({ scrollPercent }) => {
     var lastScrollTop = 0;
     const pageSplitTimes = 1.4;
     var scrollDirectionDown = true;
+    const N_PROJECTS = 5;
     const [vh, setVh] = useState(typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0)
     const projects = [
         {
