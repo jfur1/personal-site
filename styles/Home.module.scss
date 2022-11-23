@@ -245,6 +245,19 @@ h1.heroTitle.show {
   max-width: 1500px;
 } 
 
+.skillsGrid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  gap: 5px 15px;
+  padding: 0px;
+  margin: 30px 10px;
+  list-style-type: circle ;
+
+  li{
+    font-size: 18px;
+  }
+}
+
 .aboutMeDesc{
   margin: 1rem;
   padding: 1rem;
@@ -252,22 +265,19 @@ h1.heroTitle.show {
   font-size: 22px;
   color: inherit;
   text-decoration: none;
-  // border: 1px solid #eaeaea;
-  // border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 600px;
 }
 
 .aboutMeImage{
   margin: 1rem;
-
-  padding: 1.5rem;
+  padding: 1rem;
   filter: grayscale(100%);
   transition: all 200ms ease-in-out;
 
-
   &:hover{
     filter: none;
+    
   }
 }
 

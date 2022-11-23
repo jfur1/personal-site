@@ -31,15 +31,26 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                 </p>
                 <p>
                   Here are a few of the technologies I've worked with recently:
+                  <ul className={styles.skillsGrid}>
+                    <li>JavaScript (ES6+)</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>TypeScript</li>
+                    <li>C++</li>
+                    <li>Sass</li>
+                  </ul>
                 </p>
               </div>
-              <Image
-                src='/me.jpg'
-                className={styles.aboutMeImage}
-                alt="Picture of the author"
-                width={400}
-                height={400}  
-              />
+
+              <span className={styles.imgBorder}>
+                <Image
+                  src='/me.jpg'
+                  className={styles.aboutMeImage}
+                  alt="Picture of the author"
+                  width={400}
+                  height={400}  
+                />
+              </span>
 
               {/* <div className={styles.aboutMeCards}>
                 <a href="https://nextjs.org/docs" target='_blank'className={styles.card}>
