@@ -42,7 +42,6 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                 </p>
               </div>
 
-              <span className={styles.imgBorder}>
                 <Image
                   src='/me.jpg'
                   className={styles.aboutMeImage}
@@ -50,7 +49,6 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                   width={400}
                   height={400}  
                 />
-              </span>
 
               {/* <div className={styles.aboutMeCards}>
                 <a href="https://nextjs.org/docs" target='_blank'className={styles.card}>
