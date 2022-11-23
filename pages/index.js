@@ -47,11 +47,9 @@ export default function Home({ theme, toggleTheme }) {
       if (currentScroll <= 0) {
         setActiveIdx(0)
         setNavActive(true);
-        return;
       } else if(scrollPercent >= 99){
         setActiveIdx(3)
         setNavActive(true);
-        return;
       }
 
       if( currentScroll > lastScrollTop && navActive)
@@ -63,6 +61,7 @@ export default function Home({ theme, toggleTheme }) {
     // just trigger this so that the initial state 
     // is updated as soon as the component is mounted
     // related: https://stackoverflow.com/a/63408216
+
     handleScroll();
 
     //get scroll position
@@ -208,13 +207,14 @@ export default function Home({ theme, toggleTheme }) {
             aboutRef={aboutRef} 
             footerRef={footerRef}
           />
+
           <MyWork 
             scrollPercent={scrollPercent}
             projectsRef={projectsRef}
           />
       </main>
-
-      <footer ref={footerRef} className={styles.footer}>
+    </div>
+    <footer ref={footerRef} className={styles.footer}>
         <Contact/>
         <div className={styles.bottomText}>
           <span className={styles.col}>
@@ -229,7 +229,6 @@ export default function Home({ theme, toggleTheme }) {
           </span>
         </div>
       </footer>
-    </div>
     </>
   )
 }

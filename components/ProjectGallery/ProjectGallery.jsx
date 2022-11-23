@@ -76,7 +76,9 @@ const ProjectGallery = ({ scrollPercent }) => {
             lastScrollTop = scrollDistance;
             var scrollPos = window.scrollY
             // console.log(scrollDistance);
-            scrollDistance = scrollDistance - window.screen.height;
+            const DELAY_FACTOR = 1.15;
+
+            scrollDistance = scrollDistance - (window.screen.height * DELAY_FACTOR);
 
             if (Math.floor(scrollDistance / vh) !== projectIndex
                 && projectIndex < projects.length - 1 && Math.floor(scrollDistance / vh) >= 0) {
@@ -87,12 +89,13 @@ const ProjectGallery = ({ scrollPercent }) => {
             }
             setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
 
-            // console.log('PROJECT IDX:', projectIndex)
-            // console.log('PROJECT VH:', vh)
+            console.log('PROJECT IDX:', projectIndex)
+            console.log('PROJECT VH:', vh)
         };
         // just trigger this so that the initial state 
         // is updated as soon as the component is mounted
         // related: https://stackoverflow.com/a/63408216
+        
         handleScroll();
     
         window.addEventListener("scroll", handleScroll);

@@ -8,7 +8,7 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
             <div className={styles.aboutMeParallax}>
 
               <h1 className={styles.title} 
-                style={scrollPercent > 0 && scrollPercent < 25 ? { transform: `translateX(${ scrollPercent * 4 }%)` }: null}>
+                style={scrollPercent > 0 && scrollPercent < 25 ? { transform: `translateX(${ scrollPercent * 3.75 }%)` }: null}>
                 ABOUT ME
               </h1>
               <div className={styles.subtitle}>
@@ -29,7 +29,7 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </p>
-                <p>
+                <div>
                   Here are a few of the technologies I've worked with recently:
                   <ul className={styles.skillsGrid}>
                     <li>JavaScript (ES6+)</li>
@@ -39,7 +39,7 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                     <li>C++</li>
                     <li>Sass</li>
                   </ul>
-                </p>
+                </div>
               </div>
 
                 <Image
