@@ -18,7 +18,7 @@ const PathfindingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeig
                     transition: 'transform 0.2s ease-out',
                     transform: `translate(0px,-${(sp) * 1.5}%) scale(0.96)`,
                     position: 'absolute',
-                    left: '1vw',
+                    left: '3vw',
                     top: '420vh',
                     zIndex: 1
                 }}

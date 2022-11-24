@@ -20,7 +20,7 @@ const SortingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, 
                     transition: 'transform 0.2s ease-out',
                     transform: `translate(0px,-${(sp) * 1.5}%) scale(0.96)`,
                     position: 'absolute',
-                    left: '5vw',
+                    left: '7vw',
                     top: '550vh',
                     zIndex: 1
                 }}
