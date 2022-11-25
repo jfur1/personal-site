@@ -80,13 +80,20 @@ const ProjectGallery = ({ scrollPercent }) => {
 
             scrollDistance = scrollDistance - (window.screen.height * DELAY_FACTOR);
 
-            if (Math.floor(scrollDistance / vh) !== projectIndex
-                && projectIndex < projects.length - 1 && Math.floor(scrollDistance / vh) >= 0) {
-                setProjectIndex(Math.floor(scrollDistance / vh))
-            } else if (projectIndex === projects.length - 1
-                && (Math.floor(scrollDistance / vh) < projectIndex)) {
-                setProjectIndex(Math.floor(scrollDistance / vh))
+            if (Math.floor(scrollDistance / vh) !== projectIndex ) {
+
+                    if(Math.floor(scrollDistance / vh) < 0)
+                        setProjectIndex(0)
+                    else if(Math.floor(scrollDistance / vh) > projects.length-1){
+                        console.log('CHANGING')
+                        setProjectIndex(projects.length-1);
+                    }
+                    else{
+                        console.log('CHANGING');
+                        setProjectIndex(Math.floor(scrollDistance / vh))
+                    }
             }
+            
             setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
 
             console.log('PROJECT IDX:', projectIndex)
@@ -108,6 +115,8 @@ const ProjectGallery = ({ scrollPercent }) => {
     
     const changeTextContentBasedOnScroll = (projects, projectIndex) => {
         const refresh = true;
+        console.log(projectIndex)
+
         return (
             <ProjectGalleryText 
                 className={styles.projectGalleryText}
