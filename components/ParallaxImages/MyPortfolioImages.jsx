@@ -1,7 +1,4 @@
 import React from 'react'
-import mpHome from '../../public/mp_0001.png'
-
-import Image from 'next/image'
 
 const MyPortfolioImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, index  }) => {
     var sp = scrollPercent
@@ -13,7 +10,7 @@ const MyPortfolioImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeig
     return (
         <>
             <img
-                src={mpHome}
+                src={'mp_0001.png'}
                 height={'425'}
                 style={{
                     transition: 'transform 0.2s ease-out',

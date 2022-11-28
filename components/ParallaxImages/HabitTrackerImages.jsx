@@ -1,8 +1,6 @@
 import React from 'react'
-import habitsHome from '../../public/habit_tracker_home.png'
 import habitsMonth from '../../public/habit_tracker_monthly.png'
 import habitsYear from '../../public/habit_tracker_yearly.png'
-import Image from 'next/image'
 
 const HabitTrackerImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, index  }) => {
   var sp = scrollPercent
@@ -14,7 +12,7 @@ const HabitTrackerImages = ({  scrollPercent, boxHeight, scrollHeight, screenHei
   return (
       <> 
         <img
-            src={habitsHome}
+            src={'habit_tracker_home.png'}
             height={'465'}
             style={{
                 transition: 'transform 0.2s ease-out',

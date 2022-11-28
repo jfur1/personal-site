@@ -1,6 +1,4 @@
 import React from 'react'
-import mpHome from '../../public/pathfinding-iphone.gif'
-import Image from 'next/image'
 
 const PathfindingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, index  }) => {
     var sp = scrollPercent
@@ -12,7 +10,7 @@ const PathfindingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeig
     return (
         <>
             <img
-                src={mpHome}
+                src={'pathfinding-iphone.gif'}
                 height={'400'}
                 style={{
                     transition: 'transform 0.2s ease-out',

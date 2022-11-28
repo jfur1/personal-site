@@ -1,9 +1,4 @@
 import React from 'react'
-import WUiphone from '../../public/WU_0003.png'
-import WUiphone2 from '../../public/WU_0002.png'
-import WUiphone3 from '../../public/WU_0001.png'
-import WUtablet from '../../public/WU_0004.png'
-import Image from 'next/image'
 
 const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index }) => {
     var sp = scrollPercent
@@ -15,7 +10,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
     return (
         <> 
             <img
-                src={WUtablet}
+                src={'WU_0004.png'}
                 height={'465'}
                 style={{
                     transition: 'transform 0.2s ease-out',
@@ -28,7 +23,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 alt="Western Union laptop"
             />
             <img
-                src={WUiphone}
+                src={'WU_0003.png'}
                 height={'600'}
                 style={{
                     transition: 'transform 0.2s ease-out',
@@ -41,7 +36,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 alt="Western Union iPhone Locations"
             />
             <img
-                src={WUiphone2}
+                src={'WU_0002.png'}
                 height={'700'}
                 style={{
                     transition: 'transform 0.2s ease-out',

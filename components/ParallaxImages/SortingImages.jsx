@@ -1,7 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
-import mpHome from '../../public/sorting.gif'
-
 
 const SortingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, index  }) => {
     var sp = scrollPercent
@@ -13,7 +10,7 @@ const SortingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, 
     return (
         <>
             <img
-                src={mpHome}
+                src={'sorting.gif'}
                 height={'400'}
                 width={'500'}
                 style={{
