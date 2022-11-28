@@ -161,10 +161,10 @@ export default function Home({ theme, toggleTheme }) {
             <h1 className={`${styles.heroTitle}`}>John Furlong</h1>
           </span>
           <span ref={subtitleRef}>
-            <p className={`${styles.heroSubtitle}`}>Full Stack Software Engineer</p>
+            <p className={`${styles.heroSubtitle}`}>Full Stack Software Engineer.</p>
           </span>
           <p className={styles.heroDesc}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            I'm a software engineer specialized in building scalable systems for the web.
           </p>
           <button className={styles.cta} onClick={() => {scrollTo(footerRef, 3)}}>
             Contact Me

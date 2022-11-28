@@ -4,6 +4,23 @@ import styles from '../styles/contact.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Contact = () => {
+
+  const handleOnSubmit = async(e) => {
+    e.preventDefault();
+
+    const formData = {};
+
+    Array.from(e.currentTarget.elements).forEach(field => {
+      if ( !field.name ) return;
+      formData[field.name] = field.value;
+    });
+
+    await fetch('/api/mail', {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    });
+  }
+
   return (
     <>
     <Script src="https://kit.fontawesome.com/82944284a3.js"/>
@@ -14,7 +31,7 @@ const Contact = () => {
         <h1 className={styles.sectionHeader}>Get in touch</h1>
         <h1 className={styles.headerText}>If you've made it this far it means you should drop me a note!</h1>
         
-        <form id="contact-form" className={styles.formHorizontal} role="form">
+        <form id="contact-form" method="POST" className={styles.formHorizontal} role="form" onSubmit={handleOnSubmit} >
           
           <div className={styles.formGrid}>
             <div className={styles.formGroup}>
@@ -31,7 +48,7 @@ const Contact = () => {
 
             <div className={styles.formGroup}>
               <div className={styles.col}>
-                <input type="text" className={styles.formControl}  id="subject" placeholder="SUBJECT" name="text" defaultValue="" required/>
+                <input type="text" className={styles.formControl}  id="subject" placeholder="SUBJECT" name="subject" defaultValue="" required/>
               </div>
             </div>
             <div className={styles.formGroup}>
