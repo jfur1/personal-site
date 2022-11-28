@@ -121,7 +121,7 @@ const MoreProjects = () => {
                 )}
             </ul>
 
-            {moreProjects.length > 6
+            {moreProjects?.length > 6
             ? 
                 <button className={styles.toggleMore} onClick={handleClick}>
                     { expanded ? 
