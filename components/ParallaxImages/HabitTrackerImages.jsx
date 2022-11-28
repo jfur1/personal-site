@@ -24,32 +24,6 @@ const HabitTrackerImages = ({  scrollPercent, boxHeight, scrollHeight, screenHei
             }}
             alt="Habit Tracker Home"
         />
-        {/* <Image
-            src={habitsMonth}
-            height={'465'}
-            style={{
-                transition: 'transform 0.2s ease-out',
-                transform: `translate(0px,-${(sp) * 6}%) scale(0.94)`,
-                position: 'absolute',
-                top: '165vh',
-                left: '5vw',
-                zIndex: 2
-            }}
-            alt="Habit Tracker Monthly Overview"
-        />
-        <Image
-            src={habitsYear}
-            height={'465'}
-            style={{
-                transition: 'transform 0.2s ease-out',
-                transform: `translate(0px,-${(sp) * 6}%)  scale(0.84)`,
-                position: 'absolute',
-                top: '170vh',
-                left: '25vw',
-                zIndex: 4
-            }}
-            alt="Habit Tracker Yearly Overview"
-        /> */}
     </>
   )
 }
