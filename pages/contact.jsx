@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Script from 'next/script'
 import styles from '../styles/contact.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Contact = () => {
+  const [spinner, setSpinner] = useState(null)
+  const [mailSent, setMailSent] = useState(false)
 
   const handleOnSubmit = async(e) => {
     e.preventDefault();
-
+    
     const formData = {};
 
     Array.from(e.currentTarget.elements).forEach(field => {
@@ -15,10 +17,14 @@ const Contact = () => {
       formData[field.name] = field.value;
     });
 
-    await fetch('/api/mail', {
+    const data = await fetch('/api/mail', {
       method: 'POST',
       body: JSON.stringify(formData)
-    });
+    }).catch(err => console.log(err));
+
+    console.log("API RESULT: ", data)
+    if(data.status === 200)
+      setMailSent(true)
   }
 
   return (
@@ -31,7 +37,8 @@ const Contact = () => {
         <h1 className={styles.sectionHeader}>Get in touch</h1>
         <h1 className={styles.headerText}>If you've made it this far it means you should drop me a note!</h1>
         
-        <form id="contact-form" method="POST" className={styles.formHorizontal} role="form" onSubmit={handleOnSubmit} >
+        {mailSent === false
+          ? <form id="contact-form" method="POST" className={styles.formHorizontal} role="form" onSubmit={handleOnSubmit} >
           
           <div className={styles.formGrid}>
             <div className={styles.formGroup}>
@@ -67,6 +74,13 @@ const Contact = () => {
             </div>
           </div>
         </form>
+        
+        : // Thanks for the note! I will get back to you as soon as possible.
+         <div className={styles.messageSentCard}>
+            <h2>Thanks for the email!</h2>
+            <p>I'll make sure to return your message as soon as possible.</p>
+         </div>
+      }
         
         
           <div className={styles.directContactContainer}>

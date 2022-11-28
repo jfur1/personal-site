@@ -6,7 +6,7 @@
   --app-container: rgba(255, 255, 255, 0.959);
   --app-header: rgb(255, 255, 255);
   --main-color: #1f1c2e;
-  --gradient: linear-gradient(to right, #ff2290be, #ff8c00f0, #40E0D0);
+  --gradient: linear-gradient(to right, #ff2290be, #ff8c00f0, rgb(64, 224, 208));
   --secondary-color: rgb(226, 226, 226);
   --link-color-hover: #c3cff4;
   --scroll-indicator: rgb(255, 255, 255);
@@ -22,6 +22,7 @@
   --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
   --code-font: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
   --footer-light-font: rgb(68, 70, 71);
+  --highlight: rgb(64, 224, 208);
 }
 
 .dark:root {

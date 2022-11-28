@@ -33,7 +33,7 @@
   .contactWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 3em 5em 10px 5em;
@@ -55,6 +55,28 @@
     max-width: 900px;
     padding-left: 3em;
     padding-bottom: 2em;
+    margin: 1em 0;
+
+  }
+
+  .messageSentCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    max-width: 900px;
+    padding: 2em 3em;
+    margin: 1em 0;
+    border: 2px solid gray;
+
+    h2{
+      font-size: 2rem;
+    }
+
+    p{
+      font-size: 1.25rem;
+    }
   }
 
   .formGroup{
@@ -140,6 +162,7 @@
   .directContactContainer {
     width: 400px;
     padding-right: 3em;
+    margin: 1em 0;
     // max-width: 400px;
   }
   
