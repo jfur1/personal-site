@@ -13,7 +13,7 @@ const HabitTrackerImages = ({  scrollPercent, boxHeight, scrollHeight, screenHei
 
   return (
       <> 
-        <Image
+        <img
             src={habitsHome}
             height={'465'}
             style={{

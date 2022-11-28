@@ -11,7 +11,7 @@ const PathfindingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeig
 
     return (
         <>
-            <Image
+            <img
                 src={mpHome}
                 height={'400'}
                 style={{

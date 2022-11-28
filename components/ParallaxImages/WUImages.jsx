@@ -14,7 +14,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
 
     return (
         <> 
-            <Image
+            <img
                 src={WUtablet}
                 height={'465'}
                 style={{
@@ -27,7 +27,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 }}
                 alt="Western Union laptop"
             />
-            <Image
+            <img
                 src={WUiphone}
                 height={'600'}
                 style={{
@@ -40,7 +40,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 }}
                 alt="Western Union iPhone Locations"
             />
-            <Image
+            <img
                 src={WUiphone2}
                 height={'700'}
                 style={{

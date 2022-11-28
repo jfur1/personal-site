@@ -12,7 +12,7 @@ const SortingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, 
 
     return (
         <>
-            <Image
+            <img
                 src={mpHome}
                 height={'400'}
                 width={'500'}

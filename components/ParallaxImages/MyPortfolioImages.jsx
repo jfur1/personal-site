@@ -12,7 +12,7 @@ const MyPortfolioImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeig
 
     return (
         <>
-            <Image
+            <img
                 src={mpHome}
                 height={'425'}
                 style={{
