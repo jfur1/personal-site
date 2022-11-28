@@ -36,7 +36,7 @@ export default function Home({ theme, toggleTheme }) {
   ];
 
   const formattedTime = (date) => {
-    return date.toLocaleTimeString([], { timeZoneName: 'shortOffset', hour12: true, hour: '2-digit', minute: '2-digit' })
+    return date.toLocaleTimeString([], { timeZoneName: 'short', hour12: true, hour: '2-digit', minute: '2-digit' })
   }
 
   useEffect(() => {
