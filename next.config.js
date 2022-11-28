@@ -4,6 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
+  // NODE_ENV gets set based on the script -- see package.json
   basePath: process.env.NODE_ENV === "production" ? "/personal-site" : undefined,
   assetPrefix: process.env.NODE_ENV === "production" ? "/personal-site" : undefined,
 }
