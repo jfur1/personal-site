@@ -34,8 +34,8 @@ const Contact = () => {
     <section className={styles.contactContainer}>
       
       <div className={styles.contactWrapper}>
-        <h1 className={styles.sectionHeader}>Get in touch</h1>
-        <h1 className={styles.headerText}>If you've made it this far it means you should drop me a note!</h1>
+        <h1 className={styles.sectionHeader}>Contact Me</h1>
+        <h1 className={styles.headerText}>Have an idea for a project or interested in hiring me? Get in touch!</h1>
         
         {mailSent === false
           ? <form id="contact-form" method="POST" className={styles.formHorizontal} role="form" onSubmit={handleOnSubmit} >
@@ -78,7 +78,7 @@ const Contact = () => {
         : // Thanks for the note! I will get back to you as soon as possible.
          <div className={styles.messageSentCard}>
             <h2>Thanks for the email!</h2>
-            <p>I'll make sure to return your message as soon as possible.</p>
+            <p>{`I'll make sure to return your message as soon as possible.`}</p>
          </div>
       }
         

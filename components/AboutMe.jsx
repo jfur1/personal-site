@@ -24,13 +24,13 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                   Hello! My name is John and I enjoy building things for the web.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  {`I graduated with my degree in computer science in 2016 and I've had the privelage of working with small business clients as well as in a large scale production environment at Western Union.`}
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  {`I am experienced in creating outstanding user experiences, from interfaces to APIs.`}
                 </p>
                 <div>
-                  Here are a few of the technologies I've worked with recently:
+                  {`Here are a few of the technologies I've worked with recently:`}
                   <ul className={styles.skillsGrid}>
                     <li>JavaScript (ES6+)</li>
                     <li>React.js</li>

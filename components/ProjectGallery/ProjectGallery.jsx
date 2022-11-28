@@ -6,9 +6,9 @@ import ProjectGalleryImages from './ProjectGalleryImages'
 const ProjectGallery = ({ scrollPercent }) => {
 
     const [projectIndex, setProjectIndex] = useState(0);
-    var lastScrollTop = 0;
+    const [lastScrollTop, setLastScrollTop] = useState(0)
     const pageSplitTimes = 1.4;
-    var scrollDirectionDown = true;
+    const [scrollDirectionDown, setScrollDirectionDown] = useState(true);
     const N_PROJECTS = 5;
     const [vh, setVh] = useState(typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0)
     const projects = [
@@ -69,11 +69,11 @@ const ProjectGallery = ({ scrollPercent }) => {
             const body = document.body
             var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
             if (scrollDistance > lastScrollTop) {
-                scrollDirectionDown = true;
+                setScrollDirectionDown(true);
             } else {
-                scrollDirectionDown = false;
+                setScrollDirectionDown(false)
             }
-            lastScrollTop = scrollDistance;
+            setLastScrollTop(scrollDistance);
             var scrollPos = window.scrollY
             // console.log(scrollDistance);
             const DELAY_FACTOR = 1.15;
@@ -93,7 +93,7 @@ const ProjectGallery = ({ scrollPercent }) => {
                         setProjectIndex(Math.floor(scrollDistance / vh))
                     }
             }
-            
+
             setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
 
             console.log('PROJECT IDX:', projectIndex)
@@ -110,7 +110,7 @@ const ProjectGallery = ({ scrollPercent }) => {
         return () => {
           window.removeEventListener("scroll", handleScroll);
         }
-    }, [scrollPercent])
+    }, [scrollPercent, lastScrollTop, projectIndex, projects.length, vh])
     
     
     const changeTextContentBasedOnScroll = (projects, projectIndex) => {

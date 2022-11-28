@@ -15,13 +15,11 @@ console.log('SCROLL PERCENT:', scrollPercent)
                 MY WORK
             </h1>
             <div className={styles.projectsSubtitle}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {`Here is a gallery of some of the projects I've worked on recently, as well as a section with more projects, found below.`}
             </div>
         </section>
-
         <div className={styles.projectsContainer}>
             <ProjectGallery scrollPercent={scrollPercent}/>
-
             <MoreProjects/>
         </div>
     </>

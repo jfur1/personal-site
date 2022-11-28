@@ -14,8 +14,10 @@ import MyWork from '../components/MyWork.jsx'
 export default function Home({ theme, toggleTheme }) {
   const { ref: titleRef, inView: titleIsVisible } = useInView();
   const { ref: subtitleRef, inView: subtitleIsVisible } = useInView();
+  const [navActive, setNavActive] = useState(true);
+  const [activeIdx, setActiveIdx] = useState(0);
   const [scrollY, setScrollY] = useState(0);
-  const [lastScrollTop, setLastScrollTop] = useState(0)
+  const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [scrollIconOpacity, setScrollIconOpacity] = useState(1);
   const router = useRouter();
@@ -25,7 +27,13 @@ export default function Home({ theme, toggleTheme }) {
   const footerRef = React.useRef();
   const pageSplitTimes = 1.4;
   var scrollDirectionDown = true;
-  const date = new Date()
+  const date = new Date();
+  const MENU_LIST = [
+    { text: "Home", href: "/", ref: homeRef },
+    { text: "About", href: "/about", ref: aboutRef },
+    { text: "My Work", href: "/work", ref: projectsRef },
+    { text: "Contact", href: "/contact", ref: footerRef },
+  ];
 
   const formattedTime = (date) => {
     return date.toLocaleTimeString([], { timeZoneName: 'shortOffset', hour12: true, hour: '2-digit', minute: '2-digit' })
@@ -93,7 +101,7 @@ export default function Home({ theme, toggleTheme }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }
-  }, [scrollY])
+  }, [scrollY, lastScrollTop, navActive, scrollPercent])
   
   
   const scrollTo = (ref, scrollToNavIdx) => {
@@ -112,22 +120,13 @@ export default function Home({ theme, toggleTheme }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  const MENU_LIST = [
-    { text: "Home", href: "/", ref: homeRef },
-    { text: "About", href: "/about", ref: aboutRef },
-    { text: "My Work", href: "/work", ref: projectsRef },
-    { text: "Contact", href: "/contact", ref: footerRef },
-  ];
-  const [navActive, setNavActive] = useState(true);
-  const [activeIdx, setActiveIdx] = useState(0);
-
   return (
     <>
     <div id='root' className={styles.root}>
         <header className={`${navActive ? "scrollUp" : "scrollDown"}`}> 
           <nav className={`nav`}>
               <div onClick={() => {scrollToTop(homeRef)}}>
-                  <code className="logoText">{`< John Furlong />`}</code>
+                  <code className="logoText">{`JF`}</code>
               </div>
 
               <div className={`nav__menu-list`}>
@@ -158,13 +157,13 @@ export default function Home({ theme, toggleTheme }) {
         <div className={styles.particlesText}>
           <span className={styles.myNameIs}>Hi, my name is</span>
           <span ref={titleRef}>
-            <h1 className={`${styles.heroTitle}`}>John Furlong</h1>
+            <h1 className={`${styles.heroTitle}`}>John Furlong.</h1>
           </span>
           <span ref={subtitleRef}>
-            <p className={`${styles.heroSubtitle}`}>Full Stack Software Engineer.</p>
+            <p className={`${styles.heroSubtitle}`}>Full Stack Software Engineer</p>
           </span>
           <p className={styles.heroDesc}>
-            I'm a software engineer specialized in building scalable systems for the web.
+            {`I'm a software engineer specialized in building scalable systems for the web. I enjoy creating outstanding user experiences end to end, whether it's an interface or an API. `}
           </p>
           <button className={styles.cta} onClick={() => {scrollTo(footerRef, 3)}}>
             Contact Me
@@ -175,9 +174,9 @@ export default function Home({ theme, toggleTheme }) {
       <Head>
         <title>John Furlong | Portfolio</title>
         <meta name="description" content="John Furlong portfolio" />
-        <link rel="icon" href="/favicon.ico" />
-        <Script src="https://kit.fontawesome.com/82944284a3.js"/>
+        <link rel="icon" href="books.png"/>
       </Head>
+      <Script src="https://kit.fontawesome.com/82944284a3.js"/>
 
       <main className={styles.main}>
         { scrollPercent < 25 ?

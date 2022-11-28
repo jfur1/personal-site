@@ -48,7 +48,7 @@ const ProjectGalleryText = (props) => {
     console.log("NEW PROJECT !!!!!!!!!!")
     
 
-  }, [props.projectName])
+  }, [props])
 
 
   return (
