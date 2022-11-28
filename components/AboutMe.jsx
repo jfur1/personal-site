@@ -43,7 +43,7 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
               </div>
 
                 <img
-                  src='/me.jpg'
+                  src='me.jpg'
                   className={styles.aboutMeImage}
                   alt="Picture of the author"
                   width={400}
