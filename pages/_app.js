@@ -15,10 +15,6 @@ function MyApp({ Component, pageProps }) {
       document.documentElement.classList.remove('dark');
   }, [theme]);
 
-  // console.log(process.env.NODE_ENV)
-  // console.log(process.env.NODE_ENV === 'production')
-  // console.log(process.env.NODE_ENV.length)
-
   return (
     <>
       <Component {...pageProps} theme={theme} toggleTheme={themeToggler} />
