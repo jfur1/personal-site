@@ -8,8 +8,8 @@ const nextConfig = {
   // basePath: process.env.NODE_ENV === "production" ? "/personal-site" : undefined,
   // assetPrefix: process.env.NODE_ENV === "production" ? "/personal-site" : undefined,
 
-  basePath: "/personal-site",
-  assetPrefix: "/personal-site"
+  // basePath: "/personal-site",
+  // assetPrefix: "/personal-site"
 }
 
 module.exports = nextConfig
