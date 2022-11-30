@@ -35,7 +35,7 @@ const Contact = () => {
         
       <h1 className={styles.sectionHeader}>Contact Me</h1>
       <h1 className={styles.headerText}>Have an idea for a project or interested in hiring me? Get in touch!</h1>
-
+      
       <div className={styles.contactWrapper}>
         {mailSent === false
           ? <form id="contact-form" method="POST" className={styles.formHorizontal} role="form" onSubmit={handleOnSubmit} >
