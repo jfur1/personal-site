@@ -32,11 +32,11 @@ const Contact = () => {
     <Script src="https://kit.fontawesome.com/82944284a3.js"/>
 
     <section className={styles.contactContainer}>
-      
-      <div className={styles.contactWrapper}>
-        <h1 className={styles.sectionHeader}>Contact Me</h1>
-        <h1 className={styles.headerText}>Have an idea for a project or interested in hiring me? Get in touch!</h1>
         
+      <h1 className={styles.sectionHeader}>Contact Me</h1>
+      <h1 className={styles.headerText}>Have an idea for a project or interested in hiring me? Get in touch!</h1>
+
+      <div className={styles.contactWrapper}>
         {mailSent === false
           ? <form id="contact-form" method="POST" className={styles.formHorizontal} role="form" onSubmit={handleOnSubmit} >
           
@@ -80,7 +80,7 @@ const Contact = () => {
             <h2>Thanks for the email!</h2>
             <p>{`I'll make sure to return your message as soon as possible.`}</p>
          </div>
-      }
+        }
         
         
           <div className={styles.directContactContainer}>

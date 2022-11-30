@@ -69,7 +69,9 @@
     width: 100%;
     position: relative;
     font-family: Montserrat, Avenir, Poppins, 'Sans Serif';
-    padding: 3rem 3rem;
+    padding: 3em 2em 0;
+    margin: 4rem 0;
+    overflow-x: hidden;
   }
   
   .projectsTitle{
@@ -77,7 +79,7 @@
     position: absolute;
     overflow-x: hidden;
     color: var(--secondary-color);
-    font-size: 200px;
+    font-size: var(--parallaxTitle-font-size);
     left: -20%;
     margin: 0 0;
   }
@@ -86,7 +88,7 @@
     margin-left: 30%;
     margin-right: 5%;
     transform: translateY(57%);
-    font-size: 36px;
+    font-size: var(--parallaxSubitle-font-size);
   }
 
 
@@ -219,8 +221,10 @@
     margin-left:50%;
     width:50%;
     height: calc(140vh * var(--n-projects));
+    overflow-x: hidden;
     display: flex;
     flex-flow: column nowrap;
+    
 }
 
 .imageBox{

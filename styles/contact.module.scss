@@ -5,18 +5,18 @@
   
   .sectionHeader {
     text-align: left;
-    margin: 0 auto 5px;
+    margin: 0 5px;
     padding: 10px 0 10px 2em;
     font: 400 36px "Oswald", sans-serif;
     color: var(--main-color);
     text-transform: uppercase;
-    width: 100%;
+    width: 100vw;
   }
 
   .headerText{
     width: 100%;
     text-align: left;
-    margin: 0 auto 5px;
+    margin: 0 5px;
     padding: 5px 0 20px 3.25em;
     font: 400 22px "Oswald", sans-serif;
     color: var(--main-color);
@@ -31,19 +31,19 @@
   }
   
   .contactWrapper {
+    margin: 0 3rem;
+    padding: 1rem 1.5rem;
+    position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    padding: 3em 5em 10px 5em;
-    position: relative;
+    justify-content: center;
+    flex-wrap: nowrap;
   }
   
   .formGrid{
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -52,11 +52,8 @@
     display: flex;
     justify-content: center;
     font-weight: 400;
-    max-width: 900px;
-    padding-left: 3em;
-    padding-bottom: 2em;
+    // max-width: 90vw;
     margin: 1em 0;
-
   }
 
   .messageSentCard{
@@ -110,12 +107,12 @@
 
   textarea.contact{
     display: block;
-    min-width: 700px;
-    max-width: 825px;
+    width: 700px;
     height: 180px;
     min-height: 100px;
     max-height: 350px;
     padding: 12px 16px;
+    margin-right: 18px;
     background-color: var(--form-background);
     letter-spacing: 1px;
     font-family: "Oswald", sans-serif;
@@ -186,10 +183,6 @@
     color: var(--color-gray);
   }
   
-  .place {
-    margin-left: 62px;
-  }
-  
   .phone {
     margin-left: 56px;
   }
@@ -212,7 +205,6 @@
   /* Social Media Icons */
   .socialMediaList{
     position: relative;
-    font-size: 22px;
     text-align: center;
     width: 100%;
     margin: 0 auto;
@@ -229,7 +221,7 @@
     justify-content: center;
     height: 60px;
     width: 60px;
-    margin: 10px 3px;
+    // margin: 10px 3px;
     line-height: 60px;
     border-radius: 50%;
     color: #fff;
@@ -271,52 +263,42 @@
     border-color: rgba(255, 255, 255, 0.6);
   }
   
-  /* Begin Media Queries*/
-  @media screen and (max-width: 850px) {
+  /* Media Query for Mobile Devices */
+  @media screen and (max-width: 480px) {
+
+    .sectionHeader, .headerText{
+      padding: 5px 12px;
+    }
+    
     .contactWrapper {
+      margin: 10px auto;
+      position: relative;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
-    .directContactContainer,
-    .form-horizontal {
-      margin: 0 auto;
+
+    .phone, .gmail {
+      margin-left: 16px;
+    }
+
+    .socialMediaList > li, .contactIcon{
+      transform: scale(0.85);
+    }
+
+    .formCol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    textarea.contact {
+      width: 340px;
     }
   
     .directContactContainer {
-      margin-top: 60px;
-      max-width: 300px;
-    }
-    .socialMediaList li {
-      height: 60px;
-      width: 60px;
-      line-height: 60px;
-    }
-    .socialMediaList li:after {
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-    }
-  }
-  
-  @media screen and (max-width: 569px) {
-    .directContactContainer,
-    .formWrapper {
-      float: none;
-      margin: 0 auto;
-    }
-    .formControl,
-    textarea.contact {
-      margin: 0 auto;
-    }
-  
-    .name,
-    .email,
-    textarea.contact {
-      width: 280px;
-    }
-  
-    .directContactContainer {
-      margin-top: 60px;
+      margin: 30px 0;
       max-width: 280px;
     }
     .socialMediaList {
@@ -334,10 +316,130 @@
       line-height: 55px;
     }
   }
-  
-  @media screen and (max-width: 410px) {
-    .sendButton {
-      width: 99%;
-    }
+
+  /* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .sectionHeader, .headerText{
+    padding: 5px 12px;
   }
   
+  .contactWrapper {
+    margin: 10px auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .phone, .gmail {
+    margin-left: 16px;
+  }
+
+  .socialMediaList > li, .contactIcon{
+    transform: scale(0.85);
+  }
+
+  .formCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  textarea.contact {
+    width: 340px;
+  }
+
+  .directContactContainer {
+    margin: 30px 0;
+    max-width: 280px;
+  }
+  .socialMediaList {
+    left: 0;
+  }
+  .socialMediaList li {
+    height: 55px;
+    width: 55px;
+    line-height: 55px;
+    font-size: 2rem;
+  }
+  .socialMediaList li:after {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+  }
+}
+
+
+/* Media Query for Tablets & Ipads in portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+
+  .formCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phone, .gmail {
+    margin-left: 16px;
+  }
+
+  .socialMediaList > li, .contactIcon{
+    transform: scale(0.85);
+  }
+
+
+  textarea.contact {
+    width: 340px;
+  }
+
+  .directContactContainer {
+    margin: 30px 0;
+    max-width: 280px;
+  }
+  .socialMediaList {
+    left: 0;
+  }
+  .socialMediaList li {
+    height: 55px;
+    width: 55px;
+    line-height: 55px;
+    font-size: 2rem;
+  }
+  .socialMediaList li:after {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+  }
+}
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+  .formControl{
+    width: 255px;
+  }
+  textarea.contact {
+    width: 530px;
+  }
+}
+
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+  .sectionHeader, .headerText{
+    padding: 1rem 4rem;
+  }
+
+  .formCol {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+
+  .phone, .gmail {
+    margin-left: 16px;
+  }
+
+  .socialMediaList > *{
+    margin-right: 10px;
+  }
+}
