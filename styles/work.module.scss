@@ -128,7 +128,7 @@
     left: 3%;
     width: 50vw;
     position: fixed;
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
       top: 5%;
       left: 10%;
       width: 85vw;
@@ -222,12 +222,10 @@
     overflow-x: hidden;
     display: flex;
     flex-flow: column nowrap;
-    
 }
 
 .imageBox{
     margin-top:40vh;
-    // height: 100v;
     position: relative;
 }
 
@@ -375,4 +373,16 @@
     &:hover{
         background-color: var(--secondary-color);
     }
+}
+
+/* Media Query for Mobile Devices & low resolution  Tablets, Ipads */
+@media screen and (max-width: 767px) {
+  .imageContainer{
+    margin:0%;
+    width:100%;
+    height: calc(140vh * var(--n-projects));
+    overflow-x: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+  }
 }
