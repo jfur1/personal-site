@@ -421,6 +421,9 @@
   textarea.contact {
     width: 530px;
   }
+  .socialMediaList > *{
+    margin-right: 10px;
+  }
 }
 
 /* Media Query for Large screens */
@@ -448,5 +451,8 @@
 @media (min-width: 1281px) {
   .contactWrapper{
     justify-content: space-around;
+  }
+  .socialMediaList > *{
+    margin-right: 10px;
   }
 }

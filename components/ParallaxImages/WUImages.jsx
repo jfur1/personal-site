@@ -17,7 +17,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                     transform: `translate(0px,-${(sp) * 1.5}%)`,
                     position: 'absolute',
                     left: '-2vw',
-                    top: '-15vh',
+                    top: '10vh',
                     zIndex: 1
                 }}
                 alt="Western Union laptop"
@@ -40,7 +40,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 height={'700'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 6}%)  scale(0.84)`,
+                    transform: `translate(0px,-${(sp) * 6}%) scale(0.84)`,
                     position: 'absolute',
                     top: '120vh',
                     left: '25vw',
