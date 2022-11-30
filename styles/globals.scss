@@ -23,7 +23,7 @@
   --code-font: "SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
   --footer-light-font: rgb(68, 70, 71);
   --highlight: rgb(64, 224, 208);
-  --font-size-xs: 10px; 
+  --font-size-xs: 10px;
   --font-size-s: 12px;
   --font-size-m: 14px;
   --font-size-l: 18px;
@@ -112,7 +112,7 @@ body {
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
   body {
-      background-color: rgb(134, 158, 179);
+      // background-color: rgb(134, 158, 179);
   }
   :root{ 
     --heroTitle-font-size: 50px;
@@ -121,6 +121,10 @@ body {
     --heroSubtitle-font-size: 20px;
     --heroDesc-font-size: 17px;
     --aboutMeDesc-font-size: 18px;
+    --projectTitle-font-size: 30px;
+    --projectSubtitle-font-size: 20px;
+    --projectDesc-font-size: 18px;
+
   }
 
   // TO DO : Absolute header
@@ -132,7 +136,7 @@ body {
 /* Media Query for low resolution  Tablets, Ipads */
 @media (min-width: 481px) and (max-width: 767px) {
   body {
-      background-color: yellow;
+      // background-color: yellow;
   }
   :root{ 
     --heroTitle-font-size: 50px;
@@ -141,6 +145,11 @@ body {
     --heroSubtitle-font-size: 30px;
     --heroDesc-font-size: 20px;
     --aboutMeDesc-font-size: 22px;
+    //Gallery Values
+    --projectTitle-font-size: 40px;
+    --projectSubtitle-font-size: 30px;
+    --projectDesc-font-size: 20px;
+
   }
 
   // TO DO : Absolute header
@@ -152,7 +161,7 @@ body {
 /* Media Query for Tablets & Ipads in portrait mode */
 @media (min-width: 768px) and (max-width: 1024px){
   body {
-      background-color: blue;
+      // background-color: blue;
   }
   :root{ 
     --heroTitle-font-size: 50px;
@@ -161,6 +170,9 @@ body {
     --heroSubtitle-font-size: 40px;
     --heroDesc-font-size: 22px;
     --aboutMeDesc-font-size: 22px;
+    --projectTitle-font-size: 50px;
+    --projectSubtitle-font-size: 25px;
+    --projectDesc-font-size: 22px;
   }
   header{
     position: sticky;
@@ -210,10 +222,10 @@ body {
   }
 }
 
-/* Media Query for Laptops and Desktops */
+/* Media Query for Laptops and Desktops & iPads in Landscape Mode */
 @media (min-width: 1025px) and (max-width: 1280px){
   body {
-      background-color: green;
+      // background-color: green;
   }
 
   :root{ 
@@ -223,6 +235,10 @@ body {
     --heroSubtitle-font-size: 40px;
     --heroDesc-font-size: 22px;
     --aboutMeDesc-font-size: 22px;
+    --projectTitle-font-size: 60px;
+    --projectSubtitle-font-size: 30px;
+    --projectDesc-font-size: 24px;
+
   }
 
   header{
@@ -276,7 +292,7 @@ body {
 /* Media Query for Large screens */
 @media (min-width: 1281px) {
   body {
-      background-color: violet;
+      // background-color: violet;
   }
   :root{ 
     --heroTitle-font-size: 50px;
@@ -285,6 +301,9 @@ body {
     --heroSubtitle-font-size: 40px;
     --heroDesc-font-size: 22px;
     --aboutMeDesc-font-size: 22px;
+    --projectDesc-font-size: 26px;
+    --projectTitle-font-size: 60px;
+    --projectSubtitle-font-size: 35px;
   }
   header{
     position: sticky;
