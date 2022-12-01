@@ -106,7 +106,7 @@ const Contact = () => {
               <li><a href="https://www.linkedin.com/in/jfur1/" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
                 <i className="fa fa-linkedin fa-2x"></i></a>
               </li>
-              <li><a href="docs/john-furlong-resume copy.pdf" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
+              <li><a href="john-furlong-resume-2022.pdf" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
                 <i className="fa fa-id-card fa-2x"></i></a>
               </li>
               <li><a href="mailto:johnfurlong24@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
