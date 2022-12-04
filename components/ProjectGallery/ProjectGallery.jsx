@@ -9,6 +9,7 @@ const ProjectGallery = ({ scrollPercent }) => {
     const [lastScrollTop, setLastScrollTop] = useState(0)
     const pageSplitTimes = 1.4;
     const [scrollDirectionDown, setScrollDirectionDown] = useState(true);
+    const [vhDiff, setVhDiff] = useState(null)
     const N_PROJECTS = 5;
     const [vh, setVh] = useState(typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0)
     const projects = [
@@ -68,6 +69,8 @@ const ProjectGallery = ({ scrollPercent }) => {
             const documentElement = document.documentElement
             const body = document.body
             var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+            console.log('scrollDistance: ', scrollDistance)
+
             if (scrollDistance > lastScrollTop) {
                 setScrollDirectionDown(true);
             } else {
@@ -76,7 +79,8 @@ const ProjectGallery = ({ scrollPercent }) => {
             setLastScrollTop(scrollDistance);
             var scrollPos = window.scrollY
             // console.log(scrollDistance);
-            const DELAY_FACTOR = 1.15;
+            const DELAY_FACTOR = 1.25;
+
 
             scrollDistance = scrollDistance - (window.screen.height * DELAY_FACTOR);
 
@@ -92,17 +96,20 @@ const ProjectGallery = ({ scrollPercent }) => {
                         console.log('CHANGING');
                         setProjectIndex(Math.floor(scrollDistance / vh))
                     }
-            }
-
-            setVh((typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0))
+                }
 
             console.log('PROJECT IDX:', projectIndex)
-            console.log('PROJECT VH:', vh)
+            console.log('vh:', vh)
+            console.log('scrollDistance:', scrollDistance)
         };
         // just trigger this so that the initial state 
         // is updated as soon as the component is mounted
         // related: https://stackoverflow.com/a/63408216
-        
+
+        setVh((typeof(window) !== 'undefined' 
+        ? Math.round((
+            window.document.documentElement.clientHeight) * pageSplitTimes) : 0))
+            
         handleScroll();
     
         window.addEventListener("scroll", handleScroll);

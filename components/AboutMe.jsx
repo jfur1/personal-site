@@ -12,7 +12,7 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                 {`ABOUT ME`}
               </h1>
               <div className={styles.subtitle}>
-                {`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`}
+                {`Full stack software engineer focused on creating fast, scalable systems for the web`}
               </div>
             </div>
 
@@ -21,7 +21,7 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
             <div className={styles.grid}>
               <div className={styles.aboutMeDesc}>
                 <p >
-                  Hello! My name is John and I enjoy building things for the web.
+                  {`Hello! My name is John and I enjoy building things for the web.`}
                 </p>
                 <p>
                   {`I graduated with my degree in computer science in 2016 and I've had the privelage of working with small business clients as well as in a large scale production environment at Western Union.`}
@@ -32,12 +32,12 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                 <div>
                   {`Here are a few of the technologies I've worked with recently:`}
                   <ul className={styles.skillsGrid}>
-                    <li>JavaScript (ES6+)</li>
-                    <li>React.js</li>
-                    <li>Node.js</li>
-                    <li>Next.js</li>
-                    <li>C++</li>
-                    <li>TypeScript</li>
+                    <li>{`JavaScript (ES6+)`}</li>
+                    <li>{`React.js`}</li>
+                    <li>{`Node.js`}</li>
+                    <li>{`Next.js`}</li>
+                    <li>{`C++`}</li>
+                    <li>{`TypeScript`}</li>
                   </ul>
                 </div>
               </div>
