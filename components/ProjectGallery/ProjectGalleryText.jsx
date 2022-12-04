@@ -46,7 +46,6 @@ const ProjectGalleryText = (props) => {
     refresh(props)
 
     console.log("NEW PROJECT !!!!!!!!!!")
-    
 
   }, [props])
 

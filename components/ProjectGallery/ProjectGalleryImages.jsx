@@ -6,7 +6,7 @@ import MyPortfolioImages from '../ParallaxImages/MyPortfolioImages'
 import PathfindingImages from '../ParallaxImages/PathfindingImages'
 import SortingImages from '../ParallaxImages/SortingImages'
 
-const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes }) => {
+const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes, width }) => {
   const [screenHeight, setScreenHeight] = useState(
     typeof(window) !== 'undefined' ? 
       Math.round(window.document.documentElement.clientHeight)
@@ -20,12 +20,18 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes }) => {
 
   const boxHeight = pageSplitTimes * 100;
 
+  var scale = 0.9;
+  if(width < 395)
+      scale = 0.6
+  else if(width >= 395 && width < 500)
+      scale = 0.7
 
   return (
     <div className={styles.imageContainer}>
       <div className={styles.imageBox}>
         <WUImages
           index={1}
+          scale={scale}
           boxHeight={boxHeight}
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
@@ -33,6 +39,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes }) => {
         />
         <HabitTrackerImages
           index={2}
+          scale={scale}
           boxHeight={boxHeight}
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
@@ -40,6 +47,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes }) => {
         />
         <MyPortfolioImages
           index={3}
+          scale={scale}
           boxHeight={boxHeight}
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
@@ -47,6 +55,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes }) => {
         />
          <PathfindingImages
           index={4}
+          scale={scale}
           boxHeight={boxHeight}
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
@@ -54,6 +63,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes }) => {
         />
         <SortingImages
           index={5}
+          scale={scale}
           boxHeight={boxHeight}
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}

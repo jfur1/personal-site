@@ -9,7 +9,7 @@ const ProjectGallery = ({ scrollPercent }) => {
     const [lastScrollTop, setLastScrollTop] = useState(0)
     const pageSplitTimes = 1.4;
     const [scrollDirectionDown, setScrollDirectionDown] = useState(true);
-    const [vhDiff, setVhDiff] = useState(null)
+    const [width, setWidth] = useState(0)
     const N_PROJECTS = 5;
     const [vh, setVh] = useState(typeof(window) !== 'undefined' ? Math.round(window.document.documentElement.clientHeight * pageSplitTimes) : 0)
     const projects = [
@@ -79,8 +79,27 @@ const ProjectGallery = ({ scrollPercent }) => {
             setLastScrollTop(scrollDistance);
             var scrollPos = window.scrollY
             // console.log(scrollDistance);
-            const DELAY_FACTOR = 1.25;
+            
+            var DELAY_FACTOR = 1.25;
+            setWidth(Math.max(
+                document.documentElement["clientWidth"],
+                document.body["scrollWidth"],
+                document.documentElement["scrollWidth"],
+                document.body["offsetWidth"],
+                document.documentElement["offsetWidth"]
+            ))
+            if(width < 395)
+                DELAY_FACTOR = 3
+            else if(width >= 395 && width < 500)
+                DELAY_FACTOR = 2.25
+            else if(width >= 500 && width < 780)
+                DELAY_FACTOR = .6
+            else if(width >= 780)
+                DELAY_FACTOR = .5
+                
 
+            console.log('wdith:', width)
+            console.log('window.screen.height:', window.screen.height)
 
             scrollDistance = scrollDistance - (window.screen.height * DELAY_FACTOR);
 
@@ -141,7 +160,7 @@ const ProjectGallery = ({ scrollPercent }) => {
   return (
     <div className={styles.projectsGallery}>
         {changeTextContentBasedOnScroll(projects, projectIndex)}
-        <ProjectGalleryImages pageSplitTimes={pageSplitTimes} scrollPercent={scrollPercent} />
+        <ProjectGalleryImages pageSplitTimes={pageSplitTimes} scrollPercent={scrollPercent} width={width}/>
     </div>
   )
 }

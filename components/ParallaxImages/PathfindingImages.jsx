@@ -1,11 +1,12 @@
 import React from 'react'
 
-const PathfindingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, index  }) => {
+const PathfindingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, index, scale }) => {
     var sp = scrollPercent
     const heighttoBeReducedinVH = ((boxHeight * index) - 100);
     const scrollOffset = (screenHeight * heighttoBeReducedinVH) / 100;
     const scrollOffsetInPercent = (scrollOffset * 100 / scrollHeight) + index - 1;
     sp -= scrollOffsetInPercent;
+    
 
     return (
         <>
@@ -14,7 +15,7 @@ const PathfindingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeig
                 height={'400'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 1.5}%) scale(0.96)`,
+                    transform: `translate(0px,-${(sp) * 1.5}%) scale(${0.95})`,
                     position: 'absolute',
                     left: '3vw',
                     top: '420vh',

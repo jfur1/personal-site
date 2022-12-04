@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index }) => {
+const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index, scale }) => {
     var sp = scrollPercent
     const heighttoBeReducedinVH = ((boxHeight * index) - 100);
     const scrollOffset = (screenHeight * heighttoBeReducedinVH) / 100;
@@ -14,11 +14,12 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 height={'465'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 1.5}%)`,
+                    transform: `translate(0px,-${(sp) * 1.5}%) scale(${scale})`,
+                    scale: scale,
                     position: 'absolute',
                     left: '-2vw',
                     top: '10vh',
-                    zIndex: 1
+                    zIndex: 3
                 }}
                 alt="Western Union laptop"
             />
@@ -27,11 +28,11 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 height={'600'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 9}%) scale(0.94)`,
+                    transform: `translate(0px,-${(sp) * 9}%) scale(${scale + 0.04})`,
                     position: 'absolute',
                     top: '180vh',
                     left: '5vw',
-                    zIndex: 2
+                    zIndex: 5
                 }}
                 alt="Western Union iPhone Locations"
             />
@@ -40,11 +41,11 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index 
                 height={'700'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 6}%) scale(0.84)`,
+                    transform: `translate(0px,-${(sp) * 6}%) scale(${scale - 0.1})`,
                     position: 'absolute',
                     top: '120vh',
                     left: '25vw',
-                    zIndex: 4
+                    zIndex: 7
                 }}
                 alt="Western Union iPhone Payments"
             />
