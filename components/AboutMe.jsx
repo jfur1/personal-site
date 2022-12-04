@@ -9,10 +9,10 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
 
               <h1 className={styles.title} 
                 style={scrollPercent > 0 && scrollPercent < 35 ? { transform: `translateX(${ scrollPercent * 1.75 }%)` }: null}>
-                ABOUT ME
+                {`ABOUT ME`}
               </h1>
               <div className={styles.subtitle}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`}
               </div>
             </div>
 
@@ -49,23 +49,6 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
                   width={400}
                   height={400}  
                 />
-
-              {/* <div className={styles.aboutMeCards}>
-                <a href="https://nextjs.org/docs" target='_blank'className={styles.card}>
-                  <h2>Front End Development</h2>
-                  <p>Create beautiful user interfaces that work seamlessly at scale.</p>
-                </a>
-
-                <a href="https://nextjs.org/learn" target='_blank' className={styles.card}>
-                  <h2>Back End Development</h2>
-                  <p>Build and maintain robust APIs while working closely with the servers.</p>
-                </a>
-
-                <a href="https://nextjs.org/docs" className={styles.card}>
-                  <h2>Download My Resume</h2>
-                  <p>Create beautiful user interfaces that work seamlessly at scale.</p>
-                </a>
-              </div> */}
             </div>
           </div>
   )
