@@ -145,7 +145,7 @@ export default function Home({ theme, toggleTheme }) {
                   <div className={`nav__link ${activeIdx === 3 ? "active" : ""}`} onClick={() => {scrollTo(footerRef, 3)}}>
                     Contact
                   </div>
-                    <a href="docs/john_furlong_resume_2023.pdf" target="_blank" rel="noopener noreferrer"  className={styles.headerCta}>
+                    <a href="john_furlong_resume_2023.pdf" target="_blank" rel="noopener noreferrer"  className={styles.headerCta}>
                       <span>Resume</span>
                     </a>
               </div>
