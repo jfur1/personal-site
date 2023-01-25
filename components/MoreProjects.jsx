@@ -7,9 +7,9 @@ const MoreProjects = () => {
     const moreProjects = [
         {
             title: 'Habit Tracker',
-            desc: 'Full stack habit tracker app designed to help keep users accountable while forming new habits.',
+            desc: 'Full stack habit tracker app for staying consistent while forming new habits or breaking old ones.',
             githubLink: 'https://github.com/jfur1/back-burner',
-            externalLink: '',
+            externalLink: 'https://www.habit-tracker.io',
             stack: [
                 'Next.js', 'SCSS', 'Node.js'
             ]

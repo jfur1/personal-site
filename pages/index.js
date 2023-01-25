@@ -153,7 +153,7 @@ export default function Home({ theme, toggleTheme }) {
       </header>
 
 
-      <div className={styles.particlesContainer} ref={homeRef}>
+      <div className={styles.hero} ref={homeRef}>
         <div className={styles.particlesText}>
           <span className={styles.myNameIs}>Hi, my name is</span>
           <span ref={titleRef}>
