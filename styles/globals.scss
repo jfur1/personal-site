@@ -261,7 +261,7 @@ body {
   }
   nav{
     display: flex;
-    padding: 10px 30px 10px 40px;
+    padding: 20px 30px 20px 40px;
     justify-content: space-between;
     align-items: center;
   }
@@ -273,6 +273,7 @@ body {
     width: fit-content;
     column-gap: 24px;
     align-items: center;
+    cursor: pointer;
   }
   .nav__link::before{
     content: '';
@@ -325,7 +326,7 @@ body {
   }
   nav{
     display: flex;
-    padding: 10px 30px 10px 40px;
+    padding: 20px 30px 20px 40px;
     justify-content: space-between;
     align-items: center;
   }
