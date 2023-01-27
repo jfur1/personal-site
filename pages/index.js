@@ -200,6 +200,7 @@ export default function Home({ theme, toggleTheme }) {
             scrollTo={scrollTo} 
             aboutRef={aboutRef} 
             footerRef={footerRef}
+            width={width}
           />
 
           <MyWork 

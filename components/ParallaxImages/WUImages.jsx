@@ -9,19 +9,29 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index,
 
     var top = ['10vh', '210vh', '160vh']
     var left = ['-2vw', '1vw', '25vw']
+    var scrollSpeed = [1.5, 9, 6]
 
     if(width < 400){
         top = ['10vh', '170vh', '140vh'];
         left =['-18vw', '-4vw', '30vw']
     } else if(width >= 400 && width < 780){
-        top = ['10vh', '210vh', '160vh'];
-        left =['-1vw', '27vw', '56vw']
-    } else if(width >= 780 && width < 1024){
-        var top = ['10vh', '235vh', '190vh']
-        var left = ['-2vw', '1vw', '25vw']
-    } else if(width >= 1024){
-        var top = ['10vh', '240vh', '190vh']
-        var left = ['-2vw', '1vw', '25vw']
+        top = ['10vh', '130vh', '115vh'];
+        left =['-1vw', '17vw', '46vw']
+        scrollSpeed = [1.5, 7, 7]
+
+    } else if(width >= 780 && width < 1281){ // MBP 13
+        top = ['10vh', '165vh', '110vh']
+        left = ['-2vw', '1vw', '25vw']
+        scrollSpeed = [1.5, 7, 5]
+        
+    } else if(width >= 1090 && width < 1281){ // MBP 15
+        top = ['5vh', '200vh', '150vh']
+        left = ['-2vw', '1vw', '25vw']
+        scrollSpeed = [1.5, 8, 6]
+    } else if(width >= 1281){ // Large Monitor
+        top = ['12vh', '150vh', '140vh']
+        left = ['-2vw', '7vw', '25vw']
+        scrollSpeed = [1.5, 7, 7]
     }
 
     return (
@@ -31,7 +41,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index,
                 height={'465'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 1.5}%) scale(${scale})`,
+                    transform: `translate(0px,-${sp * scrollSpeed[0]}%) scale(${scale})`,
                     scale: scale,
                     position: 'absolute',
                     left: left[0],
@@ -45,7 +55,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index,
                 height={'600'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 9}%) scale(${scale - 0.1})`,
+                    transform: `translate(0px,-${sp * scrollSpeed[1]}%) scale(${scale - 0.1})`,
                     position: 'absolute',
                     top: top[1],
                     left: left[1],
@@ -58,7 +68,7 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index,
                 height={'700'}
                 style={{
                     transition: 'transform 0.2s ease-out',
-                    transform: `translate(0px,-${(sp) * 6}%) scale(${scale - 0.1})`,
+                    transform: `translate(0px,-${sp * scrollSpeed[2]}%) scale(${scale - 0.1})`,
                     position: 'absolute',
                     top: top[2],
                     left: left[2],

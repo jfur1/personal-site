@@ -11,16 +11,14 @@ const MyWork = ({ scrollPercent, projectsRef, width }) => {
     }
     else if(width >= 395 && width < 500)
         transX = 2
-    else if(width >= 500 && width < 780){
-        transX = 2
-        start = '-90%'
+    else if(width >= 500 && width < 1281){
+        transX = 2.2
+        start = '-40%'
     }
-    else if(width >= 780 && width < 1024){
+    else if(width >= 1281){
         transX = 2.5
-        start = '-60%'
+        start = '-30%'
     }
-    else if(width >= 1024)
-        transX = 2
   return (
     <>
         <section className={styles.projectsParallax} ref={projectsRef}>

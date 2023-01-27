@@ -2,13 +2,32 @@ import React from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 
-const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef }) => {
+const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef, width }) => {
+  var transX = 1.75, start = '0%'
+  if(width < 395){
+      transX = 1.75;
+      start = '-20%'
+  }
+  else if(width >= 395 && width < 500)
+      transX = 1.75
+  else if(width >= 500 && width < 1281){
+      transX = 1.75
+      start = '-30%'
+  }
+  else if(width >= 1281){
+      transX = 1.75
+      // start = '-30%'
+  }
   return (
     <div className={styles.aboutContainer} ref={aboutRef}>
             <div className={styles.aboutMeParallax}>
 
               <h1 className={styles.title} 
-                style={scrollPercent > 0 && scrollPercent < 35 ? { transform: `translateX(${ scrollPercent * 1.75 }%)` }: null}>
+                style={scrollPercent > 0 && scrollPercent < 35 ? 
+                { transform: `translateX(${ scrollPercent * 1.75 }%)`,
+                  left: start
+                }
+                : null}>
                 {`ABOUT ME`}
               </h1>
               <div className={styles.subtitle}>
