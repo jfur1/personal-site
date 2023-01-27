@@ -19,16 +19,16 @@ const WUImages = ({ scrollPercent, boxHeight, scrollHeight, screenHeight, index,
         left =['-1vw', '17vw', '46vw']
         scrollSpeed = [1.5, 7, 7]
 
-    } else if(width >= 780 && width < 1281){ // MBP 13
-        top = ['10vh', '165vh', '110vh']
+    } else if(width >= 780 && width < 1281){  
+        top = ['10vh', '160vh', '130vh']
         left = ['-2vw', '1vw', '25vw']
-        scrollSpeed = [1.5, 7, 5]
+        scrollSpeed = [1.5, 9, 6]
         
-    } else if(width >= 1090 && width < 1281){ // MBP 15
-        top = ['5vh', '200vh', '150vh']
+    } else if(width >= 1090 && width < 1281){ // MBP 13
+        top = ['5vh', '170vh', '150vh']
         left = ['-2vw', '1vw', '25vw']
         scrollSpeed = [1.5, 8, 6]
-    } else if(width >= 1281){ // Large Monitor
+    } else if(width >= 1281){ // MBP 15
         top = ['12vh', '150vh', '140vh']
         left = ['-2vw', '7vw', '25vw']
         scrollSpeed = [1.5, 7, 7]
