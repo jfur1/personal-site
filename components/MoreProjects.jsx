@@ -11,7 +11,7 @@ const MoreProjects = () => {
             githubLink: 'https://github.com/jfur1/back-burner',
             externalLink: 'https://www.habit-tracker.io',
             stack: [
-                'Next.js', 'SCSS', 'Node.js'
+                'Next.js', 'Node.js', 'MySQL'
             ]
         },
         {
