@@ -158,7 +158,7 @@
   /* Begin Right Contact Page */
   .directContactContainer {
     width: 400px;
-    padding-right: 3em;
+    // padding-right: 3em;
     margin: 1em 0;
     // max-width: 400px;
   }
@@ -184,11 +184,11 @@
   }
   
   .phone {
-    margin-left: 56px;
+    margin-left: 25px;
   }
   
   .gmail {
-    margin-left: 53px;
+    margin-left: 25px;
   }
   
   .contactText a {
@@ -260,7 +260,8 @@
   }
   
   hr.sectionLine {
-    border-color: rgba(255, 255, 255, 0.6);
+    border-color: rgb(167, 167, 167);
+    margin: 1rem 0 2rem;
   }
   
   /* Media Query for Mobile Devices */
@@ -336,7 +337,7 @@
     margin-left: 16px;
   }
 
-  .socialMediaList > li, .contactIcon{
+  .socialMediaList > li, .contactIcon > i{
     transform: scale(0.85);
   }
 
@@ -384,7 +385,7 @@
     margin-left: 16px;
   }
 
-  .socialMediaList > li, .contactIcon{
+  .socialMediaList > li, .contactIcon > i{
     transform: scale(0.85);
   }
 

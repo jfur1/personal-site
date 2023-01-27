@@ -52,9 +52,9 @@ const AboutMe = ({ scrollPercent, scrollTo, aboutRef, footerRef, width }) => {
                   {`Here are a few of the technologies I've worked with recently:`}
                   <ul className={styles.skillsGrid}>
                     <li>{`JavaScript (ES6+)`}</li>
-                    <li>{`React.js`}</li>
+                    <li>{`React.js / Next.js`}</li>
+                    <li>{`MySQL`}</li>
                     <li>{`Node.js`}</li>
-                    <li>{`Next.js`}</li>
                     <li>{`C++`}</li>
                     <li>{`TypeScript`}</li>
                   </ul>

@@ -100,17 +100,33 @@ const Contact = () => {
             <hr className={styles.sectionLine}/>
 
             <ul className={styles.socialMediaList}>
-              <li><a href="https://www.github.com/jfur1" id='gh' target="_tab" rel="noopener noreferrer" className={styles.contactIcon}>
-                <i className="fa fa-github fa-2x" aria-hidden="true"></i></a>
+              <li>
+                <a href="https://www.github.com/jfur1" id='gh' target="_tab" rel="noopener noreferrer" className={styles.contactIcon}>
+                  <i 
+                    className="fa fa-github fa-2x" aria-hidden="true"
+                    style={{transform : "scale(0.75)"}}/>
+                </a>
               </li>
-              <li><a href="https://www.linkedin.com/in/jfur1/" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
-                <i className="fa fa-linkedin fa-2x"></i></a>
+              <li>
+                <a href="https://www.linkedin.com/in/jfur1/" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
+                  <i 
+                    className="fa fa-linkedin fa-2x"
+                    style={{transform : "scale(0.75)"}}/>
+                </a>
               </li>
-              <li><a href="john_furlong_resume_2023.pdf" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
-                <i className="fa fa-id-card fa-2x"></i></a>
+              <li>
+                <a href="john_furlong_resume_2023.pdf" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
+                  <i
+                  className="fa fa-id-card fa-2x"
+                  style={{transform : "scale(0.75)"}}/>
+                </a>
               </li>
-              <li><a href="mailto:johnfurlong24@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
-                <i className="fa fa-envelope fa-2x" aria-hidden="true"></i></a>
+              <li>
+                <a href="mailto:johnfurlong24@gmail.com" target="_blank" rel="noopener noreferrer" className={styles.contactIcon}>
+                  <i 
+                  className="fa fa-envelope fa-2x" aria-hidden="true" 
+                  style={{transform : "scale(0.75)"}}/>
+                </a>
               </li>       
             </ul>
           </div>
