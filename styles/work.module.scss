@@ -157,12 +157,24 @@
     animation-delay: 0.5s;
     position: relative;
     display: inline;
+    margin-bottom: 3rem;
+
+    &.projectName{
+      max-width: fit-content;
+    }
+  }
+
+  @media (max-width: 767px) {
+      .textMask span{
+        margin-bottom: 1rem;
+      }
+
   }
   
   .textMask span::after{
     content:'';
     top:0;
-    left:0;
+    left: 0;
     position:absolute;
     width:0%;
     height:100%;
@@ -183,7 +195,6 @@
     }
 
     .projectID{
-        margin: 5%;
         font-size: var(--projectDesc-font-size);
     }
 
@@ -194,18 +205,20 @@
     .projectName{
         font-size: var(--projectTitle-font-size);
         font-weight: 400;
-        width: 100%;
-        height: 100px;
+        // width: 100%;
+        // height: 100px;
     }
 
     .projectDesc{
         font-size: var(--projectDesc-font-size);
-        width: 100%;
+        // width: 100%;
+        text-align: center;
+        margin-top: 1rem;
     }
 
     .projectRole{
         font-size: var(--projectSubtitle-font-size);
-        width: 100%;
+        // width: 100%;
     }
 
     .projectType{

@@ -108,6 +108,11 @@ body {
   font-family: Montserrat, Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+.logoText,
+.nav__link{
+  font-size: larger;
+  cursor: pointer;
+}
 
 /* Media Query for Mobile Devices */
 @media (max-width: 480px) {
@@ -170,7 +175,7 @@ body {
     --heroSubtitle-font-size: 40px;
     --heroDesc-font-size: 22px;
     --aboutMeDesc-font-size: 22px;
-    --projectTitle-font-size: 50px;
+    --projectTitle-font-size: 40px;
     --projectSubtitle-font-size: 25px;
     --projectDesc-font-size: 22px;
   }
@@ -235,8 +240,8 @@ body {
     --heroSubtitle-font-size: 40px;
     --heroDesc-font-size: 22px;
     --aboutMeDesc-font-size: 22px;
-    --projectTitle-font-size: 60px;
-    --projectSubtitle-font-size: 30px;
+    --projectTitle-font-size: 50px;
+    --projectSubtitle-font-size: 28px;
     --projectDesc-font-size: 24px;
 
   }
@@ -293,7 +298,7 @@ body {
 /* Media Query for Large screens */
 @media (min-width: 1281px) {
   body {
-      // background-color: violet;
+      // background-color: violet; // VH good
   }
   :root{ 
     --heroTitle-font-size: 50px;

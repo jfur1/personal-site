@@ -18,7 +18,7 @@ const SortingImages = ({  scrollPercent, boxHeight, scrollHeight, screenHeight, 
                     transform: `translate(0px,-${(sp) * 1.5}%) scale(0.96)`,
                     position: 'absolute',
                     left: '7vw',
-                    top: '550vh',
+                    top: '570vh',
                     zIndex: 1
                 }}
                 alt="My-Portfol.io Home"

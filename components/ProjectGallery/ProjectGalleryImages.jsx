@@ -22,9 +22,15 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes, width }) => {
 
   var scale = 0.9;
   if(width < 395)
-      scale = 0.6
-  else if(width >= 395 && width < 500)
       scale = 0.7
+  else if(width >= 395 && width < 500)
+      scale = 0.65
+  else if(width >= 500 && width < 780)
+      scale = 0.75
+  else if(width >= 780 && width < 1024)
+      scale = 0.9
+  else if(width >= 1024)
+      scale = .9
 
   return (
     <div className={styles.imageContainer}>
@@ -36,6 +42,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes, width }) => {
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
           scrollHeight={scrollHeight}
+          width={width}
         />
         <HabitTrackerImages
           index={2}

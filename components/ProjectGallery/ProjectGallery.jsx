@@ -32,7 +32,7 @@ const ProjectGallery = ({ scrollPercent }) => {
             projectName: 'Habit Tracker',
             projectDesc: 'Website designed to help users stay on top of their habits by keeping track of consistency.',
             projectType: 'WEB APP',
-            roles: ['Full Stack Developer', 'UI Designer'],
+            roles: ['Full Stack Developer'],
         },
         {
             number: '03',
@@ -46,14 +46,14 @@ const ProjectGallery = ({ scrollPercent }) => {
             projectName: 'Pathfinding Visualizer',
             projectDesc: 'Website created with React to help visualize various pathfinding algorithms.',
             projectType: 'WEB APP',
-            roles: ['Front-end Developer', 'UI Designer'],
+            roles: ['Front-end Developer'],
         },
         {
           number: '05',
           projectName: 'Sorting Visualizer',
           projectDesc: 'Website created with React to help visualize various sorting algorithms.',
           projectType: 'WEB APP',
-          roles: ['Front-end Developer', 'UI Designer'],
+          roles: ['Front-end Developer'],
         },
         {
           number: '',
@@ -89,13 +89,15 @@ const ProjectGallery = ({ scrollPercent }) => {
                 document.documentElement["offsetWidth"]
             ))
             if(width < 395)
-                DELAY_FACTOR = 3
+                DELAY_FACTOR = 2.65
             else if(width >= 395 && width < 500)
                 DELAY_FACTOR = 2.25
             else if(width >= 500 && width < 780)
-                DELAY_FACTOR = .6
-            else if(width >= 780)
-                DELAY_FACTOR = .5
+                DELAY_FACTOR = 1.15
+            else if(width >= 780 && width < 1024)
+                DELAY_FACTOR = 1.1
+            else if(width >= 1024)
+                DELAY_FACTOR = 1.1
                 
 
             console.log('wdith:', width)

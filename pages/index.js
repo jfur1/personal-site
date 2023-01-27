@@ -20,6 +20,8 @@ export default function Home({ theme, toggleTheme }) {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [scrollIconOpacity, setScrollIconOpacity] = useState(1);
+  const [width, setWidth] = useState(0)
+
   const router = useRouter();
   const homeRef = React.useRef();
   const aboutRef = React.useRef();
@@ -95,6 +97,13 @@ export default function Home({ theme, toggleTheme }) {
     // } else {
     //     scrollDirectionDown = false;
     // }
+    setWidth(Math.max(
+      document.documentElement["clientWidth"],
+      document.body["scrollWidth"],
+      document.documentElement["scrollWidth"],
+      document.body["offsetWidth"],
+      document.documentElement["offsetWidth"]
+    ))
 
     window.addEventListener("scroll", handleScroll);
     
@@ -196,6 +205,7 @@ export default function Home({ theme, toggleTheme }) {
           <MyWork 
             scrollPercent={scrollPercent}
             projectsRef={projectsRef}
+            width={width}
           />
         </main>
       </div>

@@ -61,6 +61,10 @@
 
 .hero{
   height: 75vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .particlesText {
@@ -71,7 +75,7 @@
   align-items: flex-start;
   overflow: hidden;
   // height: 500px;
-  margin-top: 3%;
+  margin-top: 0;
   margin-left: 12%;
   font-family: 'Poppins';
   z-index: 10;
