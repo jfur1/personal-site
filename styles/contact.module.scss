@@ -175,6 +175,10 @@
     align-items: center;
     padding: 1rem 0;
     line-height: 4;
+
+    i{
+      color: var(--main-color);
+    }
   }
   
   .contactText {

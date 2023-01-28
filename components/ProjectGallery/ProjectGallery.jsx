@@ -30,7 +30,7 @@ const ProjectGallery = ({ scrollPercent }) => {
         {
             number: '02',
             projectName: 'Habit Tracker',
-            projectDesc: 'Website designed to help users stay on top of their habits by keeping track of consistency.',
+            projectDesc: 'Full stack application desgined to help people stay consistent when forming new habits or breaking old ones.',
             projectType: 'WEB APP',
             roles: ['Full Stack Developer'],
         },

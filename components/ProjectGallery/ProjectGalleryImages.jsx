@@ -51,6 +51,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes, width }) => {
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
           scrollHeight={scrollHeight}
+          width={width}
         />
         <MyPortfolioImages
           index={3}
@@ -59,6 +60,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes, width }) => {
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
           scrollHeight={scrollHeight}
+          width={width}
         />
          <PathfindingImages
           index={4}
@@ -67,6 +69,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes, width }) => {
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
           scrollHeight={scrollHeight}
+          width={width}
         />
         <SortingImages
           index={5}
@@ -75,6 +78,7 @@ const ProjectGalleryImages = ({ scrollPercent, pageSplitTimes, width }) => {
           scrollPercent={scrollPercent}
           screenHeight={screenHeight}
           scrollHeight={scrollHeight}
+          width={width}
         />
       </div>
     </div>
