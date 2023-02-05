@@ -15,12 +15,12 @@ const MoreProjects = () => {
             ]
         },
         {
-            title: 'my-portfol.io',
-            desc: 'Full stack web application for users to host their personal portfolios on. Users can register, login and upload portfolio content to their profile.',
-            githubLink: 'https://github.com/jfur1/my-portfol.io',
-            externalLink: 'https://www.my-portfol.io/',
+            title: 'Where Should We Eat?',
+            desc: '3D data visualization of business prices in the area, using data from Foursquare API',
+            githubLink: 'https://github.com/jfur1/where-should-we-eat/',
+            externalLink: 'https://visionary-lily-a0b23e.netlify.app/',
             stack: [
-                'React.js', 'SQL', 'AWS'
+                'Next.js', 'MapboxGL', 'Netlify'
             ]
         },
         {
@@ -96,14 +96,14 @@ const MoreProjects = () => {
             ]
         },
         {
-            title: 'Daily Coding Problem',
-            desc: '*In Progress* My solutions to the free Daily Coding Problem email subscription.',
-            githubLink: 'https://github.com/jfur1/daily-coding-problem',
-            externalLink: '',
+            title: 'my-portfol.io',
+            desc: 'Full stack web application for users to host their personal portfolios on. Users can register, login and upload portfolio content to their profile.',
+            githubLink: 'https://github.com/jfur1/my-portfol.io',
+            externalLink: 'https://www.my-portfol.io/',
             stack: [
-                'Next.js', 'SCSS', 'AWS'
+                'React.js', 'SQL', 'AWS'
             ]
-        }
+        },
     ]
 
     const [expanded, setExpanded] = useState(false);
